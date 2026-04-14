@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using HarmonyLib;
 using UnityEngine;
 
 namespace HexArmory.Core
@@ -52,6 +54,11 @@ namespace HexArmory.Core
                 addedCount++;
 
                 Plugin.Log.LogInfo(nameof(RegisterItems) + ": Added item to ObjectDB: " + itemPrefab.name);
+            }
+
+            if (addedCount > 0)
+            {
+                RebuildObjectDbRegisters(objectDb);
             }
 
             Plugin.Log.LogInfo(nameof(RegisterItems) + ": Registration complete. Added " + addedCount + " item(s).");
@@ -130,17 +137,59 @@ namespace HexArmory.Core
 
                 if (!existingPrefabNames.Add(prefab.name))
                 {
+                    RegisterNamedPrefab(zNetScene, prefab);
                     Plugin.Log.LogDebug(nameof(RegisterPrefabs) + ": Prefab already present in ZNetScene: " + prefab.name);
                     continue;
                 }
 
                 zNetScene.m_prefabs.Add(prefab);
+                RegisterNamedPrefab(zNetScene, prefab);
+
                 addedCount++;
 
                 Plugin.Log.LogInfo(nameof(RegisterPrefabs) + ": Added prefab to ZNetScene: " + prefab.name);
             }
 
             Plugin.Log.LogInfo(nameof(RegisterPrefabs) + ": Registration complete. Added " + addedCount + " prefab(s).");
+        }
+
+        private static void RegisterNamedPrefab(ZNetScene zNetScene, GameObject prefab)
+        {
+            if (zNetScene == null || prefab == null)
+            {
+                return;
+            }
+
+            if (string.IsNullOrEmpty(prefab.name))
+            {
+                return;
+            }
+
+            try
+            {
+                var namedPrefabsField = AccessTools.Field(typeof(ZNetScene), "m_namedPrefabs");
+                if (namedPrefabsField == null)
+                {
+                    Plugin.Log.LogWarning(nameof(RegisterNamedPrefab) + ": Could not find m_namedPrefabs field.");
+                    return;
+                }
+
+                var namedPrefabs = namedPrefabsField.GetValue(zNetScene) as Dictionary<int, GameObject>;
+                if (namedPrefabs == null)
+                {
+                    Plugin.Log.LogWarning(nameof(RegisterNamedPrefab) + ": m_namedPrefabs was null or unexpected type.");
+                    return;
+                }
+
+                var prefabHash = prefab.name.GetStableHashCode();
+                namedPrefabs[prefabHash] = prefab;
+
+                Plugin.Log.LogDebug(nameof(RegisterNamedPrefab) + ": Registered named prefab: " + prefab.name);
+            }
+            catch (Exception ex)
+            {
+                Plugin.Log.LogError(nameof(RegisterNamedPrefab) + ": Failed to register named prefab: " + ex);
+            }
         }
 
         private static HashSet<string> BuildItemNameSet(List<GameObject> items)
@@ -207,6 +256,31 @@ namespace HexArmory.Core
             }
 
             return prefabNames;
+        }
+
+        private static void RebuildObjectDbRegisters(ObjectDB objectDb)
+        {
+            if (objectDb == null)
+            {
+                return;
+            }
+
+            try
+            {
+                var updateRegistersMethod = AccessTools.Method(typeof(ObjectDB), "UpdateRegisters");
+                if (updateRegistersMethod == null)
+                {
+                    Plugin.Log.LogWarning(nameof(RebuildObjectDbRegisters) + ": Could not find ObjectDB.UpdateRegisters.");
+                    return;
+                }
+
+                updateRegistersMethod.Invoke(objectDb, null);
+                Plugin.Log.LogInfo(nameof(RebuildObjectDbRegisters) + ": Rebuilt ObjectDB registers.");
+            }
+            catch (Exception ex)
+            {
+                Plugin.Log.LogError(nameof(RebuildObjectDbRegisters) + ": Failed to rebuild ObjectDB registers: " + ex);
+            }
         }
     }
 }

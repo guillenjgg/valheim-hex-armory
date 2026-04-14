@@ -34,6 +34,7 @@ namespace HexArmory.Items
             }
 
             clonedPrefab.name = PrefabName;
+            Object.DontDestroyOnLoad(clonedPrefab);
 
             var itemDrop = clonedPrefab.GetComponent<ItemDrop>();
             if (itemDrop == null)

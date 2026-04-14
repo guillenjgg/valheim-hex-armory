@@ -6,7 +6,8 @@ namespace HexArmory.Core
 {
     public static class HexContentBuilder
     {
-        private static bool _builtFireproofFeatherCape;
+        private static GameObject _fireproofFeatherCapePrefab;
+        private static Recipe _fireproofFeatherCapeRecipe;
 
         public static void BuildAll(ObjectDB objectDb)
         {
@@ -21,7 +22,7 @@ namespace HexArmory.Core
 
         private static void BuildFireproofFeatherCape(ObjectDB objectDb)
         {
-            if (_builtFireproofFeatherCape)
+            if (_fireproofFeatherCapePrefab != null && _fireproofFeatherCapeRecipe != null)
             {
                 return;
             }
@@ -40,11 +41,12 @@ namespace HexArmory.Core
                 return;
             }
 
+            _fireproofFeatherCapePrefab = prefab;
+            _fireproofFeatherCapeRecipe = recipe;
+
             HexRegistry.Prefabs.Add(prefab);
             HexRegistry.Items.Add(prefab);
             HexRegistry.Recipes.Add(recipe);
-
-            _builtFireproofFeatherCape = true;
 
             Plugin.Log.LogInfo(nameof(BuildFireproofFeatherCape) + ": Fireproof feather cape content built and added to HexRegistry.");
         }

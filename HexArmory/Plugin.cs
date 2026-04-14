@@ -21,7 +21,7 @@ namespace HexArmory
             Instance = this;
             Log = Logger;
 
-            RegisterContent();
+            //RegisterContent();
 
             HarmonyInstance = new Harmony(ModGuid);
             HarmonyInstance.PatchAll();
@@ -29,13 +29,13 @@ namespace HexArmory
             Log.LogInfo("[Hex] " + ModName + " loaded.");
         }
 
-        private static void RegisterContent()
-        {
-            Log.LogInfo("[Hex] Registering HexArmory content definitions.");
+        //private static void RegisterContent()
+        //{
+        //    Log.LogInfo("[Hex] Registering HexArmory content definitions.");
 
-            // Register prefabs, items, and recipes here.
+        //    // Register prefabs, items, and recipes here.
 
-            Log.LogInfo("[Hex] HexArmory content definitions registered.");
-        }
+        //    Log.LogInfo("[Hex] HexArmory content definitions registered.");
+        //}
     }
 }
