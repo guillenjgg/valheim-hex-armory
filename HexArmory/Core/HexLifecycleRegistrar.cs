@@ -1,6 +1,7 @@
-﻿using System;
+﻿using HarmonyLib;
+using HexArmory.Items;
+using System;
 using System.Collections.Generic;
-using HarmonyLib;
 using UnityEngine;
 
 namespace HexArmory.Core
@@ -21,47 +22,39 @@ namespace HexArmory.Core
 
         public static void RegisterItems(ObjectDB objectDb)
         {
-            if (objectDb.m_items == null)
-            {
-                Plugin.Log.LogWarning(nameof(RegisterItems) + ": ObjectDB.m_items was null.");
-                return;
-            }
+            int count = 0;
 
-            var existingItemNames = BuildItemNameSet(objectDb.m_items);
-            var addedCount = 0;
-
-            foreach (var itemPrefab in HexRegistry.Items)
+            foreach (var item in HexRegistry.Items)
             {
-                if (itemPrefab == null)
+                if (item == null)
                 {
-                    Plugin.Log.LogWarning(nameof(RegisterItems) + ": Found null item prefab in registry.");
+                    Plugin.Log.LogWarning("RegisterItems: Found null item prefab in registry.");
                     continue;
                 }
 
-                if (string.IsNullOrEmpty(itemPrefab.name))
+                if (!objectDb.m_items.Contains(item))
                 {
-                    Plugin.Log.LogWarning(nameof(RegisterItems) + ": Found item prefab with null or empty name in registry.");
-                    continue;
+                    objectDb.m_items.Add(item);
+                    count++;
+
+                    Plugin.Log.LogInfo("RegisterItems: Added item to ObjectDB: " + item.name);
                 }
-
-                if (!existingItemNames.Add(itemPrefab.name))
-                {
-                    Plugin.Log.LogDebug(nameof(RegisterItems) + ": Item already present in ObjectDB: " + itemPrefab.name);
-                    continue;
-                }
-
-                objectDb.m_items.Add(itemPrefab);
-                addedCount++;
-
-                Plugin.Log.LogInfo(nameof(RegisterItems) + ": Added item to ObjectDB: " + itemPrefab.name);
             }
 
-            if (addedCount > 0)
-            {
-                RebuildObjectDbRegisters(objectDb);
-            }
+            RebuildObjectDbRegisters(objectDb);
 
-            Plugin.Log.LogInfo(nameof(RegisterItems) + ": Registration complete. Added " + addedCount + " item(s).");
+            Plugin.Log.LogInfo("RegisterItems: Registration complete. Added " + count + " item(s).");
+
+            // 👇 ADD THIS BLOCK RIGHT HERE 👇
+            var prefab = objectDb.GetItemPrefab(FireproofFeatherCapeItem.PrefabName);
+            var itemDrop = prefab?.GetComponent<ItemDrop>();
+
+            Plugin.Log.LogInfo(
+                "POST-REGISTER dropPrefab = " +
+                (itemDrop?.m_itemData?.m_dropPrefab != null
+                    ? itemDrop.m_itemData.m_dropPrefab.name
+                    : "<null>")
+            );
         }
 
         public static void RegisterRecipes(ObjectDB objectDb)

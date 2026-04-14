@@ -28,6 +28,18 @@ namespace HexArmory.Core
             }
 
             var prefab = FireproofFeatherCapeItem.Create(objectDb);
+
+            if (prefab != null)
+            {
+                var builtItemDrop = prefab.GetComponent<ItemDrop>();
+                Plugin.Log.LogInfo(
+                    nameof(BuildFireproofFeatherCape)
+                    + ": Built prefab drop prefab = "
+                    + (builtItemDrop != null && builtItemDrop.m_itemData != null && builtItemDrop.m_itemData.m_dropPrefab != null
+                        ? builtItemDrop.m_itemData.m_dropPrefab.name
+                        : "<null>"));
+            }
+
             if (prefab == null)
             {
                 Plugin.Log.LogWarning(nameof(BuildFireproofFeatherCape) + ": Failed to create fireproof feather cape prefab.");

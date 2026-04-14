@@ -36,6 +36,8 @@ namespace HexArmory.Items
             clonedPrefab.name = PrefabName;
             Object.DontDestroyOnLoad(clonedPrefab);
 
+            RemoveInvalidZSyncTransforms(clonedPrefab);
+
             var itemDrop = clonedPrefab.GetComponent<ItemDrop>();
             if (itemDrop == null)
             {
@@ -43,7 +45,12 @@ namespace HexArmory.Items
                 return null;
             }
 
-            itemDrop.m_itemData.m_dropPrefab = clonedPrefab;
+            itemDrop.m_itemData.m_dropPrefab = basePrefab;
+
+            Plugin.Log.LogInfo(
+                nameof(FireproofFeatherCapeItem)
+                + ": Assigned drop prefab = "
+                + (itemDrop.m_itemData.m_dropPrefab != null ? itemDrop.m_itemData.m_dropPrefab.name : "<null>"));
 
             var shared = itemDrop.m_itemData.m_shared;
             if (shared == null)
@@ -59,7 +66,32 @@ namespace HexArmory.Items
 
             Plugin.Log.LogInfo(nameof(FireproofFeatherCapeItem) + ": Created prefab " + clonedPrefab.name);
 
+            Plugin.Log.LogInfo(
+    nameof(FireproofFeatherCapeItem)
+    + ": Final drop prefab before return = "
+    + (itemDrop.m_itemData.m_dropPrefab != null ? itemDrop.m_itemData.m_dropPrefab.name : "<null>"));
+
             return clonedPrefab;
+        }
+
+        private static void RemoveInvalidZSyncTransforms(GameObject prefab)
+        {
+            if (prefab == null)
+                return;
+
+            var syncTransforms = prefab.GetComponentsInChildren<ZSyncTransform>(true);
+
+            foreach (var syncTransform in syncTransforms)
+            {
+                if (syncTransform == null)
+                    continue;
+
+                Plugin.Log.LogInfo(
+                    nameof(RemoveInvalidZSyncTransforms) +
+                    ": Removing ZSyncTransform from " + syncTransform.gameObject.name);
+
+                Object.DestroyImmediate(syncTransform);
+            }
         }
 
         private static void RemoveFireWeakness(ItemDrop.ItemData.SharedData shared)
@@ -70,36 +102,20 @@ namespace HexArmory.Items
                 return;
             }
 
-            if (shared.m_equipStatusEffect == null)
+            if (shared.m_damageModifiers == null)
             {
-                Plugin.Log.LogWarning(nameof(RemoveFireWeakness) + ": Equip status effect was null.");
+                Plugin.Log.LogWarning(nameof(RemoveFireWeakness) + ": m_damageModifiers was null.");
                 return;
             }
 
-            var clonedStatusEffect = CloneHelpers.CloneStatusEffect(shared.m_equipStatusEffect, StatusEffectName);
-            if (clonedStatusEffect == null)
-            {
-                Plugin.Log.LogWarning(nameof(RemoveFireWeakness) + ": Failed to clone equip status effect.");
-                return;
-            }
-
-            var stats = clonedStatusEffect as SE_Stats;
-            if (stats == null)
-            {
-                Plugin.Log.LogWarning(nameof(RemoveFireWeakness) + ": Equip status effect was not SE_Stats.");
-                shared.m_equipStatusEffect = clonedStatusEffect;
-                return;
-            }
-
-            var removedCount = stats.m_mods.RemoveAll(delegate (HitData.DamageModPair mod)
-            {
-                return mod.m_type == HitData.DamageType.Fire;
-            });
-
-            shared.m_equipStatusEffect = stats;
+            int removedCount = shared.m_damageModifiers.RemoveAll(mod =>
+                mod.m_type == HitData.DamageType.Fire
+            );
 
             Plugin.Log.LogInfo(
-                nameof(RemoveFireWeakness) + ": Removed " + removedCount + " fire damage modifier(s) from equip status effect.");
+                nameof(RemoveFireWeakness) +
+                ": Removed " + removedCount + " fire damage modifier(s) from shared data."
+            );
         }
     }
 }

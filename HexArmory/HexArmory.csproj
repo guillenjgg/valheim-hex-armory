@@ -72,6 +72,7 @@
     <Compile Include="Core\ModConstants.cs" />
     <Compile Include="Items\FireproofFeatherCapeItem.cs" />
     <Compile Include="Patches\HumanoidSetupVisEquipmentDebugPatch.cs" />
+    <Compile Include="Patches\ItemDropPatch.cs" />
     <Compile Include="Patches\ObjectDbPatch.cs" />
     <Compile Include="Patches\ZNetScenePatch.cs" />
     <Compile Include="Plugin.cs" />
