@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using HexArmory.Core;
 
 namespace HexArmory
 {
@@ -21,21 +20,10 @@ namespace HexArmory
             Instance = this;
             Log = Logger;
 
-            //RegisterContent();
-
             HarmonyInstance = new Harmony(ModGuid);
             HarmonyInstance.PatchAll();
 
             Log.LogInfo("[Hex] " + ModName + " loaded.");
         }
-
-        //private static void RegisterContent()
-        //{
-        //    Log.LogInfo("[Hex] Registering HexArmory content definitions.");
-
-        //    // Register prefabs, items, and recipes here.
-
-        //    Log.LogInfo("[Hex] HexArmory content definitions registered.");
-        //}
     }
 }

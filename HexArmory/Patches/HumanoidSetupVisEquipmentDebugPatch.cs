@@ -1,5 +1,5 @@
 ﻿using HarmonyLib;
-using UnityEngine;
+using HexArmory.Core;
 
 namespace HexArmory.Patches
 {
@@ -27,6 +27,8 @@ namespace HexArmory.Patches
                 Plugin.Log.LogInfo(nameof(HumanoidSetupVisEquipmentDebugPatch) + ": m_shoulderItem is null.");
                 return;
             }
+
+            HexItemRepair.EnsureFireproofCapeDropPrefab(shoulderItem);
 
             var itemName = shoulderItem.m_shared != null ? shoulderItem.m_shared.m_name : "<null shared>";
             var dropPrefabName = shoulderItem.m_dropPrefab != null ? shoulderItem.m_dropPrefab.name : "<null drop prefab>";

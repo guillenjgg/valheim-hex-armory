@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using HexArmory.Core;
 
 namespace HexArmory.Recipes
@@ -68,74 +67,41 @@ namespace HexArmory.Recipes
             newRecipe.m_item = itemDrop;
             newRecipe.m_minStationLevel = 1;
 
-            var requirements = new List<Piece.Requirement>();
-
-            foreach (var req in vanillaRecipe.m_resources)
+            // Quick testing: only require 1 Wood
+            var woodRequirement = CreateRequirement(objectDb, ItemNames.Wood, 1);
+            if (woodRequirement == null || woodRequirement.m_resItem == null)
             {
-                if (req == null || req.m_resItem == null)
-                {
-                    continue;
-                }
-
-                requirements.Add(new Piece.Requirement
-                {
-                    m_resItem = req.m_resItem,
-                    m_amount = req.m_amount,
-                    m_amountPerLevel = req.m_amountPerLevel,
-                    m_recover = req.m_recover
-                });
-            }
-
-            var surtlingCoreRequirement = CreateRequirement(objectDb, ItemNames.SurtlingCore, 5);
-            if (surtlingCoreRequirement == null)
-            {
-                Plugin.Log.LogError(nameof(FireproofFeatherCapeRecipe) + ": Could not create Surtling Core requirement.");
+                Plugin.Log.LogError(nameof(FireproofFeatherCapeRecipe) + ": Could not create Wood requirement.");
                 return null;
             }
 
-            requirements.Add(surtlingCoreRequirement);
-            newRecipe.m_resources = requirements.ToArray();
+            newRecipe.m_resources = new Piece.Requirement[]
+            {
+                woodRequirement
+            };
 
             Plugin.Log.LogInfo(nameof(FireproofFeatherCapeRecipe) + ": Built recipe " + newRecipe.name);
 
             return newRecipe;
         }
 
-        private static Piece.Requirement CreateRequirement(ObjectDB objectDb, string itemName, int amount)
+        private static Piece.Requirement CreateRequirement(ObjectDB objectDb, string name, int amount)
         {
-            if (objectDb == null || objectDb.m_items == null)
+            var prefab = objectDb.GetItemPrefab(name);
+            var itemDrop = prefab?.GetComponent<ItemDrop>();
+
+            if (itemDrop == null)
             {
                 return null;
             }
 
-            foreach (var itemPrefab in objectDb.m_items)
+            return new Piece.Requirement
             {
-                if (itemPrefab == null)
-                {
-                    continue;
-                }
-
-                if (itemPrefab.name != itemName)
-                {
-                    continue;
-                }
-
-                var itemDrop = itemPrefab.GetComponent<ItemDrop>();
-                if (itemDrop == null)
-                {
-                    return null;
-                }
-
-                return new Piece.Requirement
-                {
-                    m_resItem = itemDrop,
-                    m_amount = amount,
-                    m_amountPerLevel = 0,
-                    m_recover = true
-                };
-            }
-
-            return null;
+                m_resItem = itemDrop,
+                m_amount = amount,
+                m_amountPerLevel = 0,
+                m_recover = true
+            };
         }
     }
 }

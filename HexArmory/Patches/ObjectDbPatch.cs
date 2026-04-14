@@ -31,22 +31,23 @@ namespace HexArmory.Patches
 
             try
             {
-                Plugin.Log.LogInfo(source + ": Running " + nameof(HexArmory) + " ObjectDB registration.");
-
-                HexContentBuilder.BuildAll(objectDb);
-
-                if (ZNetScene.instance != null)
+                var basePrefab = objectDb.GetItemPrefab(ItemNames.CapeFeather);
+                if (basePrefab == null)
                 {
-                    HexLifecycleRegistrar.RegisterPrefabs(ZNetScene.instance);
+                    Plugin.Log.LogInfo(source + ": CapeFeather not available yet. Skipping HexArmory registration.");
+                    return;
                 }
 
+                Plugin.Log.LogInfo(source + ": Running HexArmory ObjectDB registration.");
+
+                HexContentBuilder.BuildAll(objectDb);
                 HexLifecycleRegistrar.RegisterAll(objectDb);
 
-                Plugin.Log.LogInfo(source + ": " + nameof(HexArmory) + " ObjectDB registration finished.");
+                Plugin.Log.LogInfo(source + ": HexArmory ObjectDB registration finished.");
             }
             catch (Exception ex)
             {
-                Plugin.Log.LogError(source + ": " + nameof(HexArmory) + " ObjectDB registration failed: " + ex);
+                Plugin.Log.LogError(source + ": HexArmory ObjectDB registration failed: " + ex);
             }
         }
     }
