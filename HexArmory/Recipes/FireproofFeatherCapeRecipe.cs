@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using HexArmory.Core;
 
 namespace HexArmory.Recipes
@@ -67,18 +68,34 @@ namespace HexArmory.Recipes
             newRecipe.m_item = itemDrop;
             newRecipe.m_minStationLevel = 1;
 
-            // Quick testing: only require 1 Wood
-            var woodRequirement = CreateRequirement(objectDb, ItemNames.Wood, 1);
-            if (woodRequirement == null || woodRequirement.m_resItem == null)
+            var requirements = new List<Piece.Requirement>();
+
+            foreach (var req in vanillaRecipe.m_resources)
             {
-                Plugin.Log.LogError(nameof(FireproofFeatherCapeRecipe) + ": Could not create Wood requirement.");
+                if (req == null || req.m_resItem == null)
+                {
+                    continue;
+                }
+
+                requirements.Add(new Piece.Requirement
+                {
+                    m_resItem = req.m_resItem,
+                    m_amount = req.m_amount,
+                    m_amountPerLevel = req.m_amountPerLevel,
+                    m_recover = req.m_recover
+                });
+            }
+
+            var surtlingCoreRequirement = CreateRequirement(objectDb, ItemNames.SurtlingCore, 5);
+            if (surtlingCoreRequirement == null || surtlingCoreRequirement.m_resItem == null)
+            {
+                Plugin.Log.LogError(nameof(FireproofFeatherCapeRecipe) + ": Could not create Surtling Core requirement.");
                 return null;
             }
 
-            newRecipe.m_resources = new Piece.Requirement[]
-            {
-                woodRequirement
-            };
+            requirements.Add(surtlingCoreRequirement);
+
+            newRecipe.m_resources = requirements.ToArray();
 
             Plugin.Log.LogInfo(nameof(FireproofFeatherCapeRecipe) + ": Built recipe " + newRecipe.name);
 

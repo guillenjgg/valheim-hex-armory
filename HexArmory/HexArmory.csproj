@@ -75,6 +75,7 @@
     <Compile Include="Patches\HumanoidSetupVisEquipmentDebugPatch.cs" />
     <Compile Include="Patches\ItemDropDropItemRepairPatch.cs" />
     <Compile Include="Patches\ItemDropPatch.cs" />
+    <Compile Include="Patches\ItemDropPickupPatch.cs" />
     <Compile Include="Patches\ObjectDbPatch.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

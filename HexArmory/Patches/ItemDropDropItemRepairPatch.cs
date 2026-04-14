@@ -1,21 +1,19 @@
 ﻿using HarmonyLib;
 using HexArmory.Core;
 using HexArmory.Items;
+using System.Collections.Generic;
 
 namespace HexArmory.Patches
 {
     [HarmonyPatch(typeof(ItemDrop), nameof(ItemDrop.DropItem))]
     public static class ItemDropDropItemRepairPatch
     {
+        private const string CustomKey = "HexArmoryItemId";
+
         [HarmonyPrefix]
         private static void Prefix(ItemDrop.ItemData item)
         {
-            if (item == null)
-            {
-                return;
-            }
-
-            if (item.m_shared == null)
+            if (item == null || item.m_shared == null)
             {
                 return;
             }
@@ -24,6 +22,13 @@ namespace HexArmory.Patches
             {
                 return;
             }
+
+            if (item.m_customData == null)
+            {
+                item.m_customData = new Dictionary<string, string>();
+            }
+
+            item.m_customData[CustomKey] = FireproofFeatherCapeItem.PrefabName;
 
             if (ObjectDB.instance == null)
             {
@@ -38,7 +43,11 @@ namespace HexArmory.Patches
 
             item.m_dropPrefab = vanillaPrefab;
 
-            Plugin.Log.LogInfo("[Hex] Forced vanilla drop prefab at drop time -> " + vanillaPrefab.name);
+            Plugin.Log.LogInfo(
+                nameof(ItemDropDropItemRepairPatch)
+                + ": Forced vanilla drop prefab at drop time -> "
+                + vanillaPrefab.name
+            );
         }
     }
 }
