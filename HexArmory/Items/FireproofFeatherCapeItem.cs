@@ -46,7 +46,6 @@ namespace HexArmory.Items
 
             try
             {
-                // Prevent Awake on the clone before sanitizing it.
                 basePrefab.SetActive(false);
 
                 clonedPrefab = Object.Instantiate(basePrefab);
@@ -64,9 +63,6 @@ namespace HexArmory.Items
                 basePrefab.SetActive(baseWasActive);
             }
 
-            // IMPORTANT:
-            // This prefab is the ObjectDB/inventory template, not the world drop prefab.
-            // Strip root networking/world components so ZNetScene does not try to manage it.
             var znv = clonedPrefab.GetComponent<ZNetView>();
             if (znv != null)
             {
@@ -90,10 +86,7 @@ namespace HexArmory.Items
 
             itemDrop.m_itemData = itemDrop.m_itemData.Clone();
             itemDrop.m_itemData.m_shared = CloneSharedData(itemDrop.m_itemData.m_shared);
-
-            // Use VANILLA world prefab for dropped item behavior.
-            // This keeps drop/pickup/networking on the safe, known-good vanilla prefab.
-            itemDrop.m_itemData.m_dropPrefab = basePrefab;
+            itemDrop.m_itemData.m_dropPrefab = clonedPrefab;
 
             var shared = itemDrop.m_itemData.m_shared;
             if (shared == null)
@@ -102,7 +95,6 @@ namespace HexArmory.Items
                 return null;
             }
 
-            // Preserve cape identity/category fields from vanilla.
             shared.m_itemType = baseShared.m_itemType;
             shared.m_attachOverride = baseShared.m_attachOverride;
             shared.m_animationState = baseShared.m_animationState;
@@ -137,10 +129,8 @@ namespace HexArmory.Items
                 + (itemDrop.m_itemData.m_dropPrefab != null ? itemDrop.m_itemData.m_dropPrefab.name : "<null>")
             );
 
-            // Activate after sanitizing.
             clonedPrefab.SetActive(true);
 
-            // Reacquire after Awake and reapply important fields.
             itemDrop = clonedPrefab.GetComponent<ItemDrop>();
             if (itemDrop == null)
             {
@@ -150,7 +140,7 @@ namespace HexArmory.Items
 
             itemDrop.m_itemData = itemDrop.m_itemData.Clone();
             itemDrop.m_itemData.m_shared = CloneSharedData(itemDrop.m_itemData.m_shared);
-            itemDrop.m_itemData.m_dropPrefab = basePrefab;
+            itemDrop.m_itemData.m_dropPrefab = clonedPrefab;
 
             shared = itemDrop.m_itemData.m_shared;
             if (shared == null)

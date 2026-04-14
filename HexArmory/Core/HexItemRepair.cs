@@ -32,11 +32,10 @@ namespace HexArmory.Core
                 return;
             }
 
-            // Use vanilla world prefab for dropped-item behavior.
-            var prefab = ObjectDB.instance.GetItemPrefab(ItemNames.CapeFeather);
+            var prefab = ObjectDB.instance.GetItemPrefab(FireproofFeatherCapeItem.PrefabName);
             if (prefab == null)
             {
-                Plugin.Log.LogWarning(nameof(HexItemRepair) + ": Could not resolve prefab " + ItemNames.CapeFeather);
+                Plugin.Log.LogWarning(nameof(HexItemRepair) + ": Could not resolve prefab " + FireproofFeatherCapeItem.PrefabName);
                 return;
             }
 
