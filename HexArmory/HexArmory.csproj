@@ -71,6 +71,7 @@
     <Compile Include="Core\HexLifecycleRegistrar.cs" />
     <Compile Include="Core\ItemNames.cs" />
     <Compile Include="Core\ModConstants.cs" />
+    <Compile Include="Items\AshenCapeItem.cs" />
     <Compile Include="Items\FireproofFeatherCapeItem.cs" />
     <Compile Include="Patches\HumanoidSetupVisEquipmentDebugPatch.cs" />
     <Compile Include="Patches\ItemDropDropItemRepairPatch.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Patches\ObjectDbPatch.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipes\AshenCapeRecipe.cs" />
     <Compile Include="Recipes\FireproofFeatherCapeRecipe.cs" />
     <Compile Include="Utils\CloneHelpers.cs" />
   </ItemGroup>

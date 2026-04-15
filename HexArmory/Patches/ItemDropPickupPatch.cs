@@ -28,7 +28,7 @@ namespace HexArmory.Patches
                 return;
             }
 
-            if (prefabName != FireproofFeatherCapeItem.PrefabName)
+            if (prefabName != FireproofFeatherCapeItem.PrefabName && prefabName != Items.AshenCapeItem.PrefabName)
             {
                 return;
             }

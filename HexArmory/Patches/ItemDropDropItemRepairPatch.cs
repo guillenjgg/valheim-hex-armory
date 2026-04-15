@@ -18,7 +18,9 @@ namespace HexArmory.Patches
                 return;
             }
 
-            if (item.m_shared.m_name != FireproofFeatherCapeItem.DisplayName)
+            // Only act for our custom capes
+            if (item.m_shared.m_name != FireproofFeatherCapeItem.DisplayName
+                && item.m_shared.m_name != Items.AshenCapeItem.DisplayName)
             {
                 return;
             }
@@ -28,7 +30,15 @@ namespace HexArmory.Patches
                 item.m_customData = new Dictionary<string, string>();
             }
 
-            item.m_customData[CustomKey] = FireproofFeatherCapeItem.PrefabName;
+            // Map display name to prefab id
+            if (item.m_shared.m_name == FireproofFeatherCapeItem.DisplayName)
+            {
+                item.m_customData[CustomKey] = FireproofFeatherCapeItem.PrefabName;
+            }
+            else if (item.m_shared.m_name == Items.AshenCapeItem.DisplayName)
+            {
+                item.m_customData[CustomKey] = Items.AshenCapeItem.PrefabName;
+            }
 
             if (ObjectDB.instance == null)
             {
