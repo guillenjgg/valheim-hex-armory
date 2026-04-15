@@ -71,6 +71,7 @@
     <Compile Include="Core\HexLifecycleRegistrar.cs" />
     <Compile Include="Core\ItemNames.cs" />
     <Compile Include="Core\ModConstants.cs" />
+    <Compile Include="Core\PluginConfig.cs" />
     <Compile Include="Items\AshenCapeItem.cs" />
     <Compile Include="Items\FireproofFeatherCapeItem.cs" />
     <Compile Include="Patches\HumanoidSetupVisEquipmentDebugPatch.cs" />

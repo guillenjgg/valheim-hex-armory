@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using HexArmory.Core;
 
 namespace HexArmory
 {
@@ -20,10 +21,18 @@ namespace HexArmory
             Instance = this;
             Log = Logger;
 
+            PluginConfig.Initialize(Config);
+
             HarmonyInstance = new Harmony(ModGuid);
             HarmonyInstance.PatchAll();
 
-            Log.LogInfo("[Hex] " + ModName + " loaded.");
+            Log.LogInfo($"[{ModName}] loaded (v{ModVersion}).");
+        }
+
+        private void OnDestroy()
+        {
+            Instance = null;
+            HarmonyInstance?.UnpatchSelf();
         }
     }
 }
