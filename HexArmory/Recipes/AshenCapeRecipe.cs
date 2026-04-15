@@ -103,7 +103,7 @@ namespace HexArmory.Recipes
                 {
                     newRecipe.m_craftingStation = exact;
                     newRecipe.m_minStationLevel = 1; // keep reasonable station level
-                    Plugin.Log.LogInfo(nameof(AshenCapeRecipe) + ": Selected exact-match crafting station -> " + exact.gameObject.name);
+                    Plugin.Log.LogInfo($"{nameof(AshenCapeRecipe)}: Selected exact-match crafting station -> {exact.gameObject.name}");
                 }
                 else
                 {
@@ -113,13 +113,16 @@ namespace HexArmory.Recipes
                     {
                         newRecipe.m_craftingStation = heuristic;
                         newRecipe.m_minStationLevel = 1;
-                        Plugin.Log.LogInfo(nameof(AshenCapeRecipe) + ": Selected heuristic crafting station -> " + heuristic.gameObject.name);
+                        if (PluginConfig.EnableAdvancedDebugLogging.Value)
+                        {
+                            Plugin.Log.LogInfo($"{nameof(AshenCapeRecipe)}: Selected heuristic crafting station -> {heuristic.gameObject.name}");
+                        }
                     }
                     else
                     {
                         newRecipe.m_craftingStation = vanillaRecipe.m_craftingStation;
                         newRecipe.m_minStationLevel = vanillaRecipe.m_minStationLevel;
-                        Plugin.Log.LogInfo(nameof(AshenCapeRecipe) + ": Black Forge not found; using vanilla crafting station.");
+                        Plugin.Log.LogInfo($"{nameof(AshenCapeRecipe)}: Black Forge not found; using vanilla crafting station.");
                     }
                 }
             }
@@ -127,7 +130,7 @@ namespace HexArmory.Recipes
             {
                 newRecipe.m_craftingStation = vanillaRecipe.m_craftingStation;
                 newRecipe.m_minStationLevel = vanillaRecipe.m_minStationLevel;
-                Plugin.Log.LogWarning(nameof(AshenCapeRecipe) + ": Error while searching for Black Forge; using vanilla station. " + ex);
+                Plugin.Log.LogWarning($"{nameof(AshenCapeRecipe)}: Error while searching for Black Forge; using vanilla station. {ex}");
             }
 
             // Copy vanilla requirements first

@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using HexArmory.Core;
 using HexArmory.Items;
 
 namespace HexArmory.Patches
@@ -21,7 +22,10 @@ namespace HexArmory.Patches
                 return;
             }
 
-            Plugin.Log.LogInfo(nameof(ItemDropPatch) + ": Awake postfix on " + name);
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo($"{nameof(ItemDropPatch)}: Awake postfix on {name}");
+            }
         }
     }
 }

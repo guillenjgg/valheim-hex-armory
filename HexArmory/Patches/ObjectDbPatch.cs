@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using HexArmory.Core;
-using UnityEngine;
 using System;
 
 namespace HexArmory.Patches

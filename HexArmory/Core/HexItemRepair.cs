@@ -41,13 +41,11 @@ namespace HexArmory.Core
 
             item.m_dropPrefab = prefab;
 
-            Plugin.Log.LogInfo(
-                nameof(HexItemRepair)
-                + ": Repaired dropPrefab for "
-                + item.m_shared.m_name
-                + " -> "
-                + prefab.name
-            );
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo(
+                    $"{nameof(HexItemRepair)}: Repaired dropPrefab for {item.m_shared.m_name} -> {prefab.name}");
+            }
         }
     }
 }

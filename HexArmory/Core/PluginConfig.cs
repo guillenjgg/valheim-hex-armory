@@ -10,17 +10,17 @@ namespace HexArmory.Core
     /// </summary>
     public static class PluginConfig
     {
-        public static ConfigEntry<bool> EnableDebugLogging { get; private set; }
+        public static ConfigEntry<bool> EnableAdvancedDebugLogging { get; private set; }
 
         public static void Initialize(ConfigFile config)
         {
             config.SaveOnConfigSet = false;
 
-            EnableDebugLogging = config.Bind(
+            EnableAdvancedDebugLogging = config.Bind(
                 "Debug",
-                nameof(EnableDebugLogging),
+                nameof(EnableAdvancedDebugLogging),
                 false,
-                "Enable verbose debug logging for development and troubleshooting.");
+                "Enable advanced debug logging for detailed troubleshooting and development. WARNING: very verbose.");
 
             config.Save();
 

@@ -25,23 +25,23 @@ namespace HexArmory.Patches
             var shoulderItem = shoulderField.GetValue(__instance) as ItemDrop.ItemData;
             if (shoulderItem == null)
             {
-                Plugin.Log.LogInfo(nameof(HumanoidSetupVisEquipmentDebugPatch) + ": m_shoulderItem is null.");
+                if (PluginConfig.EnableAdvancedDebugLogging.Value)
+                {
+                    Plugin.Log.LogInfo($"{nameof(HumanoidSetupVisEquipmentDebugPatch)}: m_shoulderItem is null.");
+                }
                 return;
             }
 
             HexItemRepair.EnsureFireproofCapeDropPrefab(shoulderItem);
 
-            var itemName = shoulderItem.m_shared != null ? shoulderItem.m_shared.m_name : "<null shared>";
-            var dropPrefabName = shoulderItem.m_dropPrefab != null ? shoulderItem.m_dropPrefab.name : "<null drop prefab>";
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                var itemName = shoulderItem.m_shared != null ? shoulderItem.m_shared.m_name : "<null shared>";
+                var dropPrefabName = shoulderItem.m_dropPrefab != null ? shoulderItem.m_dropPrefab.name : "<null drop prefab>";
 
-            Plugin.Log.LogInfo(
-                nameof(HumanoidSetupVisEquipmentDebugPatch)
-                + ": shoulder item="
-                + itemName
-                + ", dropPrefab="
-                + dropPrefabName
-                + ", variant="
-                + shoulderItem.m_variant);
+                Plugin.Log.LogInfo(
+                    $"{nameof(HumanoidSetupVisEquipmentDebugPatch)}: shoulder item={itemName}, dropPrefab={dropPrefabName}, variant={shoulderItem.m_variant}");
+            }
         }
     }
 }
