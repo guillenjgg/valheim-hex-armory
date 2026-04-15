@@ -15,6 +15,7 @@ namespace HexArmory.Core
 
             HexRegistry.Clear();
             BuildFireproofFeatherCape(objectDb);
+            BuildAshenCape(objectDb);
         }
 
         private static void BuildFireproofFeatherCape(ObjectDB objectDb)
@@ -47,6 +48,38 @@ namespace HexArmory.Core
             HexRegistry.AddRecipe(recipe);
 
             Plugin.Log.LogInfo(nameof(BuildFireproofFeatherCape) + ": Fireproof feather cape content built and added to HexRegistry.");
+        }
+
+        private static void BuildAshenCape(ObjectDB objectDb)
+        {
+            var prefab = AshenCapeItem.Create(objectDb);
+            if (prefab == null)
+            {
+                Plugin.Log.LogWarning(nameof(BuildAshenCape) + ": Failed to create Ashen Cape prefab.");
+                return;
+            }
+
+            var builtItemDrop = prefab.GetComponent<ItemDrop>();
+            Plugin.Log.LogInfo(
+                nameof(BuildAshenCape)
+                + ": Built prefab drop prefab = "
+                + (builtItemDrop != null && builtItemDrop.m_itemData != null && builtItemDrop.m_itemData.m_dropPrefab != null
+                    ? builtItemDrop.m_itemData.m_dropPrefab.name
+                    : "<null>")
+            );
+
+            var recipe = AshenCapeRecipe.Create(prefab, objectDb);
+            if (recipe == null)
+            {
+                Plugin.Log.LogWarning(nameof(BuildAshenCape) + ": Failed to create Ashen Cape recipe.");
+                return;
+            }
+
+            HexRegistry.AddPrefab(prefab);
+            HexRegistry.AddItem(prefab);
+            HexRegistry.AddRecipe(recipe);
+
+            Plugin.Log.LogInfo(nameof(BuildAshenCape) + ": Ashen Cape content built and added to HexRegistry.");
         }
     }
 }
