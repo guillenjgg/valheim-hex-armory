@@ -18,7 +18,10 @@ namespace HexArmory.Patches
             var shoulderField = AccessTools.Field(typeof(Humanoid), "m_shoulderItem");
             if (shoulderField == null)
             {
-                Plugin.Log.LogError($"{nameof(HumanoidSetupVisEquipmentDebugPatch)}: Could not find m_shoulderItem field on Humanoid. Patch may be incompatible with this game version.");
+                if (PluginConfig.EnableAdvancedDebugLogging.Value)
+                {
+                    Plugin.Log.LogError($"{nameof(HumanoidSetupVisEquipmentDebugPatch)}: Could not find m_shoulderItem field on Humanoid. Patch may be incompatible with this game version.");
+                }
                 return;
             }
 

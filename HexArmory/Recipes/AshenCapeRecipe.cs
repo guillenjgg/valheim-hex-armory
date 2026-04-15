@@ -172,7 +172,10 @@ namespace HexArmory.Recipes
 
             newRecipe.m_resources = requirements.ToArray();
 
-            Plugin.Log.LogInfo(nameof(AshenCapeRecipe) + ": Built recipe " + newRecipe.name);
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo($"{nameof(AshenCapeRecipe)}: Built recipe {newRecipe.name}");
+            }
 
             return newRecipe;
         }
