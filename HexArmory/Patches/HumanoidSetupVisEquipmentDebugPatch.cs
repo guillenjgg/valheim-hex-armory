@@ -14,10 +14,11 @@ namespace HexArmory.Patches
                 return;
             }
 
+            // Safe reflection: null-check AccessTools result before invoking
             var shoulderField = AccessTools.Field(typeof(Humanoid), "m_shoulderItem");
             if (shoulderField == null)
             {
-                Plugin.Log.LogWarning(nameof(HumanoidSetupVisEquipmentDebugPatch) + ": Could not find m_shoulderItem field.");
+                Plugin.Log.LogError($"{nameof(HumanoidSetupVisEquipmentDebugPatch)}: Could not find m_shoulderItem field on Humanoid. Patch may be incompatible with this game version.");
                 return;
             }
 

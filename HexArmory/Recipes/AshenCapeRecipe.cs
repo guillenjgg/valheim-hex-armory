@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -95,26 +96,38 @@ namespace HexArmory.Recipes
             // Prefer Black Forge as crafting station if available; otherwise keep vanilla station.
             try
             {
-                var blackForgeStation = Resources.FindObjectsOfTypeAll<CraftingStation>()
-                                                  .FirstOrDefault(cs => cs != null && cs.name.ToLower().Contains("black"));
-                if (blackForgeStation != null)
+                // Prefer an exact match to the vanilla black forge prefab name to avoid selecting mod mock stations
+                var stations = Resources.FindObjectsOfTypeAll<CraftingStation>();
+                var exact = stations.FirstOrDefault(cs => cs != null && string.Equals(cs.gameObject?.name, "blackforge", StringComparison.OrdinalIgnoreCase));
+                if (exact != null)
                 {
-                    newRecipe.m_craftingStation = blackForgeStation;
-                    // keep reasonable station level
-                    newRecipe.m_minStationLevel = 1;
+                    newRecipe.m_craftingStation = exact;
+                    newRecipe.m_minStationLevel = 1; // keep reasonable station level
+                    Plugin.Log.LogInfo(nameof(AshenCapeRecipe) + ": Selected exact-match crafting station -> " + exact.gameObject.name);
                 }
                 else
                 {
-                    newRecipe.m_craftingStation = vanillaRecipe.m_craftingStation;
-                    newRecipe.m_minStationLevel = vanillaRecipe.m_minStationLevel;
-                    Plugin.Log.LogInfo(nameof(AshenCapeRecipe) + ": Black Forge not found; using vanilla crafting station.");
+                    // Fallback to previous heuristic (substring)
+                    var heuristic = stations.FirstOrDefault(cs => cs != null && cs.name.ToLower().Contains("black"));
+                    if (heuristic != null)
+                    {
+                        newRecipe.m_craftingStation = heuristic;
+                        newRecipe.m_minStationLevel = 1;
+                        Plugin.Log.LogInfo(nameof(AshenCapeRecipe) + ": Selected heuristic crafting station -> " + heuristic.gameObject.name);
+                    }
+                    else
+                    {
+                        newRecipe.m_craftingStation = vanillaRecipe.m_craftingStation;
+                        newRecipe.m_minStationLevel = vanillaRecipe.m_minStationLevel;
+                        Plugin.Log.LogInfo(nameof(AshenCapeRecipe) + ": Black Forge not found; using vanilla crafting station.");
+                    }
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 newRecipe.m_craftingStation = vanillaRecipe.m_craftingStation;
                 newRecipe.m_minStationLevel = vanillaRecipe.m_minStationLevel;
-                Plugin.Log.LogWarning(nameof(AshenCapeRecipe) + ": Error while searching for Black Forge; using vanilla station.");
+                Plugin.Log.LogWarning(nameof(AshenCapeRecipe) + ": Error while searching for Black Forge; using vanilla station. " + ex);
             }
 
             // Copy vanilla requirements first

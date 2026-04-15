@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using HexArmory.Core;
+using UnityEngine;
 using System;
 
 namespace HexArmory.Patches
@@ -25,7 +26,7 @@ namespace HexArmory.Patches
         {
             if (objectDb == null)
             {
-                Plugin.Log.LogWarning(source + ": ObjectDB instance was null.");
+                Plugin.Log.LogError($"{source}: ObjectDB instance was null. Registration skipped.");
                 return;
             }
 
@@ -34,20 +35,20 @@ namespace HexArmory.Patches
                 var basePrefab = objectDb.GetItemPrefab(ItemNames.CapeFeather);
                 if (basePrefab == null)
                 {
-                    Plugin.Log.LogInfo(source + ": CapeFeather not available yet. Skipping HexArmory registration.");
+                    Plugin.Log.LogInfo($"{source}: CapeFeather not available yet. Skipping HexArmory registration.");
                     return;
                 }
 
-                Plugin.Log.LogInfo(source + ": Running HexArmory ObjectDB registration.");
+                Plugin.Log.LogInfo($"{source}: Running HexArmory ObjectDB registration.");
 
                 HexContentBuilder.BuildAll(objectDb);
                 HexLifecycleRegistrar.RegisterAll(objectDb);
 
-                Plugin.Log.LogInfo(source + ": HexArmory ObjectDB registration finished.");
+                Plugin.Log.LogInfo($"{source}: HexArmory ObjectDB registration finished.");
             }
             catch (Exception ex)
             {
-                Plugin.Log.LogError(source + ": HexArmory ObjectDB registration failed: " + ex);
+                Plugin.Log.LogError($"{source}: HexArmory ObjectDB registration failed: {ex}");
             }
         }
     }
