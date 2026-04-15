@@ -10,7 +10,10 @@ namespace HexArmory.Core
         {
             if (objectDb == null)
             {
-                Plugin.Log.LogWarning(nameof(RegisterAll) + ": objectDb was null.");
+                if(PluginConfig.EnableAdvancedDebugLogging.Value)
+                {
+                    Plugin.Log.LogWarning(nameof(RegisterAll) + ": ObjectDB was null. Skipping registration.");
+                }
                 return;
             }
 
@@ -22,7 +25,10 @@ namespace HexArmory.Core
         {
             if (objectDb == null || objectDb.m_items == null)
             {
-                Plugin.Log.LogWarning(nameof(RegisterItems) + ": ObjectDB or ObjectDB.m_items was null.");
+                if (PluginConfig.EnableAdvancedDebugLogging.Value)
+                {
+                    Plugin.Log.LogWarning(nameof(RegisterItems) + ": ObjectDB or ObjectDB.m_items was null.");
+                }
                 return;
             }
 
@@ -32,7 +38,10 @@ namespace HexArmory.Core
             {
                 if (item == null)
                 {
-                    Plugin.Log.LogWarning(nameof(RegisterItems) + ": Found null item prefab in registry. Skipping.");
+                    if(PluginConfig.EnableAdvancedDebugLogging.Value)
+                    {
+                        Plugin.Log.LogWarning($"{nameof(RegisterItems)}: Found null item prefab in registry. Skipping.");
+                    }
                     continue;
                 }
 
@@ -41,23 +50,28 @@ namespace HexArmory.Core
                     objectDb.m_items.Add(item);
                     count++;
 
-                    Plugin.Log.LogInfo(nameof(RegisterItems) + ": Added item to ObjectDB: " + item.name);
+                    if (PluginConfig.EnableAdvancedDebugLogging.Value)
+                    {
+                        Plugin.Log.LogInfo($"{nameof(RegisterItems)}: Added item to ObjectDB: {item.name}");
+                    }
                 }
             }
 
             RebuildObjectDbRegisters(objectDb);
 
-            Plugin.Log.LogInfo(nameof(RegisterItems) + ": Registration complete. Added " + count + " item(s).");
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo($"{nameof(RegisterItems)}: Registration complete. Added {count} item(s).");
 
-            var prefab = objectDb.GetItemPrefab(FireproofFeatherCapeItem.PrefabName);
-            var itemDrop = prefab?.GetComponent<ItemDrop>();
+                var prefab = objectDb.GetItemPrefab(FireproofFeatherCapeItem.PrefabName);
+                var itemDrop = prefab?.GetComponent<ItemDrop>();
 
-            Plugin.Log.LogInfo(
-                "POST-REGISTER dropPrefab = " +
-                (itemDrop?.m_itemData?.m_dropPrefab != null
+                var dropPrefabName = itemDrop?.m_itemData?.m_dropPrefab != null
                     ? itemDrop.m_itemData.m_dropPrefab.name
-                    : "<null>")
-            );
+                    : "<null>";
+
+                Plugin.Log.LogInfo($"POST-REGISTER dropPrefab = {dropPrefabName}");
+            }
         }
 
         public static void RegisterRecipes(ObjectDB objectDb)
@@ -87,17 +101,26 @@ namespace HexArmory.Core
 
                 if (!existingRecipeNames.Add(recipe.name))
                 {
-                    Plugin.Log.LogDebug(nameof(RegisterRecipes) + ": Recipe already present in ObjectDB: " + recipe.name);
+                    if (PluginConfig.EnableAdvancedDebugLogging.Value)
+                    {
+                        Plugin.Log.LogDebug($"{nameof(RegisterRecipes)}: Recipe already present in ObjectDB: {recipe.name}");
+                    }
                     continue;
                 }
 
                 objectDb.m_recipes.Add(recipe);
                 addedCount++;
 
-                Plugin.Log.LogInfo(nameof(RegisterRecipes) + ": Added recipe to ObjectDB: " + recipe.name);
+                if (PluginConfig.EnableAdvancedDebugLogging.Value)
+                {
+                    Plugin.Log.LogInfo($"{nameof(RegisterRecipes)}: Added recipe to ObjectDB: {recipe.name}");
+                }
             }
 
-            Plugin.Log.LogInfo(nameof(RegisterRecipes) + ": Registration complete. Added " + addedCount + " recipe(s).");
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo($"{nameof(RegisterRecipes)}: Registration complete. Added {addedCount} recipe(s).");
+            }
         }
 
         private static HashSet<string> BuildRecipeNameSet(List<Recipe> recipes)

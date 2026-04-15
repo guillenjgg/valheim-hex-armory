@@ -53,11 +53,10 @@ namespace HexArmory.Patches
 
             item.m_dropPrefab = vanillaPrefab;
 
-            Plugin.Log.LogInfo(
-                nameof(ItemDropDropItemRepairPatch)
-                + ": Forced vanilla drop prefab at drop time -> "
-                + vanillaPrefab.name
-            );
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo($"{nameof(ItemDropDropItemRepairPatch)}: Forced vanilla drop prefab at drop time -> {vanillaPrefab.name}");
+            }
         }
     }
 }

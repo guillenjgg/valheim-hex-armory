@@ -28,13 +28,11 @@ namespace HexArmory.Core
             }
 
             var builtItemDrop = prefab.GetComponent<ItemDrop>();
-            Plugin.Log.LogInfo(
-                nameof(BuildFireproofFeatherCape)
-                + ": Built prefab drop prefab = "
-                + (builtItemDrop != null && builtItemDrop.m_itemData != null && builtItemDrop.m_itemData.m_dropPrefab != null
-                    ? builtItemDrop.m_itemData.m_dropPrefab.name
-                    : "<null>")
-            );
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo(
+                    $"{nameof(BuildFireproofFeatherCape)}: Built prefab drop prefab = {(builtItemDrop != null && builtItemDrop.m_itemData != null && builtItemDrop.m_itemData.m_dropPrefab != null ? builtItemDrop.m_itemData.m_dropPrefab.name : "<null>")}" );
+            }
 
             var recipe = FireproofFeatherCapeRecipe.Create(prefab, objectDb);
             if (recipe == null)
@@ -47,7 +45,10 @@ namespace HexArmory.Core
             HexRegistry.AddItem(prefab);
             HexRegistry.AddRecipe(recipe);
 
-            Plugin.Log.LogInfo(nameof(BuildFireproofFeatherCape) + ": Fireproof feather cape content built and added to HexRegistry.");
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo($"{nameof(BuildFireproofFeatherCape)}: Fireproof feather cape content built and added to HexRegistry.");
+            }
         }
 
         private static void BuildAshenCape(ObjectDB objectDb)
@@ -60,13 +61,11 @@ namespace HexArmory.Core
             }
 
             var builtItemDrop = prefab.GetComponent<ItemDrop>();
-            Plugin.Log.LogInfo(
-                nameof(BuildAshenCape)
-                + ": Built prefab drop prefab = "
-                + (builtItemDrop != null && builtItemDrop.m_itemData != null && builtItemDrop.m_itemData.m_dropPrefab != null
-                    ? builtItemDrop.m_itemData.m_dropPrefab.name
-                    : "<null>")
-            );
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo(
+                    $"{nameof(BuildAshenCape)}: Built prefab drop prefab = {(builtItemDrop != null && builtItemDrop.m_itemData != null && builtItemDrop.m_itemData.m_dropPrefab != null ? builtItemDrop.m_itemData.m_dropPrefab.name : "<null>")}" );
+            }
 
             var recipe = AshenCapeRecipe.Create(prefab, objectDb);
             if (recipe == null)
@@ -79,7 +78,10 @@ namespace HexArmory.Core
             HexRegistry.AddItem(prefab);
             HexRegistry.AddRecipe(recipe);
 
-            Plugin.Log.LogInfo(nameof(BuildAshenCape) + ": Ashen Cape content built and added to HexRegistry.");
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo($"{nameof(BuildAshenCape)}: Ashen Cape content built and added to HexRegistry.");
+            }
         }
     }
 }

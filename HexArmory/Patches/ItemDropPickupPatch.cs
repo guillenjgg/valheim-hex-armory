@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using HexArmory.Core;
 using HexArmory.Items;
 
 namespace HexArmory.Patches
@@ -66,11 +67,10 @@ namespace HexArmory.Patches
 
             __instance.m_itemData = restored;
 
-            Plugin.Log.LogInfo(
-                nameof(ItemDropPickupPatch)
-                + ": Restored custom item identity on pickup -> "
-                + prefabName
-            );
+            if (PluginConfig.EnableAdvancedDebugLogging.Value)
+            {
+                Plugin.Log.LogInfo($"{nameof(ItemDropPickupPatch)}: Restored custom item identity on pickup -> {prefabName}");
+            }
         }
     }
 }
