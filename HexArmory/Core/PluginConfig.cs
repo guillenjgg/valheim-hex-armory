@@ -62,13 +62,13 @@ namespace HexArmory.Core
 
             try
             {
-                Plugin.Log.LogDebug($"[{nameof(PluginConfig)}] Reloading configuration from {fileName}...");
+                Jotunn.Logger.LogDebug($"[{nameof(PluginConfig)}] Reloading configuration from {fileName}...");
                 config.Reload();
-                Plugin.Log.LogInfo($"[{nameof(PluginConfig)}] Configuration reloaded successfully.");
+                Jotunn.Logger.LogInfo($"[{nameof(PluginConfig)}] Configuration reloaded successfully.");
             }
             catch (System.Exception ex)
             {
-                Plugin.Log.LogError($"[{nameof(PluginConfig)}] Failed to reload configuration: {ex.Message}");
+                Jotunn.Logger.LogError($"[{nameof(PluginConfig)}] Failed to reload configuration: {ex.Message}");
             }
         }
     }
