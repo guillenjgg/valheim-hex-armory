@@ -32,7 +32,7 @@ namespace HexArmory.Core
         private static void SetupConfigWatcher(ConfigFile config)
         {
             string configPath = BepInEx.Paths.ConfigPath;
-            string configFileName = $"{Plugin.ModGuid}.cfg";
+            string configFileName = $"{Plugin.PluginGuid}.cfg";
 
             FileSystemWatcher watcher = new FileSystemWatcher(configPath, configFileName)
             {
@@ -62,13 +62,13 @@ namespace HexArmory.Core
 
             try
             {
-                Plugin.Log.LogDebug($"[{nameof(PluginConfig)}] Reloading configuration from {fileName}...");
+                Jotunn.Logger.LogDebug($"[{nameof(PluginConfig)}] Reloading configuration from {fileName}...");
                 config.Reload();
-                Plugin.Log.LogInfo($"[{nameof(PluginConfig)}] Configuration reloaded successfully.");
+                Jotunn.Logger.LogInfo($"[{nameof(PluginConfig)}] Configuration reloaded successfully.");
             }
             catch (System.Exception ex)
             {
-                Plugin.Log.LogError($"[{nameof(PluginConfig)}] Failed to reload configuration: {ex.Message}");
+                Jotunn.Logger.LogError($"[{nameof(PluginConfig)}] Failed to reload configuration: {ex.Message}");
             }
         }
     }

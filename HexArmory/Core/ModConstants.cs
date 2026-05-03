@@ -1,7 +1,8 @@
 ﻿namespace HexArmory.Core
 {
-    public static class ModConstants
+    internal static class ModConstants
     {
-        public const string ModPrefix = "HexArmory";
+        internal const string ModPrefix = "HexArmory";
+        internal const string TemperedFeatherCapePrefabPrefix = "TemperedFeatherCape";
     }
 }

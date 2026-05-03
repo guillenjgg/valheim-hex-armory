@@ -1,38 +1,37 @@
 ﻿using BepInEx;
-using BepInEx.Logging;
-using HarmonyLib;
 using HexArmory.Core;
+using Jotunn.Managers;
 
 namespace HexArmory
 {
-    [BepInPlugin(ModGuid, ModName, ModVersion)]
+    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+    [BepInDependency(Jotunn.Main.ModGuid)]
     public class Plugin : BaseUnityPlugin
     {
-        public const string ModGuid = "com.hex.hexarmory";
-        public const string ModName = "HexArmory";
-        public const string ModVersion = "1.0.0";
+        internal const string PluginGuid = "hex.hexarmory";
+        internal const string PluginName = "HexArmory";
+        internal const string PluginVersion = "1.0.0";
 
         internal static Plugin Instance { get; private set; }
-        internal static Harmony HarmonyInstance { get; private set; }
-        internal static ManualLogSource Log { get; private set; }
 
         private void Awake()
         {
             Instance = this;
-            Log = Logger;
 
             PluginConfig.Initialize(Config);
 
-            HarmonyInstance = new Harmony(ModGuid);
-            HarmonyInstance.PatchAll();
+            LocalizationRegistrar.Register();
+            Jotunn.Logger.LogInfo("[HexArmory] Localization registered.");
 
-            Log.LogInfo($"[{ModName}] loaded (v{ModVersion}).");
+            PrefabManager.OnVanillaPrefabsAvailable += HexArmoryRegistrar.RegisterItems;
+
+            Jotunn.Logger.LogInfo($"[{PluginName}] loaded (v{PluginVersion}).");
         }
 
         private void OnDestroy()
         {
+            PrefabManager.OnVanillaPrefabsAvailable -= HexArmoryRegistrar.RegisterItems;
             Instance = null;
-            HarmonyInstance?.UnpatchSelf();
         }
     }
 }
