@@ -1,5 +1,4 @@
 ﻿using BepInEx;
-//using HarmonyLib;
 using HexArmory.Core;
 using Jotunn.Managers;
 
@@ -14,7 +13,6 @@ namespace HexArmory
         internal const string PluginVersion = "1.0.0";
 
         internal static Plugin Instance { get; private set; }
-        //internal static Harmony HarmonyInstance { get; private set; }
 
         private void Awake()
         {
@@ -27,9 +25,6 @@ namespace HexArmory
 
             PrefabManager.OnVanillaPrefabsAvailable += HexArmoryRegistrar.RegisterItems;
 
-            //HarmonyInstance = new Harmony(PluginGuid);
-            //HarmonyInstance.PatchAll();
-
             Jotunn.Logger.LogInfo($"[{PluginName}] loaded (v{PluginVersion}).");
         }
 
@@ -37,7 +32,6 @@ namespace HexArmory
         {
             PrefabManager.OnVanillaPrefabsAvailable -= HexArmoryRegistrar.RegisterItems;
             Instance = null;
-            //HarmonyInstance?.UnpatchSelf();
         }
     }
 }
