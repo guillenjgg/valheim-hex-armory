@@ -16,6 +16,7 @@ namespace HexArmory.Patches
 
             // Safe reflection: null-check AccessTools result before invoking
             var shoulderField = AccessTools.Field(typeof(Humanoid), "m_shoulderItem");
+            
             if (shoulderField == null)
             {
                 if (PluginConfig.EnableAdvancedDebugLogging.Value)
@@ -26,6 +27,7 @@ namespace HexArmory.Patches
             }
 
             var shoulderItem = shoulderField.GetValue(__instance) as ItemDrop.ItemData;
+            
             if (shoulderItem == null)
             {
                 if (PluginConfig.EnableAdvancedDebugLogging.Value)

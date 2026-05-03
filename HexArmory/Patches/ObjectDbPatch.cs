@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using HarmonyLib;
 using HexArmory.Core;
 using System;
 
@@ -39,18 +38,12 @@ namespace HexArmory.Patches
                     return;
                 }
 
-                if (PluginConfig.EnableAdvancedDebugLogging.Value)
-                {
-                    Plugin.Log.LogInfo($"{source}: Running HexArmory ObjectDB registration.");
-                }
+                Plugin.Log.LogInfo($"{source}: Running HexArmory ObjectDB registration.");
 
                 HexContentBuilder.BuildAll(objectDb);
                 HexLifecycleRegistrar.RegisterAll(objectDb);
 
-                if (PluginConfig.EnableAdvancedDebugLogging.Value)
-                {
-                    Plugin.Log.LogInfo($"{source}: HexArmory ObjectDB registration finished.");
-                }
+                Plugin.Log.LogInfo($"{source}: HexArmory ObjectDB registration finished.");
             }
             catch (Exception ex)
             {

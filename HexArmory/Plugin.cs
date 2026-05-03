@@ -5,12 +5,13 @@ using HexArmory.Core;
 
 namespace HexArmory
 {
-    [BepInPlugin(ModGuid, ModName, ModVersion)]
+    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+    [BepInDependency(Jotunn.Main.ModGuid)]
     public class Plugin : BaseUnityPlugin
     {
-        public const string ModGuid = "com.hex.hexarmory";
-        public const string ModName = "HexArmory";
-        public const string ModVersion = "1.0.0";
+        private const string PluginGuid = "hex.hexarmory";
+        private const string PluginName = "HexArmory";
+        private const string PluginVersion = "1.0.0";
 
         internal static Plugin Instance { get; private set; }
         internal static Harmony HarmonyInstance { get; private set; }
@@ -23,10 +24,10 @@ namespace HexArmory
 
             PluginConfig.Initialize(Config);
 
-            HarmonyInstance = new Harmony(ModGuid);
+            HarmonyInstance = new Harmony(PluginGuid);
             HarmonyInstance.PatchAll();
 
-            Log.LogInfo($"[{ModName}] loaded (v{ModVersion}).");
+            Jotunn.Logger.LogInfo($"[{PluginName}] loaded (v{PluginVersion}).");
         }
 
         private void OnDestroy()

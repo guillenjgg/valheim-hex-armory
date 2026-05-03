@@ -149,7 +149,7 @@ namespace HexArmory.Recipes
             }
 
             // Add 10 feathers (try common vanilla names)
-            var featherReq = CreateBestEffortRequirement(objectDb, new[] { "Feathers", "Feather" }, 10);
+            var featherReq = CreateBestEffortRequirement(objectDb, new[] { "Feathers", "Feather" }, 20);
             if (featherReq == null || featherReq.m_resItem == null)
             {
                 Plugin.Log.LogWarning(nameof(AshenCapeRecipe) + ": Could not find feather item prefab; feather requirement not added.");
@@ -157,17 +157,6 @@ namespace HexArmory.Recipes
             else
             {
                 requirements.Add(featherReq);
-            }
-
-            // Add 5 Surtling Cores
-            var surtlingReq = CreateRequirement(objectDb, ItemNames.SurtlingCore, 5);
-            if (surtlingReq == null || surtlingReq.m_resItem == null)
-            {
-                Plugin.Log.LogWarning(nameof(AshenCapeRecipe) + ": Could not create Surtling Core requirement.");
-            }
-            else
-            {
-                requirements.Add(surtlingReq);
             }
 
             newRecipe.m_resources = requirements.ToArray();

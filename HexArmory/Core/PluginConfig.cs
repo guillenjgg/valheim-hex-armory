@@ -32,7 +32,7 @@ namespace HexArmory.Core
         private static void SetupConfigWatcher(ConfigFile config)
         {
             string configPath = BepInEx.Paths.ConfigPath;
-            string configFileName = $"{Plugin.ModGuid}.cfg";
+            string configFileName = $"{Plugin.PluginGuid}.cfg";
 
             FileSystemWatcher watcher = new FileSystemWatcher(configPath, configFileName)
             {
