@@ -2,6 +2,7 @@
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
+using UnityEngine;
 
 namespace HexArmory
 {
@@ -33,68 +34,140 @@ namespace HexArmory
         {
             int registeredCount = 0;
 
-            if (CreateTemperedFeatherCape())
+            foreach (var itemDefinition in ItemDefinitions.All)
             {
-                registeredCount++;
+                if (CreateCustomItem(itemDefinition))
+                {
+                    registeredCount++;
+                }
             }
 
             return registeredCount;
         }
 
-        private static bool CreateTemperedFeatherCape()
+        private static bool CreateCustomItem(ItemDefinitionEntry itemDefinition)
         {
-            var itemConfig = BuildTemperedFeatherCapeConfig();
+            if (itemDefinition == null)
+            {
+                Jotunn.Logger.LogWarning("[HexArmory] Item definition is null.");
+                return false;
+            }
 
-            var temperedCape = new CustomItem(
-                TemperedFeatherCape.PrefabName,
-                ItemNames.CapeFeather,
+            var itemConfig = BuildItemConfig(itemDefinition);
+
+            var customItem = new CustomItem(
+                itemDefinition.PrefabName,
+                itemDefinition.BasePrefabName,
                 itemConfig);
 
-            ItemManager.Instance.AddItem(temperedCape);
+            // 🔥 Apply modifications BEFORE adding to Jotunn
+            ApplyPostRegistrationChanges(itemDefinition, customItem);
 
-            RemoveFireDamageModifier(temperedCape.ItemDrop);
+            ItemManager.Instance.AddItem(customItem);
+
+            Jotunn.Logger.LogInfo($"[HexArmory] Registered item: {itemDefinition.PrefabName}");
 
             return true;
         }
 
+        private static ItemConfig BuildItemConfig(ItemDefinitionEntry itemDefinition)
+        {
+            return new ItemConfig
+            {
+                Name = itemDefinition.DisplayNameToken,
+                Description = itemDefinition.DescriptionToken,
+                Amount = itemDefinition.Amount,
+                CraftingStation = itemDefinition.CraftingStation,
+                MinStationLevel = itemDefinition.MinStationLevel,
+                Requirements = itemDefinition.Requirements
+            };
+        }
+
+        private static void ApplyPostRegistrationChanges(ItemDefinitionEntry itemDefinition, CustomItem customItem)
+        {
+            if (itemDefinition == null || customItem == null)
+            {
+                return;
+            }
+
+            if (itemDefinition.PrefabName == ItemDefinitions.TemperedFeatherCape.PrefabName)
+            {
+                RemoveFireDamageModifier(customItem.ItemDrop);
+                return;
+            }
+
+            if (itemDefinition.PrefabName == ItemDefinitions.AshenWingMantleCape.PrefabName)
+            {
+                OverrideEquipEffectWithFeatherFall(customItem.ItemDrop);
+                return;
+            }
+        }
+
         private static void RemoveFireDamageModifier(ItemDrop itemDrop)
         {
-            if (itemDrop == null)
+            if (itemDrop == null ||
+                itemDrop.m_itemData == null ||
+                itemDrop.m_itemData.m_shared == null)
             {
-                Jotunn.Logger.LogWarning("[HexArmory] ItemDrop is null.");
-                return;
-            }
-
-            if (itemDrop.m_itemData == null)
-            {
-                Jotunn.Logger.LogError($"[HexArmory] m_itemData is NULL on {itemDrop.name}");
-                return;
-            }
-
-            if (itemDrop.m_itemData.m_shared == null)
-            {
-                Jotunn.Logger.LogError($"[HexArmory] m_shared is NULL on {itemDrop.name}");
+                Jotunn.Logger.LogError("[HexArmory] Invalid ItemDrop while removing fire modifier.");
                 return;
             }
 
             var shared = itemDrop.m_itemData.m_shared;
 
-            int removedCount = shared.m_damageModifiers.RemoveAll(mod => mod.m_type == HitData.DamageType.Fire);
+            int removedCount = shared.m_damageModifiers.RemoveAll(
+                mod => mod.m_type == HitData.DamageType.Fire);
 
-            Jotunn.Logger.LogInfo($"[HexArmory] Removed fire damage modifiers from {itemDrop.name}. Count: {removedCount}");
+            Jotunn.Logger.LogInfo(
+                $"[HexArmory] Removed fire damage modifiers from {itemDrop.name}. Count: {removedCount}");
         }
 
-        private static ItemConfig BuildTemperedFeatherCapeConfig()
+        private static void OverrideEquipEffectWithFeatherFall(ItemDrop targetItemDrop)
         {
-            return new ItemConfig
+            if (targetItemDrop == null ||
+                targetItemDrop.m_itemData == null ||
+                targetItemDrop.m_itemData.m_shared == null)
             {
-                Name = TemperedFeatherCape.DisplayNameToken,
-                Description = TemperedFeatherCape.DescriptionToken,
-                Amount = TemperedFeatherCape.Amount,
-                CraftingStation = CraftingStations.GaldrTable,
-                MinStationLevel = TemperedFeatherCape.MinStationLevel,
-                Requirements = TemperedFeatherCape.Requirements
-            };
+                Jotunn.Logger.LogError("[HexArmory] Invalid target ItemDrop.");
+                return;
+            }
+
+            var targetShared = targetItemDrop.m_itemData.m_shared;
+
+            var featherPrefab = PrefabManager.Instance.GetPrefab(VanillaPrefabNames.Capes.FeatherCape);
+
+            if (featherPrefab == null)
+            {
+                Jotunn.Logger.LogError("[HexArmory] Could not find Feather Cape prefab.");
+                return;
+            }
+
+            var featherDrop = featherPrefab.GetComponent<ItemDrop>();
+
+            if (featherDrop == null ||
+                featherDrop.m_itemData == null ||
+                featherDrop.m_itemData.m_shared == null ||
+                featherDrop.m_itemData.m_shared.m_equipStatusEffect == null)
+            {
+                Jotunn.Logger.LogError("[HexArmory] Feather Cape equip effect not found.");
+                return;
+            }
+
+            var sourceEffect = featherDrop.m_itemData.m_shared.m_equipStatusEffect;
+
+            if (targetShared.m_equipStatusEffect != null)
+            {
+                Jotunn.Logger.LogInfo(
+                    $"[HexArmory] Replacing existing equip effect on {targetItemDrop.name}: {targetShared.m_equipStatusEffect.name}");
+            }
+
+            var slowFallClone = Object.Instantiate(sourceEffect);
+            slowFallClone.name = "SE_HexArmory_AshenWingmantleCape";
+
+            targetShared.m_equipStatusEffect = slowFallClone;
+
+            Jotunn.Logger.LogInfo(
+                $"[HexArmory] Applied Feather Fall to {targetItemDrop.name}: {slowFallClone.name}");
         }
     }
 }
