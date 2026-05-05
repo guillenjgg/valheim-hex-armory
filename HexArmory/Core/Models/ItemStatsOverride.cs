@@ -22,5 +22,6 @@
         internal float DurabilityPerLevel { get; set; }
         internal float DurabilityDrain { get; set; }
         internal float MovementModifier { get; set; }
+        internal float AttackStamina { get; set; }
     }
 }
