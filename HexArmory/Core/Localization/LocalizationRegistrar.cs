@@ -2,7 +2,7 @@
 using Jotunn.Entities;
 using Jotunn.Managers;
 
-namespace HexArmory.Core
+namespace HexArmory.Core.Localization
 {
     internal static class LocalizationRegistrar
     {
@@ -15,7 +15,9 @@ namespace HexArmory.Core
                 { "item_hexarmory_tempered_feather_cape", $"{DisplayNames.Capes.TemperedFeatherCape}" },
                 { "item_hexarmory_tempered_feather_cape_desc", "A refined feather cape without the fire weakness." },
                 { "item_hexarmory_ashen_wingmantle_cape", $"{DisplayNames.Capes.AshenWingmantleCape}" },
-                { "item_hexarmory_ashen_wingmantle_cape_desc", "A feather cape imbued with the power of the Ashen Wing." }
+                { "item_hexarmory_ashen_wingmantle_cape_desc", "A feather cape imbued with the power of the Ashen Wing." },
+                { "item_hexarmory_flint_knives", $"{DisplayNames.Knives.FlintKnives}" },
+                { "item_hexarmory_flint_knives_desc", "I would not recommend underestimating these knives." },
             });
         }
     }
