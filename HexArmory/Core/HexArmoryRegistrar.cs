@@ -1,4 +1,5 @@
 ﻿using HexArmory.Core;
+using HexArmory.Core.Models;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
@@ -60,7 +61,6 @@ namespace HexArmory
                 itemDefinition.BasePrefabName,
                 itemConfig);
 
-            // 🔥 Apply modifications BEFORE adding to Jotunn
             ApplyPostRegistrationChanges(itemDefinition, customItem);
 
             ItemManager.Instance.AddItem(customItem);
@@ -99,6 +99,13 @@ namespace HexArmory
             if (itemDefinition.PrefabName == ItemDefinitions.AshenWingMantleCape.PrefabName)
             {
                 OverrideEquipEffectWithFeatherFall(customItem.ItemDrop);
+                return;
+            }
+
+            if (itemDefinition.PrefabName == ItemDefinitions.FlintKnives.PrefabName)
+            {
+                AddWeaponStats(customItem.ItemDrop, itemDefinition.StatsOverride);
+                ApplyFlintKnifeIcon(customItem.ItemDrop);
                 return;
             }
         }
@@ -168,6 +175,86 @@ namespace HexArmory
 
             Jotunn.Logger.LogInfo(
                 $"[HexArmory] Applied Feather Fall to {targetItemDrop.name}: {slowFallClone.name}");
+        }
+
+        private static void AddWeaponStats(ItemDrop itemDrop, ItemStatsOverride stats)
+        {
+            if (itemDrop == null ||
+                itemDrop.m_itemData == null ||
+                itemDrop.m_itemData.m_shared == null)
+            {
+                Jotunn.Logger.LogError("[HexArmory] Invalid ItemDrop while applying weapon stats.");
+                return;
+            }
+
+            if (stats == null)
+            {
+                Jotunn.Logger.LogWarning($"[HexArmory] No weapon stats override found for {itemDrop.name}.");
+                return;
+            }
+
+            var shared = itemDrop.m_itemData.m_shared;
+
+            shared.m_damages.m_slash = stats.SlashDamage;
+            shared.m_damages.m_pierce = stats.PierceDamage;
+
+            shared.m_damagesPerLevel.m_slash = stats.SlashDamagePerLevel;
+            shared.m_damagesPerLevel.m_pierce = stats.PierceDamagePerLevel;
+
+            shared.m_maxQuality = stats.MaxQuality;
+
+            shared.m_attackForce = stats.AttackForce;
+            shared.m_backstabBonus = stats.BackstabBonus;
+
+            shared.m_blockPower = stats.BlockPower;
+            shared.m_blockPowerPerLevel = stats.BlockPowerPerLevel;
+
+            shared.m_deflectionForce = stats.DeflectionForce;
+            shared.m_deflectionForcePerLevel = stats.DeflectionForcePerLevel;
+
+            shared.m_durabilityPerLevel = stats.DurabilityPerLevel;
+            shared.m_durabilityDrain = stats.DurabilityDrain;
+            shared.m_movementModifier = stats.MovementModifier;
+
+            Jotunn.Logger.LogInfo(
+                $"[HexArmory] Applied weapon stats to {itemDrop.name}. " +
+                $"Slash={shared.m_damages.m_slash}, Pierce={shared.m_damages.m_pierce}, " +
+                $"SlashPerLevel={shared.m_damagesPerLevel.m_slash}, PiercePerLevel={shared.m_damagesPerLevel.m_pierce}, " +
+                $"MaxQuality={shared.m_maxQuality}");
+        }
+
+        private static void ApplyFlintKnifeIcon(ItemDrop itemDrop)
+        {
+            if (itemDrop == null ||
+                itemDrop.m_itemData == null ||
+                itemDrop.m_itemData.m_shared == null)
+            {
+                Jotunn.Logger.LogError("[HexArmory] Invalid ItemDrop while applying Flint knife icon.");
+                return;
+            }
+
+            var flintPrefab = PrefabManager.Instance.GetPrefab(VanillaPrefabNames.Knives.FlintKnife);
+
+            if (flintPrefab == null)
+            {
+                Jotunn.Logger.LogError("[HexArmory] Could not find KnifeFlint prefab.");
+                return;
+            }
+
+            var flintDrop = flintPrefab.GetComponent<ItemDrop>();
+
+            if (flintDrop == null ||
+                flintDrop.m_itemData == null ||
+                flintDrop.m_itemData.m_shared == null ||
+                flintDrop.m_itemData.m_shared.m_icons == null)
+            {
+                Jotunn.Logger.LogError("[HexArmory] KnifeFlint icon not found.");
+                return;
+            }
+
+            itemDrop.m_itemData.m_shared.m_icons = flintDrop.m_itemData.m_shared.m_icons;
+
+            Jotunn.Logger.LogInfo("[HexArmory] Applied KnifeFlint icon.");
         }
     }
 }

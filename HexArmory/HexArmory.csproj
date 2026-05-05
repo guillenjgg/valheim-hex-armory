@@ -55,6 +55,10 @@
       <HintPath>..\..\..\valheim_mod_libraries\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\..\..\valheim_mod_libraries\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\valheim_mod_libraries\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
@@ -64,8 +68,10 @@
     <Compile Include="Core\DisplayNames.cs" />
     <Compile Include="Core\HexArmoryRegistrar.cs" />
     <Compile Include="Core\ItemDefinitions.cs" />
+    <Compile Include="Core\Localization\LocalizationTokens.cs" />
+    <Compile Include="Core\Models\ItemStatsOverride.cs" />
     <Compile Include="Core\VanillaPrefabNames.cs" />
-    <Compile Include="Core\LocalizationRegistrar.cs" />
+    <Compile Include="Core\Localization\LocalizationRegistrar.cs" />
     <Compile Include="Core\PluginConfig.cs" />
     <Compile Include="Core\ItemDefinitionEntry.cs" />
     <Compile Include="Plugin.cs" />
@@ -74,5 +80,10 @@
   <ItemGroup>
     <Folder Include="Utils\" />
   </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Assets\AssetBundles\hexarmory">
+			<LogicalName>HexArmory.AssetsEmbedded.hexarmory</LogicalName>
+		</EmbeddedResource>
+	</ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

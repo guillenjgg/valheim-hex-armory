@@ -14,7 +14,7 @@
 
         internal static class Knives
         {
-            internal const string HonedFlintKnives = "Honed Flint Knives";
+            internal const string FlintKnives = "Flint Knives";
         }
     }
 }

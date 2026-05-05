@@ -21,6 +21,13 @@
             internal const string Flint = "Flint";
             internal const string LeatherScraps = "LeatherScraps";
             internal const string BoneFragments = "BoneFragments";
+            internal const string Stone = "Stone";
+        }
+
+        internal static class Knives
+        {
+            internal const string SkollAndHati = "KnifeSkollAndHati";
+            internal const string FlintKnife = "KnifeFlint";
         }
     }
 }
