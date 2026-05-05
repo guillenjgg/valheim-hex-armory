@@ -216,6 +216,8 @@ namespace HexArmory
             shared.m_durabilityDrain = stats.DurabilityDrain;
             shared.m_movementModifier = stats.MovementModifier;
 
+            shared.m_attack.m_attackStamina = stats.AttackStamina;
+
             Jotunn.Logger.LogInfo(
                 $"[HexArmory] Applied weapon stats to {itemDrop.name}. " +
                 $"Slash={shared.m_damages.m_slash}, Pierce={shared.m_damages.m_pierce}, " +

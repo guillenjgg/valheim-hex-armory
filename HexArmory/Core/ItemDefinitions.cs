@@ -100,24 +100,21 @@ namespace HexArmory.Core
 
             internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
             {
-                SlashDamage = 5f,
-                PierceDamage = 5f,
+                SlashDamage = 12f,
+                PierceDamage = 12f,
                 SlashDamagePerLevel = 1f,
                 PierceDamagePerLevel = 1f,
                 MaxQuality = 4,
-
                 AttackForce = 10f,
                 BackstabBonus = 6f,
-
                 BlockPower = 4f,
                 BlockPowerPerLevel = 1f,
-
                 DeflectionForce = 15f,
                 DeflectionForcePerLevel = 5f,
-
                 DurabilityPerLevel = 40f,
                 DurabilityDrain = 0f,
-                MovementModifier = 0f
+                MovementModifier = 0f,
+                AttackStamina = 4f
             };
         }
     }
