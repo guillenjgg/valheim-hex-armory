@@ -32,7 +32,7 @@ namespace HexArmory.Core
             new ItemDefinitionEntry
             {
                 PrefabName = FlintKnives.PrefabName,
-                BasePrefabName = VanillaPrefabNames.Knives.SkollAndHati,
+                BasePrefabName = null,
                 DisplayNameToken = FlintKnives.DisplayNameToken,
                 DescriptionToken = FlintKnives.DescriptionToken,
                 Amount = FlintKnives.Amount,
@@ -83,9 +83,9 @@ namespace HexArmory.Core
 
         internal static class FlintKnives
         {
-            internal const string PrefabName = "HexArmory_FlintKnives_Item";
-            internal const string DisplayNameToken = "$item_hexarmory_flint_knives";
-            internal const string DescriptionToken = "$item_hexarmory_flint_knives_desc";
+            internal const string PrefabName = "hex_armory_dual_flint_knives";
+            internal const string DisplayNameToken = "$item_hex_armory_dual_flint_knives";
+            internal const string DescriptionToken = "$item_hex_armory_dual_flint_knives_desc";
             internal const int Amount = 1;
             internal const int MinStationLevel = 1;
 

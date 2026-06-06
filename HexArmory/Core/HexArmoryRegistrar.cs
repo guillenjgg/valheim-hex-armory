@@ -56,10 +56,29 @@ namespace HexArmory
 
             var itemConfig = BuildItemConfig(itemDefinition);
 
-            var customItem = new CustomItem(
-                itemDefinition.PrefabName,
-                itemDefinition.BasePrefabName,
-                itemConfig);
+            CustomItem customItem;
+
+            if(!string.IsNullOrEmpty(itemDefinition.BasePrefabName))
+            {
+                customItem = new CustomItem(
+                    itemDefinition.PrefabName,
+                    itemDefinition.BasePrefabName,
+                    itemConfig);
+            }
+            else
+            {
+                customItem = new CustomItem(
+                    Plugin.Instance.AssetBundle,
+                    "assets/hexarmory/prefabs/weapons/hex_armory_dual_flint_knives.prefab",
+                    false,
+                    itemConfig);
+
+                if (customItem == null || customItem.ItemPrefab == null || customItem.ItemDrop == null)
+                {
+                    Jotunn.Logger.LogError($"[HexArmory] Failed to load prefab from asset bundle: {itemDefinition.PrefabName}");
+                    return false;
+                }
+            }
 
             ApplyPostRegistrationChanges(itemDefinition, customItem);
 
@@ -105,7 +124,7 @@ namespace HexArmory
             if (itemDefinition.PrefabName == ItemDefinitions.FlintKnives.PrefabName)
             {
                 AddWeaponStats(customItem.ItemDrop, itemDefinition.StatsOverride);
-                ApplyFlintKnifeIcon(customItem.ItemDrop);
+                
                 return;
             }
         }
@@ -223,40 +242,6 @@ namespace HexArmory
                 $"Slash={shared.m_damages.m_slash}, Pierce={shared.m_damages.m_pierce}, " +
                 $"SlashPerLevel={shared.m_damagesPerLevel.m_slash}, PiercePerLevel={shared.m_damagesPerLevel.m_pierce}, " +
                 $"MaxQuality={shared.m_maxQuality}");
-        }
-
-        private static void ApplyFlintKnifeIcon(ItemDrop itemDrop)
-        {
-            if (itemDrop == null ||
-                itemDrop.m_itemData == null ||
-                itemDrop.m_itemData.m_shared == null)
-            {
-                Jotunn.Logger.LogError("[HexArmory] Invalid ItemDrop while applying Flint knife icon.");
-                return;
-            }
-
-            var flintPrefab = PrefabManager.Instance.GetPrefab(VanillaPrefabNames.Knives.FlintKnife);
-
-            if (flintPrefab == null)
-            {
-                Jotunn.Logger.LogError("[HexArmory] Could not find KnifeFlint prefab.");
-                return;
-            }
-
-            var flintDrop = flintPrefab.GetComponent<ItemDrop>();
-
-            if (flintDrop == null ||
-                flintDrop.m_itemData == null ||
-                flintDrop.m_itemData.m_shared == null ||
-                flintDrop.m_itemData.m_shared.m_icons == null)
-            {
-                Jotunn.Logger.LogError("[HexArmory] KnifeFlint icon not found.");
-                return;
-            }
-
-            itemDrop.m_itemData.m_shared.m_icons = flintDrop.m_itemData.m_shared.m_icons;
-
-            Jotunn.Logger.LogInfo("[HexArmory] Applied KnifeFlint icon.");
         }
     }
 }
