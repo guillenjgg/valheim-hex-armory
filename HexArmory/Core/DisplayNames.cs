@@ -16,5 +16,10 @@
         {
             internal const string FlintKnives = "Dual Flint Knives";
         }
+
+        internal static class Axes
+        {
+            internal const string FlintAxes = "Dual Flint Axes";
+        }
     }
 }

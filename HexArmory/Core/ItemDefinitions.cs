@@ -31,15 +31,27 @@ namespace HexArmory.Core
             },
             new ItemDefinitionEntry
             {
-                PrefabName = FlintKnives.PrefabName,
+                PrefabName = DualFlintKnives.PrefabName,
                 BasePrefabName = null,
-                DisplayNameToken = FlintKnives.DisplayNameToken,
-                DescriptionToken = FlintKnives.DescriptionToken,
-                Amount = FlintKnives.Amount,
-                MinStationLevel = FlintKnives.MinStationLevel,
-                CraftingStation = FlintKnives.CraftingStation,
-                Requirements = FlintKnives.Requirements,
-                StatsOverride = FlintKnives.StatsOverride
+                DisplayNameToken = DualFlintKnives.DisplayNameToken,
+                DescriptionToken = DualFlintKnives.DescriptionToken,
+                Amount = DualFlintKnives.Amount,
+                MinStationLevel = DualFlintKnives.MinStationLevel,
+                CraftingStation = DualFlintKnives.CraftingStation,
+                Requirements = DualFlintKnives.Requirements,
+                StatsOverride = DualFlintKnives.StatsOverride
+            },
+            new ItemDefinitionEntry
+            {
+                PrefabName = DualFlintAxes.PrefabName,
+                BasePrefabName = null,
+                DisplayNameToken = DualFlintAxes.DisplayNameToken,
+                DescriptionToken = DualFlintAxes.DescriptionToken,
+                Amount = DualFlintAxes.Amount,
+                MinStationLevel = DualFlintAxes.MinStationLevel,
+                CraftingStation = DualFlintAxes.CraftingStation,
+                Requirements = DualFlintAxes.Requirements,
+                StatsOverride = DualFlintAxes.StatsOverride
             }
         };
 
@@ -81,7 +93,7 @@ namespace HexArmory.Core
             };
         }
 
-        internal static class FlintKnives
+        internal static class DualFlintKnives
         {
             internal const string PrefabName = "hex_armory_dual_flint_knives";
             internal const string DisplayNameToken = "$item_hex_armory_dual_flint_knives";
@@ -93,17 +105,17 @@ namespace HexArmory.Core
 
             internal static readonly RequirementConfig[] Requirements =
             {
-                new RequirementConfig(VanillaPrefabNames.Materials.Wood, 2, 1),
-                new RequirementConfig(VanillaPrefabNames.Materials.Flint, 4, 2),
-                new RequirementConfig(VanillaPrefabNames.Materials.LeatherScraps, 2, 1)
+                new RequirementConfig(VanillaPrefabNames.Materials.Wood, 4, 0),
+                new RequirementConfig(VanillaPrefabNames.Materials.Flint, 8, 4),
+                new RequirementConfig(VanillaPrefabNames.Materials.LeatherScraps, 4, 0)
             };
 
             internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
             {
-                SlashDamage = 12f,
-                PierceDamage = 12f,
-                SlashDamagePerLevel = 1f,
-                PierceDamagePerLevel = 1f,
+                SlashDamage = 4f,
+                PierceDamage = 4f,
+                SlashDamagePerLevel = 2f,
+                PierceDamagePerLevel = 2f,
                 MaxQuality = 4,
                 AttackForce = 10f,
                 BackstabBonus = 6f,
@@ -112,9 +124,47 @@ namespace HexArmory.Core
                 DeflectionForce = 15f,
                 DeflectionForcePerLevel = 5f,
                 DurabilityPerLevel = 40f,
-                DurabilityDrain = 0f,
+                UseDurabilityDrain = 2f,
                 MovementModifier = 0f,
-                AttackStamina = 4f
+                AttackStamina = 5f
+            };
+        }
+
+        internal static class DualFlintAxes
+        {
+            internal const string PrefabName = "hex_armory_dual_flint_axes";
+            internal const string DisplayNameToken = "$item_hex_armory_dual_flint_axes";
+            internal const string DescriptionToken = "$item_hex_armory_dual_flint_axes_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 1;
+
+            internal static readonly string CraftingStation = CraftingStations.Workbench;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.Wood, 8, 0),
+                new RequirementConfig(VanillaPrefabNames.Materials.Flint, 12, 6),
+                new RequirementConfig(VanillaPrefabNames.Materials.LeatherScraps, 4, 2),
+            };
+
+            internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+            {
+                SlashDamage = 20f,
+                ChopDamage = 25f,
+                PierceDamage = 0f,
+                SlashDamagePerLevel = 4f,
+                ChopDamagePerLevel = 2f,
+                MaxQuality = 4,
+                AttackForce = 20f,
+                BackstabBonus = 3f,
+                BlockPower = 4f,
+                BlockPowerPerLevel = 0f,
+                DeflectionForce = 20f,
+                DeflectionForcePerLevel = 5f,
+                DurabilityPerLevel = 40f,
+                UseDurabilityDrain = 2f,
+                MovementModifier = 0f,
+                AttackStamina = 6f
             };
         }
     }

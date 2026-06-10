@@ -69,6 +69,7 @@
     <Compile Include="Core\HexArmoryRegistrar.cs" />
     <Compile Include="Core\ItemDefinitions.cs" />
     <Compile Include="Core\Localization\LocalizationTokens.cs" />
+    <Compile Include="Core\Models\AssetNames.cs" />
     <Compile Include="Core\Models\ItemStatsOverride.cs" />
     <Compile Include="Core\VanillaPrefabNames.cs" />
     <Compile Include="Core\Localization\LocalizationRegistrar.cs" />
@@ -80,10 +81,10 @@
   <ItemGroup>
     <Folder Include="Utils\" />
   </ItemGroup>
-	<ItemGroup>
-		<EmbeddedResource Include="Assets\AssetBundles\hexarmory">
-			<LogicalName>HexArmory.AssetsEmbedded.hexarmory</LogicalName>
-		</EmbeddedResource>
-	</ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\AssetBundles\hexarmory">
+      <LogicalName>HexArmory.AssetsEmbedded.hexarmory</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

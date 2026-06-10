@@ -3,6 +3,7 @@ using HexArmory.Core.Models;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HexArmory
@@ -56,35 +57,54 @@ namespace HexArmory
 
             var itemConfig = BuildItemConfig(itemDefinition);
 
-            CustomItem customItem;
+            var customItems = new List<CustomItem>();
 
-            if(!string.IsNullOrEmpty(itemDefinition.BasePrefabName))
+            if (!string.IsNullOrEmpty(itemDefinition.BasePrefabName))
             {
-                customItem = new CustomItem(
+                var customItem = new CustomItem(
                     itemDefinition.PrefabName,
                     itemDefinition.BasePrefabName,
                     itemConfig);
+
+                customItems.Add(customItem);
             }
             else
             {
-                customItem = new CustomItem(
+                string assetName;
+
+                if (!AssetNames.PrefabPathByItemPrefabName.TryGetValue(itemDefinition.PrefabName, out assetName))
+                {
+                    Jotunn.Logger.LogError(
+                        $"[HexArmory] No asset bundle prefab path mapped for item: {itemDefinition.PrefabName}");
+
+                    return false;
+                }
+
+                var customItem = new CustomItem(
                     Plugin.Instance.AssetBundle,
-                    "assets/hexarmory/prefabs/weapons/hex_armory_dual_flint_knives.prefab",
-                    false,
+                    assetName,
+                    true,
                     itemConfig);
 
                 if (customItem == null || customItem.ItemPrefab == null || customItem.ItemDrop == null)
                 {
-                    Jotunn.Logger.LogError($"[HexArmory] Failed to load prefab from asset bundle: {itemDefinition.PrefabName}");
+                    Jotunn.Logger.LogError(
+                        $"[HexArmory] Failed to load prefab from asset bundle. Item={itemDefinition.PrefabName}, Asset={assetName}");
+
                     return false;
                 }
+
+                customItems.Add(customItem);
             }
 
-            ApplyPostRegistrationChanges(itemDefinition, customItem);
+            ApplyPostRegistrationChanges(itemDefinition, customItems);
 
-            ItemManager.Instance.AddItem(customItem);
+            foreach(var item in customItems)
+            {
+                ItemManager.Instance.AddItem(item);
+            }
 
-            Jotunn.Logger.LogInfo($"[HexArmory] Registered item: {itemDefinition.PrefabName}");
+            Jotunn.Logger.LogInfo($"Registered item: {itemDefinition.PrefabName}");
 
             return true;
         }
@@ -102,31 +122,36 @@ namespace HexArmory
             };
         }
 
-        private static void ApplyPostRegistrationChanges(ItemDefinitionEntry itemDefinition, CustomItem customItem)
+        private static void ApplyPostRegistrationChanges(ItemDefinitionEntry itemDefinition, IEnumerable<CustomItem> customItems)
         {
-            if (itemDefinition == null || customItem == null)
+            foreach(var customItem in customItems)
             {
-                return;
+                if (itemDefinition == null || customItem == null)
+                {
+                    continue;
+                }
+
+                if (itemDefinition.PrefabName == ItemDefinitions.TemperedFeatherCape.PrefabName)
+                {
+                    RemoveFireDamageModifier(customItem.ItemDrop);
+                    continue;
+                }
+
+                if (itemDefinition.PrefabName == ItemDefinitions.AshenWingMantleCape.PrefabName)
+                {
+                    OverrideEquipEffectWithFeatherFall(customItem.ItemDrop);
+                    continue;
+                }
+
+                if (itemDefinition.PrefabName == ItemDefinitions.DualFlintKnives.PrefabName || itemDefinition.PrefabName == ItemDefinitions.DualFlintAxes.PrefabName)
+                {
+                    AddWeaponStats(customItem.ItemDrop, itemDefinition.StatsOverride);
+
+                    continue;
+                }
             }
 
-            if (itemDefinition.PrefabName == ItemDefinitions.TemperedFeatherCape.PrefabName)
-            {
-                RemoveFireDamageModifier(customItem.ItemDrop);
-                return;
-            }
-
-            if (itemDefinition.PrefabName == ItemDefinitions.AshenWingMantleCape.PrefabName)
-            {
-                OverrideEquipEffectWithFeatherFall(customItem.ItemDrop);
-                return;
-            }
-
-            if (itemDefinition.PrefabName == ItemDefinitions.FlintKnives.PrefabName)
-            {
-                AddWeaponStats(customItem.ItemDrop, itemDefinition.StatsOverride);
-                
-                return;
-            }
+            return;
         }
 
         private static void RemoveFireDamageModifier(ItemDrop itemDrop)
@@ -216,9 +241,11 @@ namespace HexArmory
 
             shared.m_damages.m_slash = stats.SlashDamage;
             shared.m_damages.m_pierce = stats.PierceDamage;
+            shared.m_damages.m_chop = stats.ChopDamage;
 
             shared.m_damagesPerLevel.m_slash = stats.SlashDamagePerLevel;
             shared.m_damagesPerLevel.m_pierce = stats.PierceDamagePerLevel;
+            shared.m_damagesPerLevel.m_chop = stats.ChopDamagePerLevel;
 
             shared.m_maxQuality = stats.MaxQuality;
 
@@ -232,10 +259,12 @@ namespace HexArmory
             shared.m_deflectionForcePerLevel = stats.DeflectionForcePerLevel;
 
             shared.m_durabilityPerLevel = stats.DurabilityPerLevel;
-            shared.m_durabilityDrain = stats.DurabilityDrain;
+            //shared.m_durabilityDrain = stats.DurabilityDrain;
+            shared.m_useDurabilityDrain = 1;
             shared.m_movementModifier = stats.MovementModifier;
 
             shared.m_attack.m_attackStamina = stats.AttackStamina;
+
 
             Jotunn.Logger.LogInfo(
                 $"[HexArmory] Applied weapon stats to {itemDrop.name}. " +

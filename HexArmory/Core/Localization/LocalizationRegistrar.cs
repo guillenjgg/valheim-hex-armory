@@ -17,7 +17,9 @@ namespace HexArmory.Core.Localization
                 { "item_hexarmory_ashen_wingmantle_cape", $"{DisplayNames.Capes.AshenWingmantleCape}" },
                 { "item_hexarmory_ashen_wingmantle_cape_desc", "A feather cape imbued with the power of the Ashen Wing." },
                 { "item_hex_armory_dual_flint_knives", $"{DisplayNames.Knives.FlintKnives}" },
-                { "item_hex_armory_dual_flint_knives_desc", "I would not recommend underestimating these knives." },
+                { "item_hex_armory_dual_flint_knives_desc", "Two is better than one?" },
+                { "item_hex_armory_dual_flint_axes", $"{DisplayNames.Axes.FlintAxes}" },
+                { "item_hex_armory_dual_flint_axes_desc", "Sharper than stone, stronger than one." }
             });
         }
     }
