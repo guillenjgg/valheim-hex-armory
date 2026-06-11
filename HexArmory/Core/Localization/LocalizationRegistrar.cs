@@ -19,7 +19,9 @@ namespace HexArmory.Core.Localization
                 { "item_hex_armory_dual_flint_knives", $"{DisplayNames.Knives.FlintKnives}" },
                 { "item_hex_armory_dual_flint_knives_desc", "Two is better than one?" },
                 { "item_hex_armory_dual_flint_axes", $"{DisplayNames.Axes.FlintAxes}" },
-                { "item_hex_armory_dual_flint_axes_desc", "Sharper than stone, stronger than one." }
+                { "item_hex_armory_dual_flint_axes_desc", "Sharper than stone, stronger than one." },
+                { "item_hex_armory_dual_copper_knives", $"{DisplayNames.Knives.CopperKnives}" },
+                { "item_hex_armory_dual_copper_knives_desc", "Duel copper knives desc" }
             });
         }
     }

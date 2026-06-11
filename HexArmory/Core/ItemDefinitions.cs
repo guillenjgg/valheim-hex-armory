@@ -32,7 +32,7 @@ namespace HexArmory.Core
             new ItemDefinitionEntry
             {
                 PrefabName = DualFlintKnives.PrefabName,
-                BasePrefabName = null,
+                IsCustomAssetPrefab = true,
                 DisplayNameToken = DualFlintKnives.DisplayNameToken,
                 DescriptionToken = DualFlintKnives.DescriptionToken,
                 Amount = DualFlintKnives.Amount,
@@ -44,7 +44,7 @@ namespace HexArmory.Core
             new ItemDefinitionEntry
             {
                 PrefabName = DualFlintAxes.PrefabName,
-                BasePrefabName = null,
+                IsCustomAssetPrefab = true,
                 DisplayNameToken = DualFlintAxes.DisplayNameToken,
                 DescriptionToken = DualFlintAxes.DescriptionToken,
                 Amount = DualFlintAxes.Amount,
@@ -52,9 +52,22 @@ namespace HexArmory.Core
                 CraftingStation = DualFlintAxes.CraftingStation,
                 Requirements = DualFlintAxes.Requirements,
                 StatsOverride = DualFlintAxes.StatsOverride
+            },
+            new ItemDefinitionEntry
+            {
+                PrefabName = DualCopperKnives.PrefabName,
+                IsCustomAssetPrefab = true,
+                DisplayNameToken = DualCopperKnives.DisplayNameToken,
+                DescriptionToken = DualCopperKnives.DescriptionToken,
+                Amount = DualCopperKnives.Amount,
+                MinStationLevel = DualCopperKnives.MinStationLevel,
+                CraftingStation = DualCopperKnives.CraftingStation,
+                Requirements = DualCopperKnives.Requirements,
+                StatsOverride = DualCopperKnives.StatsOverride
             }
         };
 
+        #region Armor
         internal static class TemperedFeatherCape
         {
             internal const string PrefabName = "CapeFeather_HexArmory_Tempered";
@@ -92,7 +105,9 @@ namespace HexArmory.Core
                 new RequirementConfig(VanillaPrefabNames.Materials.Feathers, 20)
             };
         }
+        #endregion
 
+        #region Knives
         internal static class DualFlintKnives
         {
             internal const string PrefabName = "hex_armory_dual_flint_knives";
@@ -112,24 +127,63 @@ namespace HexArmory.Core
 
             internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
             {
-                SlashDamage = 4f,
-                PierceDamage = 4f,
-                SlashDamagePerLevel = 2f,
-                PierceDamagePerLevel = 2f,
+                SlashDamage = 5f,
+                PierceDamage = 5f,
+                SlashDamagePerLevel = 1f,
+                PierceDamagePerLevel = 1f,
                 MaxQuality = 4,
                 AttackForce = 10f,
                 BackstabBonus = 6f,
                 BlockPower = 4f,
-                BlockPowerPerLevel = 1f,
-                DeflectionForce = 15f,
+                BlockPowerPerLevel = 0f,
+                DeflectionForce = 10f,
                 DeflectionForcePerLevel = 5f,
                 DurabilityPerLevel = 40f,
-                UseDurabilityDrain = 2f,
+                UseDurabilityDrain = 1f,
                 MovementModifier = 0f,
                 AttackStamina = 5f
             };
         }
 
+        internal static class DualCopperKnives
+        {
+            internal const string PrefabName = "hex_armory_dual_copper_knives";
+            internal const string DisplayNameToken = "$item_hex_armory_dual_copper_knives";
+            internal const string DescriptionToken = "$item_hex_armory_dual_copper_knives_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 1;
+
+            internal static readonly string CraftingStation = CraftingStations.Workbench;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.Wood, 4, 0),
+                new RequirementConfig(VanillaPrefabNames.Materials.Copper, 16, 4),
+                new RequirementConfig(VanillaPrefabNames.Materials.GreydwarfEye, 0, 8)
+            };
+
+            internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+            {
+                SlashDamage = 12f,
+                PierceDamage = 12f,
+                SlashDamagePerLevel = 1f,
+                PierceDamagePerLevel = 1f,
+                MaxQuality = 4,
+                AttackForce = 10f,
+                BackstabBonus = 6f,
+                BlockPower = 4f,
+                BlockPowerPerLevel = 0f,
+                DeflectionForce = 10f,
+                DeflectionForcePerLevel = 5f,
+                DurabilityPerLevel = 50f,
+                UseDurabilityDrain = 2f,
+                MovementModifier = 0f,
+                AttackStamina = 6f
+            };
+        }
+        #endregion
+
+        #region Axes
         internal static class DualFlintAxes
         {
             internal const string PrefabName = "hex_armory_dual_flint_axes";
@@ -157,15 +211,16 @@ namespace HexArmory.Core
                 MaxQuality = 4,
                 AttackForce = 20f,
                 BackstabBonus = 3f,
-                BlockPower = 4f,
+                BlockPower = 8f,
                 BlockPowerPerLevel = 0f,
                 DeflectionForce = 20f,
                 DeflectionForcePerLevel = 5f,
-                DurabilityPerLevel = 40f,
+                DurabilityPerLevel = 30f,
                 UseDurabilityDrain = 2f,
                 MovementModifier = 0f,
                 AttackStamina = 6f
             };
         }
+        #endregion
     }
 }

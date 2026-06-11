@@ -13,6 +13,7 @@ namespace HexArmory.Core
         internal int MinStationLevel { get; set; }
         internal string CraftingStation { get; set; }
         internal RequirementConfig[] Requirements { get; set; }
+        internal bool IsCustomAssetPrefab { get; set; } = false;     
 
         internal ItemStatsOverride StatsOverride { get; set; }
     }

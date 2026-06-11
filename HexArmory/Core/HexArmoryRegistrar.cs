@@ -59,7 +59,7 @@ namespace HexArmory
 
             var customItems = new List<CustomItem>();
 
-            if (!string.IsNullOrEmpty(itemDefinition.BasePrefabName))
+            if (!itemDefinition.IsCustomAssetPrefab)
             {
                 var customItem = new CustomItem(
                     itemDefinition.PrefabName,
@@ -143,7 +143,9 @@ namespace HexArmory
                     continue;
                 }
 
-                if (itemDefinition.PrefabName == ItemDefinitions.DualFlintKnives.PrefabName || itemDefinition.PrefabName == ItemDefinitions.DualFlintAxes.PrefabName)
+                if (itemDefinition.PrefabName == ItemDefinitions.DualFlintKnives.PrefabName 
+                    || itemDefinition.PrefabName == ItemDefinitions.DualFlintAxes.PrefabName
+                    || itemDefinition.PrefabName == ItemDefinitions.DualCopperKnives.PrefabName)
                 {
                     AddWeaponStats(customItem.ItemDrop, itemDefinition.StatsOverride);
 
@@ -259,7 +261,6 @@ namespace HexArmory
             shared.m_deflectionForcePerLevel = stats.DeflectionForcePerLevel;
 
             shared.m_durabilityPerLevel = stats.DurabilityPerLevel;
-            //shared.m_durabilityDrain = stats.DurabilityDrain;
             shared.m_useDurabilityDrain = 1;
             shared.m_movementModifier = stats.MovementModifier;
 

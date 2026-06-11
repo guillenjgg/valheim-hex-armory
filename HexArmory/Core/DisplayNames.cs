@@ -15,6 +15,7 @@
         internal static class Knives
         {
             internal const string FlintKnives = "Dual Flint Knives";
+            internal const string CopperKnives = "Dual Copper Knives";
         }
 
         internal static class Axes

@@ -9,11 +9,15 @@ namespace HexArmory.Core.Models
             {
                 {
                     ItemDefinitions.DualFlintKnives.PrefabName,
-                    "assets/_customitems/hexarmory/dualflintknives/hex_armory_dual_flint_knives.prefab"
+                    "assets/_customitems/hexarmory/knives/dualflintknives/hex_armory_dual_flint_knives.prefab"
                 },
                 {
                     ItemDefinitions.DualFlintAxes.PrefabName,
-                    "assets/_customitems/hexarmory/dualflintaxes/hex_armory_dual_flint_axes.prefab"
+                    "assets/_customitems/hexarmory/axes/dualflintaxes/hex_armory_dual_flint_axes.prefab"
+                },
+                {
+                    ItemDefinitions.DualCopperKnives.PrefabName,
+                    "assets/_customitems/hexarmory/knives/dualcopperknives/hex_armory_dual_copper_knives.prefab"
                 }
             };
     }
