@@ -3,7 +3,6 @@ using HexArmory.Core;
 using HexArmory.Core.Localization;
 using Jotunn.Managers;
 using Jotunn.Utils;
-using System.IO;
 using UnityEngine;
 
 namespace HexArmory
@@ -54,6 +53,8 @@ namespace HexArmory
 
         private void OnDestroy()
         {
+            Logger.LogInfo($"{PluginName} v{PluginVersion} unloaded.");
+
             PrefabManager.OnVanillaPrefabsAvailable -= HexArmoryRegistrar.RegisterItems;
 
             if (_assetBundle != null)

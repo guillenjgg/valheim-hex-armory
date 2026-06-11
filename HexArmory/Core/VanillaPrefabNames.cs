@@ -22,6 +22,8 @@
             internal const string LeatherScraps = "LeatherScraps";
             internal const string BoneFragments = "BoneFragments";
             internal const string Stone = "Stone";
+            internal const string Copper = "Copper";
+            internal const string GreydwarfEye = "GreydwarfEye";
         }
 
         internal static class Knives
