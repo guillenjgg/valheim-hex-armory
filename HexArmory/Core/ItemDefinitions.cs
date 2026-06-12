@@ -1,5 +1,6 @@
 ﻿using HexArmory.Core.Models;
 using Jotunn.Configs;
+using System;
 
 namespace HexArmory.Core
 {
@@ -7,62 +8,67 @@ namespace HexArmory.Core
     {
         internal static readonly ItemDefinitionEntry[] All =
         {
-            new ItemDefinitionEntry
+            new ItemDefinitionEntry(
+                TemperedFeatherCape.PrefabName,
+                VanillaPrefabNames.Capes.FeatherCape,
+                TemperedFeatherCape.DisplayNameToken,
+                TemperedFeatherCape.DescriptionToken,
+                TemperedFeatherCape.Amount,
+                TemperedFeatherCape.MinStationLevel,
+                TemperedFeatherCape.CraftingStation,
+                TemperedFeatherCape.Requirements)
             {
-                PrefabName = TemperedFeatherCape.PrefabName,
-                BasePrefabName = VanillaPrefabNames.Capes.FeatherCape,
-                DisplayNameToken = TemperedFeatherCape.DisplayNameToken,
-                DescriptionToken = TemperedFeatherCape.DescriptionToken,
-                Amount = TemperedFeatherCape.Amount,
-                MinStationLevel = TemperedFeatherCape.MinStationLevel,
-                CraftingStation = TemperedFeatherCape.CraftingStation,
-                Requirements = TemperedFeatherCape.Requirements
+                DamageTypesToRemove = new HitData.DamageType[]
+                {
+                    HitData.DamageType.Fire,
+                }
             },
-            new ItemDefinitionEntry
+            new ItemDefinitionEntry(
+                AshenWingMantleCape.PrefabName,
+                VanillaPrefabNames.Capes.AshCape,
+                AshenWingMantleCape.DisplayNameToken,
+                AshenWingMantleCape.DescriptionToken,
+                AshenWingMantleCape.Amount,
+                AshenWingMantleCape.MinStationLevel,
+                AshenWingMantleCape.CraftingStation,
+                AshenWingMantleCape.Requirements)
             {
-                PrefabName = AshenWingMantleCape.PrefabName,
-                BasePrefabName = VanillaPrefabNames.Capes.AshCape,
-                DisplayNameToken = AshenWingMantleCape.DisplayNameToken,
-                DescriptionToken = AshenWingMantleCape.DescriptionToken,
-                Amount = AshenWingMantleCape.Amount,
-                MinStationLevel = AshenWingMantleCape.MinStationLevel,
-                CraftingStation = AshenWingMantleCape.CraftingStation,
-                Requirements = AshenWingMantleCape.Requirements
+                OverrideEquipEffectFromPrefab = VanillaPrefabNames.Capes.FeatherCape
             },
-            new ItemDefinitionEntry
+            new ItemDefinitionEntry(
+                DualFlintKnives.PrefabName,
+                null,
+                DualFlintKnives.DisplayNameToken,
+                DualFlintKnives.DescriptionToken,
+                DualFlintKnives.Amount,
+                DualFlintKnives.MinStationLevel,
+                DualFlintKnives.CraftingStation,
+                DualFlintKnives.Requirements)
             {
-                PrefabName = DualFlintKnives.PrefabName,
-                IsCustomAssetPrefab = true,
-                DisplayNameToken = DualFlintKnives.DisplayNameToken,
-                DescriptionToken = DualFlintKnives.DescriptionToken,
-                Amount = DualFlintKnives.Amount,
-                MinStationLevel = DualFlintKnives.MinStationLevel,
-                CraftingStation = DualFlintKnives.CraftingStation,
-                Requirements = DualFlintKnives.Requirements,
                 StatsOverride = DualFlintKnives.StatsOverride
             },
-            new ItemDefinitionEntry
+            new ItemDefinitionEntry(
+                DualFlintAxes.PrefabName,
+                null,
+                DualFlintAxes.DisplayNameToken,
+                DualFlintAxes.DescriptionToken,
+                DualFlintAxes.Amount,
+                DualFlintAxes.MinStationLevel,
+                DualFlintAxes.CraftingStation,
+                DualFlintAxes.Requirements)
             {
-                PrefabName = DualFlintAxes.PrefabName,
-                IsCustomAssetPrefab = true,
-                DisplayNameToken = DualFlintAxes.DisplayNameToken,
-                DescriptionToken = DualFlintAxes.DescriptionToken,
-                Amount = DualFlintAxes.Amount,
-                MinStationLevel = DualFlintAxes.MinStationLevel,
-                CraftingStation = DualFlintAxes.CraftingStation,
-                Requirements = DualFlintAxes.Requirements,
                 StatsOverride = DualFlintAxes.StatsOverride
             },
-            new ItemDefinitionEntry
+            new ItemDefinitionEntry(
+                DualCopperKnives.PrefabName,
+                null,
+                DualCopperKnives.DisplayNameToken,
+                DualCopperKnives.DescriptionToken,
+                DualCopperKnives.Amount,
+                DualCopperKnives.MinStationLevel,
+                DualCopperKnives.CraftingStation,
+                DualCopperKnives.Requirements)
             {
-                PrefabName = DualCopperKnives.PrefabName,
-                IsCustomAssetPrefab = true,
-                DisplayNameToken = DualCopperKnives.DisplayNameToken,
-                DescriptionToken = DualCopperKnives.DescriptionToken,
-                Amount = DualCopperKnives.Amount,
-                MinStationLevel = DualCopperKnives.MinStationLevel,
-                CraftingStation = DualCopperKnives.CraftingStation,
-                Requirements = DualCopperKnives.Requirements,
                 StatsOverride = DualCopperKnives.StatsOverride
             }
         };
@@ -153,7 +159,7 @@ namespace HexArmory.Core
             internal const int Amount = 1;
             internal const int MinStationLevel = 1;
 
-            internal static readonly string CraftingStation = CraftingStations.Workbench;
+            internal static readonly string CraftingStation = CraftingStations.Forge;
 
             internal static readonly RequirementConfig[] Requirements =
             {

@@ -70,7 +70,9 @@
     <Compile Include="Core\ItemDefinitions.cs" />
     <Compile Include="Core\Localization\LocalizationTokens.cs" />
     <Compile Include="Core\Models\AssetNames.cs" />
+    <Compile Include="Core\Models\ItemDefinitionEntry.cs" />
     <Compile Include="Core\Models\ItemStatsOverride.cs" />
+    <Compile Include="Core\Services\ItemDropModifierService.cs" />
     <Compile Include="Core\VanillaPrefabNames.cs" />
     <Compile Include="Core\Localization\LocalizationRegistrar.cs" />
     <Compile Include="Core\PluginConfig.cs" />
