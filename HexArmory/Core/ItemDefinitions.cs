@@ -70,6 +70,30 @@ namespace HexArmory.Core
                 DualCopperKnives.Requirements)
             {
                 StatsOverride = DualCopperKnives.StatsOverride
+            },
+            new ItemDefinitionEntry(
+                DualSilverKnives.PrefabName,
+                null,
+                DualSilverKnives.DisplayNameToken,
+                DualSilverKnives.DescriptionToken,
+                DualSilverKnives.Amount,
+                DualSilverKnives.MinStationLevel,
+                DualSilverKnives.CraftingStation,
+                DualSilverKnives.Requirements)
+            {
+                StatsOverride = DualSilverKnives.StatsOverride
+            },
+            new ItemDefinitionEntry(
+                DualBlackMetalKnives.PrefabName,
+                null,
+                DualBlackMetalKnives.DisplayNameToken,
+                DualBlackMetalKnives.DescriptionToken,
+                DualBlackMetalKnives.Amount,
+                DualBlackMetalKnives.MinStationLevel,
+                DualBlackMetalKnives.CraftingStation,
+                DualBlackMetalKnives.Requirements)
+            {
+                StatsOverride = DualBlackMetalKnives.StatsOverride
             }
         };
 
@@ -185,6 +209,85 @@ namespace HexArmory.Core
                 UseDurabilityDrain = 2f,
                 MovementModifier = 0f,
                 AttackStamina = 6f
+            };
+        }
+
+        internal static class DualSilverKnives
+        {
+            internal const string PrefabName = "hex_armory_dual_silver_knives";
+            internal const string DisplayNameToken = "$item_hex_armory_dual_silver_knives";
+            internal const string DescriptionToken = "$item_hex_armory_dual_silver_knives_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 3;
+
+            internal static readonly string CraftingStation = CraftingStations.Forge;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.Wood, 4, 2),
+                new RequirementConfig(VanillaPrefabNames.Materials.Silver, 20, 5),
+                new RequirementConfig(VanillaPrefabNames.Materials.LeatherScraps, 6, 2),
+                new RequirementConfig(VanillaPrefabNames.Materials.SurtlingCore, 4, 0),
+            };
+
+            internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+            {
+                SlashDamage = 25f,
+                PierceDamage = 25f,
+                Spirit = 0f,
+                Fire = 12f,
+                SlashDamagePerLevel = 1f,
+                PierceDamagePerLevel = 1f,
+                MaxQuality = 4,
+                AttackForce = 10f,
+                BackstabBonus = 6f,
+                BlockPower = 4f,
+                BlockPowerPerLevel = 0f,
+                DeflectionForce = 10f,
+                DeflectionForcePerLevel = 5f,
+                DurabilityPerLevel = 50f,
+                UseDurabilityDrain = 2f,
+                MovementModifier = 0f,
+                AttackStamina = 10f
+            };
+        }
+
+        internal static class DualBlackMetalKnives
+        {
+            internal const string PrefabName = "hex_armory_dual_black_metal_knives";
+            internal const string DisplayNameToken = "$item_hex_armory_dual_black_metal_knives";
+            internal const string DescriptionToken = "$item_hex_armory_dual_black_metal_knives_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 4;
+
+            internal static readonly string CraftingStation = CraftingStations.Forge;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.FineWood, 8, 0),
+                new RequirementConfig(VanillaPrefabNames.Materials.BlackMetal, 20, 8),
+                new RequirementConfig(VanillaPrefabNames.Materials.LinenThread, 10, 10),
+                new RequirementConfig(VanillaPrefabNames.Materials.FreezeGland, 5, 0),
+            };
+
+            internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+            {
+                SlashDamage = 34f,
+                PierceDamage = 34f,
+                Frost = 12f,
+                SlashDamagePerLevel = 1f,
+                PierceDamagePerLevel = 1f,
+                MaxQuality = 4,
+                AttackForce = 10f,
+                BackstabBonus = 6f,
+                BlockPower = 4f,
+                BlockPowerPerLevel = 0f,
+                DeflectionForce = 10f,
+                DeflectionForcePerLevel = 5f,
+                DurabilityPerLevel = 50f,
+                UseDurabilityDrain = 2f,
+                MovementModifier = 0f,
+                AttackStamina = 12f
             };
         }
         #endregion

@@ -18,6 +18,14 @@ namespace HexArmory.Core.Models
                 {
                     ItemDefinitions.DualCopperKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualcopperknives/hex_armory_dual_copper_knives.prefab"
+                },
+                {
+                    ItemDefinitions.DualSilverKnives.PrefabName,
+                    "assets/_customitems/hexarmory/knives/dualsilverknives/hex_armory_dual_silver_knives.prefab"
+                },
+                {
+                    ItemDefinitions.DualBlackMetalKnives.PrefabName,
+                    "assets/_customitems/hexarmory/knives/dualblackmetalknives/hex_armory_dual_black_metal_knives.prefab"
                 }
             };
     }

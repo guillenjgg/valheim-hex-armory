@@ -24,6 +24,12 @@
             internal const string Stone = "Stone";
             internal const string Copper = "Copper";
             internal const string GreydwarfEye = "GreydwarfEye";
+            internal const string Silver = "Silver";
+            internal const string Resin = "Resin";
+            internal const string FineWood = "FineWood";
+            internal const string BlackMetal = "BlackMetal";
+            internal const string LinenThread = "LinenThread";
+            internal const string FreezeGland = "FreezeGland";
         }
 
         internal static class Knives

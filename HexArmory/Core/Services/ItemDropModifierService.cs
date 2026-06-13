@@ -116,6 +116,9 @@ namespace HexArmory.Core.Services
             shared.m_damages.m_slash = stats.SlashDamage;
             shared.m_damages.m_pierce = stats.PierceDamage;
             shared.m_damages.m_chop = stats.ChopDamage;
+            shared.m_damages.m_spirit = stats.Spirit;
+            shared.m_damages.m_fire = stats.Fire;
+            shared.m_damages.m_frost = stats.Frost;
 
             shared.m_damagesPerLevel.m_slash = stats.SlashDamagePerLevel;
             shared.m_damagesPerLevel.m_pierce = stats.PierceDamagePerLevel;
@@ -142,6 +145,7 @@ namespace HexArmory.Core.Services
                 $"[HexArmory] Applied weapon stats to {itemDrop.name}. " +
                 $"Slash={shared.m_damages.m_slash}, Pierce={shared.m_damages.m_pierce}, " +
                 $"SlashPerLevel={shared.m_damagesPerLevel.m_slash}, PiercePerLevel={shared.m_damagesPerLevel.m_pierce}, " +
+                $"Spirit={shared.m_damages.m_spirit}, Fire={shared.m_damages.m_fire}, Frost={shared.m_damages.m_frost}, " +
                 $"MaxQuality={shared.m_maxQuality}");
         }
 

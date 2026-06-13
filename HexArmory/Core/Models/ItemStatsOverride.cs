@@ -5,6 +5,9 @@
         internal float SlashDamage { get; set; }
         internal float PierceDamage { get; set; }
         internal float ChopDamage { get; set; }
+        internal float Spirit { get; set; }
+        internal float Fire { get; set; }
+        internal float Frost { get; set; }
 
         internal float SlashDamagePerLevel { get; set; }
         internal float PierceDamagePerLevel { get; set; }

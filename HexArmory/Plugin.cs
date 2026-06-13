@@ -13,7 +13,7 @@ namespace HexArmory
     {
         private AssetBundle _assetBundle;
 
-        internal const string PluginGuid = "hex.hexarmory";
+        internal const string PluginGuid = "com.hex.hexarmory";
         internal const string PluginName = "HexArmory";
         internal const string PluginVersion = "1.0.0";
         internal AssetBundle AssetBundle => _assetBundle;
