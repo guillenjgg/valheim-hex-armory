@@ -47,13 +47,13 @@ namespace HexArmory.Core.Services
                 targetItemDrop.m_itemData == null ||
                 targetItemDrop.m_itemData.m_shared == null)
             {
-                Jotunn.Logger.LogError("[HexArmory] Invalid target ItemDrop.");
+                Jotunn.Logger.LogError("Invalid target ItemDrop.");
                 return;
             }
 
             if (string.IsNullOrEmpty(sourcePrefabName))
             {
-                Jotunn.Logger.LogWarning("[HexArmory] No source prefab specified for equip effect override.");
+                Jotunn.Logger.LogWarning("No source prefab specified for equip effect override.");
                 return;
             }
 
@@ -63,7 +63,7 @@ namespace HexArmory.Core.Services
 
             if (sourcePrefab == null)
             {
-                Jotunn.Logger.LogError($"[HexArmory] Could not find source prefab: {sourcePrefabName}");
+                Jotunn.Logger.LogError($"Could not find source prefab: {sourcePrefabName}");
                 return;
             }
 
@@ -74,7 +74,7 @@ namespace HexArmory.Core.Services
                 sourceDrop.m_itemData.m_shared == null ||
                 sourceDrop.m_itemData.m_shared.m_equipStatusEffect == null)
             {
-                Jotunn.Logger.LogError($"[HexArmory] Source prefab {sourcePrefabName} has no equip effect.");
+                Jotunn.Logger.LogError($"Source prefab {sourcePrefabName} has no equip effect.");
                 return;
             }
 
@@ -92,7 +92,7 @@ namespace HexArmory.Core.Services
             targetShared.m_equipStatusEffect = effectClone;
 
             Jotunn.Logger.LogInfo(
-                $"[HexArmory] Applied equip effect from {sourcePrefabName} to {targetItemDrop.name}: {effectClone.name}");
+                $"Applied equip effect from {sourcePrefabName} to {targetItemDrop.name}: {effectClone.name}");
         }
 
         private static void ApplyWeaponStats(ItemDrop itemDrop, ItemStatsOverride stats)
@@ -101,13 +101,13 @@ namespace HexArmory.Core.Services
                 itemDrop.m_itemData == null ||
                 itemDrop.m_itemData.m_shared == null)
             {
-                Jotunn.Logger.LogError("[HexArmory] Invalid ItemDrop while applying weapon stats.");
+                Jotunn.Logger.LogError("Invalid ItemDrop while applying weapon stats.");
                 return;
             }
 
             if (stats == null)
             {
-                Jotunn.Logger.LogWarning($"[HexArmory] No weapon stats override found for {itemDrop.name}.");
+                Jotunn.Logger.LogWarning($"No weapon stats override found for {itemDrop.name}.");
                 return;
             }
 
@@ -142,7 +142,7 @@ namespace HexArmory.Core.Services
             shared.m_attack.m_attackStamina = stats.AttackStamina;
 
             Jotunn.Logger.LogInfo(
-                $"[HexArmory] Applied weapon stats to {itemDrop.name}. " +
+                $"Applied weapon stats to {itemDrop.name}. " +
                 $"Slash={shared.m_damages.m_slash}, Pierce={shared.m_damages.m_pierce}, " +
                 $"SlashPerLevel={shared.m_damagesPerLevel.m_slash}, PiercePerLevel={shared.m_damagesPerLevel.m_pierce}, " +
                 $"Spirit={shared.m_damages.m_spirit}, Fire={shared.m_damages.m_fire}, Frost={shared.m_damages.m_frost}, " +
@@ -155,7 +155,7 @@ namespace HexArmory.Core.Services
                 itemDrop.m_itemData == null ||
                 itemDrop.m_itemData.m_shared == null)
             {
-                Jotunn.Logger.LogError($"[HexArmory] Invalid ItemDrop while removing {damageType} modifier.");
+                Jotunn.Logger.LogError($"Invalid ItemDrop while removing {damageType} modifier.");
                 return;
             }
 
@@ -167,12 +167,12 @@ namespace HexArmory.Core.Services
             if (removedCount > 0)
             {
                 Jotunn.Logger.LogInfo(
-                    $"[HexArmory] Removed {removedCount} {damageType} damage modifier(s) from {itemDrop.name ?? "Unknown"}.");
+                    $"Removed {removedCount} {damageType} damage modifier(s) from {itemDrop.name ?? "Unknown"}.");
             }
             else
             {
                 Jotunn.Logger.LogDebug(
-                    $"[HexArmory] No {damageType} damage modifiers found on {itemDrop.name ?? "Unknown"}.");
+                    $"No {damageType} damage modifiers found on {itemDrop.name ?? "Unknown"}.");
             }
         }
     }

@@ -65,11 +65,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\HexArmoryAssetManager.cs" />
     <Compile Include="Core\DisplayNames.cs" />
     <Compile Include="Core\HexArmoryRegistrar.cs" />
     <Compile Include="Core\ItemDefinitions.cs" />
     <Compile Include="Core\Localization\LocalizationTokens.cs" />
-    <Compile Include="Core\Models\AssetNames.cs" />
     <Compile Include="Core\Models\ItemDefinitionEntry.cs" />
     <Compile Include="Core\Models\ItemStatsOverride.cs" />
     <Compile Include="Core\Services\ItemDropModifierService.cs" />
