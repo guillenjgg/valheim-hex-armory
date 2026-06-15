@@ -94,7 +94,43 @@ namespace HexArmory.Core
                 DualBlackMetalKnives.Requirements)
             {
                 StatsOverride = DualBlackMetalKnives.StatsOverride
-            }
+            },
+            new ItemDefinitionEntry(
+                DualIronKnives.PrefabName,
+                null,
+                DualIronKnives.DisplayNameToken,
+                DualIronKnives.DescriptionToken,
+                DualIronKnives.Amount,
+                DualIronKnives.MinStationLevel,
+                DualIronKnives.CraftingStation,
+                DualIronKnives.Requirements)
+            {
+                StatsOverride = DualIronKnives.StatsOverride
+            },
+            new ItemDefinitionEntry(
+                DualChitinKnives.PrefabName,
+                null,
+                DualChitinKnives.DisplayNameToken,
+                DualChitinKnives.DescriptionToken,
+                DualChitinKnives.Amount,
+                DualChitinKnives.MinStationLevel,
+                DualChitinKnives.CraftingStation,
+                DualChitinKnives.Requirements)
+            {
+                StatsOverride = DualChitinKnives.StatsOverride
+            },
+                new ItemDefinitionEntry(
+                    DualFlameMetalKnives.PrefabName,
+                    null,
+                    DualFlameMetalKnives.DisplayNameToken,
+                    DualFlameMetalKnives.DescriptionToken,
+                    DualFlameMetalKnives.Amount,
+                    DualFlameMetalKnives.MinStationLevel,
+                    DualFlameMetalKnives.CraftingStation,
+                    DualFlameMetalKnives.Requirements)
+                {
+                    StatsOverride = DualFlameMetalKnives.StatsOverride
+                },
         };
 
         #region Armor
@@ -212,6 +248,82 @@ namespace HexArmory.Core
             };
         }
 
+        internal static class DualChitinKnives
+        {
+            internal const string PrefabName = "hex_armory_dual_chitin_knives";
+            internal const string DisplayNameToken = "$item_hex_armory_dual_chitin_knives";
+            internal const string DescriptionToken = "$item_hex_armory_dual_chitin_knives_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 1;
+
+            internal static readonly string CraftingStation = CraftingStations.Workbench;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.FineWood, 8, 0),
+                new RequirementConfig(VanillaPrefabNames.Materials.Chitin, 40, 10),
+                new RequirementConfig(VanillaPrefabNames.Materials.LeatherScraps, 4, 0),
+            };
+
+            internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+            {
+                SlashDamage = 20f,
+                PierceDamage = 20f,
+                SlashDamagePerLevel = 1f,
+                PierceDamagePerLevel = 1f,
+                MaxQuality = 4,
+                AttackForce = 10f,
+                BackstabBonus = 6f,
+                BlockPower = 4f,
+                BlockPowerPerLevel = 0f,
+                DeflectionForce = 10f,
+                DeflectionForcePerLevel = 5f,
+                DurabilityPerLevel = 50f,
+                UseDurabilityDrain = 2f,
+                MovementModifier = 0f,
+                AttackStamina = 10f
+            };
+        }
+
+        internal static class DualIronKnives
+        {
+            internal const string PrefabName = "hex_armory_dual_iron_knives";
+            internal const string DisplayNameToken = "$item_hex_armory_dual_iron_knives";
+            internal const string DescriptionToken = "$item_hex_armory_dual_iron_knives_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 3;
+
+            internal static readonly string CraftingStation = CraftingStations.Forge;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.FineWood, 8, 2),
+                new RequirementConfig(VanillaPrefabNames.Materials.Iron, 30, 5),
+                new RequirementConfig(VanillaPrefabNames.Materials.LeatherScraps, 6, 2),
+                new RequirementConfig(VanillaPrefabNames.Materials.TrophySkeleton, 2, 0),
+            };
+
+            internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+            {
+                SlashDamage = 20f,
+                PierceDamage = 20f,
+                Spirit = 12f,
+                SlashDamagePerLevel = 1f,
+                PierceDamagePerLevel = 1f,
+                MaxQuality = 4,
+                AttackForce = 10f,
+                BackstabBonus = 6f,
+                BlockPower = 4f,
+                BlockPowerPerLevel = 0f,
+                DeflectionForce = 10f,
+                DeflectionForcePerLevel = 5f,
+                DurabilityPerLevel = 50f,
+                UseDurabilityDrain = 2f,
+                MovementModifier = 0f,
+                AttackStamina = 10f
+            };
+        }
+
         internal static class DualSilverKnives
         {
             internal const string PrefabName = "hex_armory_dual_silver_knives";
@@ -268,6 +380,42 @@ namespace HexArmory.Core
                 new RequirementConfig(VanillaPrefabNames.Materials.BlackMetal, 20, 8),
                 new RequirementConfig(VanillaPrefabNames.Materials.LinenThread, 10, 10),
                 new RequirementConfig(VanillaPrefabNames.Materials.FreezeGland, 5, 0),
+            };
+
+            internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+            {
+                SlashDamage = 34f,
+                PierceDamage = 34f,
+                Frost = 12f,
+                SlashDamagePerLevel = 1f,
+                PierceDamagePerLevel = 1f,
+                MaxQuality = 4,
+                AttackForce = 10f,
+                BackstabBonus = 6f,
+                BlockPower = 4f,
+                BlockPowerPerLevel = 0f,
+                DeflectionForce = 10f,
+                DeflectionForcePerLevel = 5f,
+                DurabilityPerLevel = 50f,
+                UseDurabilityDrain = 2f,
+                MovementModifier = 0f,
+                AttackStamina = 12f
+            };
+        }
+
+        internal static class DualFlameMetalKnives
+        {
+            internal const string PrefabName = "hex_armory_dual_flame_metal_knives";
+            internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_knives";
+            internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_knives_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 4;
+
+            internal static readonly string CraftingStation = CraftingStations.Forge;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.Wood, 1, 0),
             };
 
             internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride

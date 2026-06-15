@@ -30,7 +30,19 @@ namespace HexArmory.Core
                 {
                     ItemDefinitions.DualBlackMetalKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualblackmetalknives/hex_armory_dual_black_metal_knives.prefab"
-                }
+                },
+                {
+                    ItemDefinitions.DualIronKnives.PrefabName,
+                    "assets/_customitems/hexarmory/knives/dualironknives/hex_armory_dual_iron_knives.prefab"
+                },
+                {
+                    ItemDefinitions.DualChitinKnives.PrefabName,
+                    "assets/_customitems/hexarmory/knives/dualchitinknives/hex_armory_dual_chitin_knives.prefab"
+                },
+                {
+                    ItemDefinitions.DualFlameMetalKnives.PrefabName,
+                    "assets/_customitems/hexarmory/knives/dualflamemetalknives/hex_armory_dual_flame_metal_knives.prefab"
+                },
             };
 
         internal static void LoadAssets()
@@ -39,13 +51,17 @@ namespace HexArmory.Core
 
             if (AssetBundle == null)
             {
+                #if DEBUG
                 Jotunn.Logger.LogError("[HexArmory] Embedded asset bundle failed to load!");
+                #endif
             }
             else
             {
+                #if DEBUG
                 Jotunn.Logger.LogInfo("[HexArmory] Embedded asset bundle loaded successfully.");
                 var assets = AssetBundle.GetAllAssetNames();
                 Jotunn.Logger.LogInfo("[HexArmory] Assets in bundle: " + string.Join(", ", assets));
+                #endif
             }
         }
 

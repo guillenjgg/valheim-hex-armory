@@ -18,6 +18,9 @@
             internal const string CopperKnives = "Dual Copper Knives";
             internal const string SilverKnives = "Dual Emberforged Silver Knives";
             internal const string BlackMetalKnives = "Dual Frostforged Black Metal Knives";
+            internal const string IronKnives = "Dual Iron Knives";
+            internal const string ChitinKnives = "Dual Abyssal Razors";
+            internal const string FlameMetalKnives = "Dual Flame Metal Knives";
         }
 
         internal static class Axes
