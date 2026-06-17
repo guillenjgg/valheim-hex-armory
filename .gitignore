@@ -430,3 +430,4 @@ package/
 
 # Logs
 *.log
+/.github/copilot-instructions.md
