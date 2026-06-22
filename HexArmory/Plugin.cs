@@ -41,6 +41,7 @@ namespace HexArmory
 
             HexArmoryAssetManager.UnloadAssets();
             Instance = null;
+            Log = null;
         }
     }
 }

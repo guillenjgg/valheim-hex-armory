@@ -12,43 +12,43 @@ namespace HexArmory.Core
             new Dictionary<string, string>
             {
                 {
-                    ItemDefinitions.DualFlintKnives.PrefabName,
+                    DualFlintKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualflintknives/hex_armory_dual_flint_knives.prefab"
                 },
                 {
-                    ItemDefinitions.DualFlintAxes.PrefabName,
+                    DualFlintAxes.PrefabName,
                     "assets/_customitems/hexarmory/axes/dualflintaxes/hex_armory_dual_flint_axes.prefab"
                 },
                 {
-                    ItemDefinitions.DualCopperKnives.PrefabName,
+                    DualCopperKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualcopperknives/hex_armory_dual_copper_knives.prefab"
                 },
                 {
-                    ItemDefinitions.DualSilverKnives.PrefabName,
+                    DualSilverKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualsilverknives/hex_armory_dual_silver_knives.prefab"
                 },
                 {
-                    ItemDefinitions.DualBlackMetalKnives.PrefabName,
+                    DualBlackMetalKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualblackmetalknives/hex_armory_dual_black_metal_knives.prefab"
                 },
                 {
-                    ItemDefinitions.DualIronKnives.PrefabName,
+                    DualIronKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualironknives/hex_armory_dual_iron_knives.prefab"
                 },
                 {
-                    ItemDefinitions.DualChitinKnives.PrefabName,
+                    DualChitinKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualchitinknives/hex_armory_dual_chitin_knives.prefab"
                 },
                 {
-                    ItemDefinitions.DualFlameMetalKnives.PrefabName,
+                    DualFlameMetalKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualflamemetalknives/hex_armory_dual_flame_metal_knives.prefab"
                 },
                 {
-                    ItemDefinitions.SkollAndHatiEmberForged.PrefabName,
+                    SkollAndHatiEmberForged.PrefabName,
                     "assets/_customitems/hexarmory/knives/skollandhatiember/hex_armory_skoll_and_hati_emberforged.prefab"
                 },
                 {
-                    ItemDefinitions.TarredHideCape.PrefabName,
+                    TarredHideCape.PrefabName,
                     "assets/_customitems/hexarmory/armor/capes/tarredhidecape/hex_armory_tarred_hide_cape.prefab"
                 },
             };

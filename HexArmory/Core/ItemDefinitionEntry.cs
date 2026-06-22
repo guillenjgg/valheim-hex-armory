@@ -1,11 +1,12 @@
-﻿using HexArmory.Core.Models;
 using Jotunn.Configs;
 using System.Collections.Generic;
+using HexArmory.Core.Models;
 
 namespace HexArmory.Core
 {
     internal sealed class ItemDefinitionEntry
     {
+        internal ItemDefinitionKindEnum Kind { get; }
         internal string PrefabName { get; }
         internal string BasePrefabName { get; }
         internal string DisplayNameToken { get; }
@@ -32,6 +33,7 @@ namespace HexArmory.Core
         }
 
         internal ItemDefinitionEntry(
+            ItemDefinitionKindEnum kind,
             string prefabName,
             string basePrefabName,
             string displayNameToken,
@@ -41,6 +43,7 @@ namespace HexArmory.Core
             string craftingStation,
             RequirementConfig[] requirements)
         {
+            Kind = kind;
             PrefabName = prefabName;
             BasePrefabName = basePrefabName;
             DisplayNameToken = displayNameToken;

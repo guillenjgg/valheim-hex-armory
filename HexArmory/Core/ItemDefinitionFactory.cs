@@ -1,0 +1,185 @@
+using Jotunn.Configs;
+using System.Collections.Generic;
+using HexArmory.Core.Models;
+
+namespace HexArmory.Core
+{
+    internal static class ItemDefinitionFactory
+    {
+        internal static ItemDefinitionEntry ArmorCape(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            HitData.DamageType[] damageTypesToRemove = null,
+            string overrideEquipEffectFromPrefab = null,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null)
+        {
+            return Create(
+                ItemDefinitionKindEnum.ArmorCape,
+                prefabName,
+                basePrefabName,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements,
+                damageTypesToRemove,
+                overrideEquipEffectFromPrefab,
+                statsOverride,
+                addDamageModifiers);
+        }
+
+        internal static ItemDefinitionEntry ArmorHelmet(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            HitData.DamageType[] damageTypesToRemove = null,
+            string overrideEquipEffectFromPrefab = null,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null)
+        {
+            return Create(
+                ItemDefinitionKindEnum.ArmorHelmet,
+                prefabName,
+                basePrefabName,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements,
+                damageTypesToRemove,
+                overrideEquipEffectFromPrefab,
+                statsOverride,
+                addDamageModifiers);
+        }
+
+        internal static ItemDefinitionEntry ArmorPants(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            HitData.DamageType[] damageTypesToRemove = null,
+            string overrideEquipEffectFromPrefab = null,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null)
+        {
+            return Create(
+                ItemDefinitionKindEnum.ArmorPants,
+                prefabName,
+                basePrefabName,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements,
+                damageTypesToRemove,
+                overrideEquipEffectFromPrefab,
+                statsOverride,
+                addDamageModifiers);
+        }
+
+        internal static ItemDefinitionEntry WeaponKnife(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null)
+        {
+            return Create(
+                ItemDefinitionKindEnum.WeaponKnife,
+                prefabName,
+                basePrefabName,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements,
+                statsOverride: statsOverride,
+                addDamageModifiers: addDamageModifiers);
+        }
+
+        internal static ItemDefinitionEntry WeaponAxe(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null)
+        {
+            return Create(
+                ItemDefinitionKindEnum.WeaponAxe,
+                prefabName,
+                basePrefabName,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements,
+                statsOverride: statsOverride,
+                addDamageModifiers: addDamageModifiers);
+        }
+
+        private static ItemDefinitionEntry Create(
+            ItemDefinitionKindEnum kind,
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            HitData.DamageType[] damageTypesToRemove = null,
+            string overrideEquipEffectFromPrefab = null,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null)
+        {
+            return new ItemDefinitionEntry(
+                kind,
+                prefabName,
+                basePrefabName,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements)
+            {
+                DamageTypesToRemove = damageTypesToRemove,
+                OverrideEquipEffectFromPrefab = overrideEquipEffectFromPrefab,
+                StatsOverride = statsOverride,
+                AddDamageModifiers = addDamageModifiers
+            };
+        }
+    }
+}
+

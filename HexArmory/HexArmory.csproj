@@ -65,9 +65,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Definitions\Armor\Capes.cs" />
+    <Compile Include="Core\Definitions\Weapons\Axes.cs" />
+    <Compile Include="Core\Definitions\Weapons\Knives.cs" />
     <Compile Include="Core\HexArmoryAssetManager.cs" />
     <Compile Include="Core\DisplayNames.cs" />
     <Compile Include="Core\HexArmoryRegistrar.cs" />
+    <Compile Include="Core\ItemDefinitionFactory.cs" />
+    <Compile Include="Core\ItemDefinitionKindEnum.cs" />
     <Compile Include="Core\ItemDefinitions.cs" />
     <Compile Include="Core\Localization\LocalizationTokens.cs" />
     <Compile Include="Core\Models\ItemDefinitionEntry.cs" />
