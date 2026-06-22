@@ -6,6 +6,7 @@
         {
             internal const string TemperedFeatherCape = "Tempered Feather Cape";
             internal const string AshenWingmantleCape = "Ashen Wingmantle Cape";
+            internal const string TarredHideCape = "Tarred Hide Cape";
         }
 
         internal static class Materials
@@ -20,6 +21,7 @@
             internal const string BlackMetalKnives = "Dual Frostforged Black Metal Knives";
             internal const string IronKnives = "Dual Iron Knives";
             internal const string ChitinKnives = "Dual Abyssal Razors";
+            internal const string SkollAndHatiEmberforged = "Emberforged Skoll and Hati";
             internal const string FlameMetalKnives = "Dual Flame Metal Knives";
         }
 

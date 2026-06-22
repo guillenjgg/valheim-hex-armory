@@ -1,6 +1,8 @@
 ﻿using HexArmory.Core.Models;
 using Jotunn.Configs;
 using System;
+using System.Collections.Generic;
+using static HitData;
 
 namespace HexArmory.Core
 {
@@ -34,6 +36,25 @@ namespace HexArmory.Core
                 AshenWingMantleCape.Requirements)
             {
                 OverrideEquipEffectFromPrefab = VanillaPrefabNames.Capes.FeatherCape
+            },
+            new ItemDefinitionEntry(
+                TarredHideCape.PrefabName,
+                null,
+                TarredHideCape.DisplayNameToken,
+                TarredHideCape.DescriptionToken,
+                TarredHideCape.Amount,
+                TarredHideCape.MinStationLevel,
+                TarredHideCape.CraftingStation,
+                TarredHideCape.Requirements)
+            {
+                AddDamageModifiers = new List<HitData.DamageModPair>
+                {
+                    new HitData.DamageModPair
+                    {
+                        m_type = HitData.DamageType.Frost,
+                        m_modifier = DamageModifier.Resistant
+                    }
+                }
             },
             new ItemDefinitionEntry(
                 DualFlintKnives.PrefabName,
@@ -119,18 +140,30 @@ namespace HexArmory.Core
             {
                 StatsOverride = DualChitinKnives.StatsOverride
             },
-                new ItemDefinitionEntry(
-                    DualFlameMetalKnives.PrefabName,
-                    null,
-                    DualFlameMetalKnives.DisplayNameToken,
-                    DualFlameMetalKnives.DescriptionToken,
-                    DualFlameMetalKnives.Amount,
-                    DualFlameMetalKnives.MinStationLevel,
-                    DualFlameMetalKnives.CraftingStation,
-                    DualFlameMetalKnives.Requirements)
-                {
-                    StatsOverride = DualFlameMetalKnives.StatsOverride
-                },
+            new ItemDefinitionEntry(
+                SkollAndHatiEmberForged.PrefabName,
+                null,
+                SkollAndHatiEmberForged.DisplayNameToken,
+                SkollAndHatiEmberForged.DescriptionToken,
+                SkollAndHatiEmberForged.Amount,
+                SkollAndHatiEmberForged.MinStationLevel,
+                SkollAndHatiEmberForged.CraftingStation,
+                SkollAndHatiEmberForged.Requirements)
+            {
+                StatsOverride = SkollAndHatiEmberForged.StatsOverride
+            },
+            new ItemDefinitionEntry(
+                DualFlameMetalKnives.PrefabName,
+                null,
+                DualFlameMetalKnives.DisplayNameToken,
+                DualFlameMetalKnives.DescriptionToken,
+                DualFlameMetalKnives.Amount,
+                DualFlameMetalKnives.MinStationLevel,
+                DualFlameMetalKnives.CraftingStation,
+                DualFlameMetalKnives.Requirements)
+            {
+                StatsOverride = DualFlameMetalKnives.StatsOverride
+            }
         };
 
         #region Armor
@@ -171,6 +204,25 @@ namespace HexArmory.Core
                 new RequirementConfig(VanillaPrefabNames.Materials.Feathers, 20)
             };
         }
+
+        internal static class TarredHideCape
+        {
+            internal const string PrefabName = "hex_armory_tarred_hide_cape";
+            internal const string DisplayNameToken = "$item_hex_armory_tarred_hide_cape";
+            internal const string DescriptionToken = "$item_hex_armory_tarred_hide_cape_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 1;
+
+            internal static readonly string CraftingStation = CraftingStations.Workbench;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.DeerHide, 4),
+                new RequirementConfig(VanillaPrefabNames.Materials.BoneFragments, 5),
+                new RequirementConfig(VanillaPrefabNames.Materials.Resin, 5),
+                new RequirementConfig(VanillaPrefabNames.Materials.Coal, 5)
+            };
+        }
         #endregion
 
         #region Knives
@@ -202,12 +254,13 @@ namespace HexArmory.Core
                 BackstabBonus = 6f,
                 BlockPower = 4f,
                 BlockPowerPerLevel = 0f,
-                DeflectionForce = 10f,
+                DeflectionForce = 15f,
                 DeflectionForcePerLevel = 5f,
                 DurabilityPerLevel = 40f,
                 UseDurabilityDrain = 1f,
                 MovementModifier = 0f,
-                AttackStamina = 5f
+                AttackStamina = 5f,
+                TimedBlockBonus = 6f
             };
         }
 
@@ -235,16 +288,17 @@ namespace HexArmory.Core
                 SlashDamagePerLevel = 1f,
                 PierceDamagePerLevel = 1f,
                 MaxQuality = 4,
-                AttackForce = 10f,
+                AttackForce = 15f,
                 BackstabBonus = 6f,
                 BlockPower = 4f,
                 BlockPowerPerLevel = 0f,
-                DeflectionForce = 10f,
+                DeflectionForce = 15f,
                 DeflectionForcePerLevel = 5f,
                 DurabilityPerLevel = 50f,
-                UseDurabilityDrain = 2f,
+                UseDurabilityDrain = 1f,
                 MovementModifier = 0f,
-                AttackStamina = 6f
+                AttackStamina = 5f,
+                TimedBlockBonus = 6f
             };
         }
 
@@ -276,12 +330,13 @@ namespace HexArmory.Core
                 BackstabBonus = 6f,
                 BlockPower = 4f,
                 BlockPowerPerLevel = 0f,
-                DeflectionForce = 10f,
+                DeflectionForce = 15f,
                 DeflectionForcePerLevel = 5f,
                 DurabilityPerLevel = 50f,
-                UseDurabilityDrain = 2f,
+                UseDurabilityDrain = 1f,
                 MovementModifier = 0f,
-                AttackStamina = 10f
+                AttackStamina = 8f,
+                TimedBlockBonus = 6f
             };
         }
 
@@ -305,22 +360,23 @@ namespace HexArmory.Core
 
             internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
             {
-                SlashDamage = 20f,
-                PierceDamage = 20f,
+                SlashDamage = 22f,
+                PierceDamage = 22f,
                 Spirit = 12f,
                 SlashDamagePerLevel = 1f,
                 PierceDamagePerLevel = 1f,
                 MaxQuality = 4,
-                AttackForce = 10f,
+                AttackForce = 15f,
                 BackstabBonus = 6f,
-                BlockPower = 4f,
+                BlockPower = 8f,
                 BlockPowerPerLevel = 0f,
-                DeflectionForce = 10f,
+                DeflectionForce = 15f,
                 DeflectionForcePerLevel = 5f,
                 DurabilityPerLevel = 50f,
-                UseDurabilityDrain = 2f,
+                UseDurabilityDrain = 1f,
                 MovementModifier = 0f,
-                AttackStamina = 10f
+                AttackStamina = 8f,
+                TimedBlockBonus = 6f
             };
         }
 
@@ -353,14 +409,15 @@ namespace HexArmory.Core
                 MaxQuality = 4,
                 AttackForce = 10f,
                 BackstabBonus = 6f,
-                BlockPower = 4f,
+                BlockPower = 12f,
                 BlockPowerPerLevel = 0f,
-                DeflectionForce = 10f,
+                DeflectionForce = 15f,
                 DeflectionForcePerLevel = 5f,
                 DurabilityPerLevel = 50f,
-                UseDurabilityDrain = 2f,
+                UseDurabilityDrain = 1f,
                 MovementModifier = 0f,
-                AttackStamina = 10f
+                AttackStamina = 10f,
+                TimedBlockBonus = 6f
             };
         }
 
@@ -392,14 +449,40 @@ namespace HexArmory.Core
                 MaxQuality = 4,
                 AttackForce = 10f,
                 BackstabBonus = 6f,
-                BlockPower = 4f,
+                BlockPower = 24f,
                 BlockPowerPerLevel = 0f,
-                DeflectionForce = 10f,
+                DeflectionForce = 15f,
                 DeflectionForcePerLevel = 5f,
                 DurabilityPerLevel = 50f,
-                UseDurabilityDrain = 2f,
+                UseDurabilityDrain = 1f,
                 MovementModifier = 0f,
-                AttackStamina = 12f
+                AttackStamina = 12f,
+                TimedBlockBonus = 6f
+            };
+        }
+
+        internal static class SkollAndHatiEmberForged
+        {
+            internal const string PrefabName = "hex_armory_skoll_hati_emberforged_knives";
+            internal const string DisplayNameToken = "$item_hex_armory_skoll_hati_emberforged_knives";
+            internal const string DescriptionToken = "$item_hex_armory_skoll_hati_emberforged_knives_desc";
+            internal const int Amount = 1;
+            internal const int MinStationLevel = 1;
+
+            internal static readonly string CraftingStation = CraftingStations.BlackForge;
+
+            internal static readonly RequirementConfig[] Requirements =
+            {
+                new RequirementConfig(VanillaPrefabNames.Materials.FineWood, 8, 0),
+                new RequirementConfig(VanillaPrefabNames.Materials.Iron, 10, 4),
+                new RequirementConfig(VanillaPrefabNames.Materials.BlackMetal, 20, 8),
+                new RequirementConfig(VanillaPrefabNames.Materials.SurtlingCore, 5, 0),
+            };
+
+            internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+            {
+                Fire = 20f,
+                TimedBlockBonus = 6f
             };
         }
 
@@ -420,22 +503,25 @@ namespace HexArmory.Core
 
             internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
             {
-                SlashDamage = 34f,
-                PierceDamage = 34f,
+                SlashDamage = 120f,
+                PierceDamage = 120f,
+                Spirit = 12f,
                 Frost = 12f,
-                SlashDamagePerLevel = 1f,
-                PierceDamagePerLevel = 1f,
+                SlashDamagePerLevel = 3f,
+                PierceDamagePerLevel = 3f,
                 MaxQuality = 4,
-                AttackForce = 10f,
+                AttackForce = 15f,
                 BackstabBonus = 6f,
-                BlockPower = 4f,
+                BlockPower = 57f,
                 BlockPowerPerLevel = 0f,
-                DeflectionForce = 10f,
+                DeflectionForce = 25f,
                 DeflectionForcePerLevel = 5f,
+                MaxDurability = 250f,
                 DurabilityPerLevel = 50f,
-                UseDurabilityDrain = 2f,
+                UseDurabilityDrain = 1f,
                 MovementModifier = 0f,
-                AttackStamina = 12f
+                AttackStamina = 12f,
+                TimedBlockBonus = 6f,
             };
         }
         #endregion

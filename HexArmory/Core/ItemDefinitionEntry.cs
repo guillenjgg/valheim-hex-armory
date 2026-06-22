@@ -1,5 +1,6 @@
 ﻿using HexArmory.Core.Models;
 using Jotunn.Configs;
+using System.Collections.Generic;
 
 namespace HexArmory.Core
 {
@@ -17,6 +18,7 @@ namespace HexArmory.Core
         internal string OverrideEquipEffectFromPrefab { get; set; }
         internal HitData.DamageType[] DamageTypesToRemove { get; set; }
         internal ItemStatsOverride StatsOverride { get; set; }
+        internal List<HitData.DamageModPair> AddDamageModifiers { get; set; }
 
         internal bool HasPostRegistrationChanges
         {
@@ -24,6 +26,7 @@ namespace HexArmory.Core
             {
                 return StatsOverride != null ||
                     !string.IsNullOrEmpty(OverrideEquipEffectFromPrefab) ||
+                    (AddDamageModifiers != null && AddDamageModifiers.Count > 0) ||
                     (DamageTypesToRemove != null && DamageTypesToRemove.Length > 0);
             }
         }

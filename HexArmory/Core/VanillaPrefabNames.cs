@@ -6,6 +6,8 @@
         {
             internal const string FeatherCape = "CapeFeather";
             internal const string AshCape = "CapeAsh";
+            internal const string CapeDeerHide = "CapeDeerHide";
+            internal const string CapeLox = "CapeLox";
         }
 
         internal static class Materials
@@ -33,6 +35,8 @@
             internal const string FreezeGland = "FreezeGland";
             internal const string TrophySkeleton = "TrophySkeleton";
             internal const string Chitin = "Chitin";
+            internal const string DeerHide = "DeerHide";
+            internal const string Coal = "Coal";
         }
 
         internal static class Knives

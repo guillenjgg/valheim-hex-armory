@@ -1,5 +1,7 @@
 ﻿using HexArmory.Core.Models;
 using Jotunn.Managers;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace HexArmory.Core.Services
 {
@@ -20,6 +22,11 @@ namespace HexArmory.Core.Services
             if (!string.IsNullOrEmpty(itemDefinition.OverrideEquipEffectFromPrefab))
             {
                 OverrideEquipEffect(itemDrop, itemDefinition.OverrideEquipEffectFromPrefab);
+            }
+
+            if (itemDefinition.AddDamageModifiers != null)
+            {
+                AddDamageModifiers(itemDrop, itemDefinition.AddDamageModifiers);
             }
 
             if (itemDefinition.StatsOverride != null)
@@ -61,6 +68,8 @@ namespace HexArmory.Core.Services
 
             var sourcePrefab = PrefabManager.Instance.GetPrefab(sourcePrefabName);
 
+            Jotunn.Logger.LogInfo($"Attempting to override equip effect on {targetItemDrop.name} using source prefab: {sourcePrefabName}");
+
             if (sourcePrefab == null)
             {
                 Jotunn.Logger.LogError($"Could not find source prefab: {sourcePrefabName}");
@@ -95,6 +104,38 @@ namespace HexArmory.Core.Services
                 $"Applied equip effect from {sourcePrefabName} to {targetItemDrop.name}: {effectClone.name}");
         }
 
+        private static void AddDamageModifiers(ItemDrop targetItemDrop, List<HitData.DamageModPair> damageModifiers)
+        {
+            if (targetItemDrop == null ||
+                targetItemDrop.m_itemData == null ||
+                targetItemDrop.m_itemData.m_shared == null)
+            {
+                Jotunn.Logger.LogError("Invalid target ItemDrop.");
+                return;
+            }
+
+            if (damageModifiers == null || damageModifiers.Count == 0)
+            {
+                Jotunn.Logger.LogWarning("No damage modifiers to add.");
+                return;
+            }
+
+            var targetModifiers = targetItemDrop.m_itemData.m_shared.m_damageModifiers;
+
+            foreach (var modifier in damageModifiers)
+            {
+                targetModifiers.RemoveAll(mod => mod.m_type == modifier.m_type);
+                targetModifiers.Add(new HitData.DamageModPair
+                {
+                    m_type = modifier.m_type,
+                    m_modifier = modifier.m_modifier
+                });
+
+                Jotunn.Logger.LogInfo(
+                    $"Added damage modifier to {targetItemDrop.name}: {modifier.m_type} = {modifier.m_modifier}");
+            }
+        }
+
         private static void ApplyWeaponStats(ItemDrop itemDrop, ItemStatsOverride stats)
         {
             if (itemDrop == null ||
@@ -113,38 +154,39 @@ namespace HexArmory.Core.Services
 
             var shared = itemDrop.m_itemData.m_shared;
 
-            shared.m_damages.m_slash = stats.SlashDamage;
-            shared.m_damages.m_pierce = stats.PierceDamage;
-            shared.m_damages.m_chop = stats.ChopDamage;
-            shared.m_damages.m_spirit = stats.Spirit;
-            shared.m_damages.m_fire = stats.Fire;
-            shared.m_damages.m_frost = stats.Frost;
+            shared.m_damages.m_slash = stats.SlashDamage ?? shared.m_damages.m_slash;
+            shared.m_damages.m_pierce = stats.PierceDamage ?? shared.m_damages.m_pierce;
+            shared.m_damages.m_chop = stats.ChopDamage ?? shared.m_damages.m_chop;
+            shared.m_damages.m_spirit = stats.Spirit ?? shared.m_damages.m_spirit;
+            shared.m_damages.m_fire = stats.Fire ?? shared.m_damages.m_fire;
+            shared.m_damages.m_frost = stats.Frost ?? shared.m_damages.m_frost;
 
-            shared.m_damagesPerLevel.m_slash = stats.SlashDamagePerLevel;
-            shared.m_damagesPerLevel.m_pierce = stats.PierceDamagePerLevel;
-            shared.m_damagesPerLevel.m_chop = stats.ChopDamagePerLevel;
+            shared.m_damagesPerLevel.m_slash = stats.SlashDamagePerLevel ?? shared.m_damagesPerLevel.m_slash;
+            shared.m_damagesPerLevel.m_pierce = stats.PierceDamagePerLevel ?? shared.m_damagesPerLevel.m_pierce;
+            shared.m_damagesPerLevel.m_chop = stats.ChopDamagePerLevel ?? shared.m_damagesPerLevel.m_chop;
 
-            shared.m_maxQuality = stats.MaxQuality;
+            shared.m_maxQuality = stats.MaxQuality ?? shared.m_maxQuality;
 
-            shared.m_attackForce = stats.AttackForce;
-            shared.m_backstabBonus = stats.BackstabBonus;
+            shared.m_attackForce = stats.AttackForce ?? shared.m_attackForce;
+            shared.m_backstabBonus = stats.BackstabBonus ?? shared.m_backstabBonus;
 
-            shared.m_blockPower = stats.BlockPower;
-            shared.m_blockPowerPerLevel = stats.BlockPowerPerLevel;
+            shared.m_blockPower = stats.BlockPower ?? shared.m_blockPower;
+            shared.m_blockPowerPerLevel = stats.BlockPowerPerLevel ?? shared.m_blockPowerPerLevel;
 
-            shared.m_deflectionForce = stats.DeflectionForce;
-            shared.m_deflectionForcePerLevel = stats.DeflectionForcePerLevel;
+            shared.m_deflectionForce = stats.DeflectionForce ?? shared.m_deflectionForce;
+            shared.m_deflectionForcePerLevel = stats.DeflectionForcePerLevel ?? shared.m_deflectionForcePerLevel;
 
-            shared.m_durabilityPerLevel = stats.DurabilityPerLevel;
-            shared.m_useDurabilityDrain = stats.UseDurabilityDrain;
-            shared.m_movementModifier = stats.MovementModifier;
+            shared.m_maxDurability = stats.MaxDurability ?? shared.m_maxDurability;
+            shared.m_durabilityPerLevel = stats.DurabilityPerLevel ?? shared.m_durabilityPerLevel;
+            shared.m_useDurabilityDrain = stats.UseDurabilityDrain ?? shared.m_useDurabilityDrain;
+            shared.m_movementModifier = stats.MovementModifier ?? shared.m_movementModifier;
 
-            shared.m_attack.m_attackStamina = stats.AttackStamina;
+            shared.m_attack.m_attackStamina = stats.AttackStamina ?? shared.m_attack.m_attackStamina;
+            shared.m_timedBlockBonus = stats.TimedBlockBonus ?? shared.m_timedBlockBonus;
 
-            Jotunn.Logger.LogInfo(
+            Jotunn.Logger.LogDebug(
                 $"Applied weapon stats to {itemDrop.name}. " +
                 $"Slash={shared.m_damages.m_slash}, Pierce={shared.m_damages.m_pierce}, " +
-                $"SlashPerLevel={shared.m_damagesPerLevel.m_slash}, PiercePerLevel={shared.m_damagesPerLevel.m_pierce}, " +
                 $"Spirit={shared.m_damages.m_spirit}, Fire={shared.m_damages.m_fire}, Frost={shared.m_damages.m_frost}, " +
                 $"MaxQuality={shared.m_maxQuality}");
         }

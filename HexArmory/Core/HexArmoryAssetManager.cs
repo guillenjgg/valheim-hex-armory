@@ -43,6 +43,14 @@ namespace HexArmory.Core
                     ItemDefinitions.DualFlameMetalKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualflamemetalknives/hex_armory_dual_flame_metal_knives.prefab"
                 },
+                {
+                    ItemDefinitions.SkollAndHatiEmberForged.PrefabName,
+                    "assets/_customitems/hexarmory/knives/skollandhatiember/hex_armory_skoll_and_hati_emberforged.prefab"
+                },
+                {
+                    ItemDefinitions.TarredHideCape.PrefabName,
+                    "assets/_customitems/hexarmory/armor/capes/tarredhidecape/hex_armory_tarred_hide_cape.prefab"
+                },
             };
 
         internal static void LoadAssets()
