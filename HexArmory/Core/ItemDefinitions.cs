@@ -33,6 +33,25 @@ namespace HexArmory.Core
                 overrideEquipEffectFromPrefab: VanillaPrefabNames.Capes.FeatherCape),
 
             ItemDefinitionFactory.ArmorCape(
+                TrollBloodCape.PrefabName,
+                null,
+                TrollBloodCape.DisplayNameToken,
+                TrollBloodCape.DescriptionToken,
+                TrollBloodCape.Amount,
+                TrollBloodCape.MinStationLevel,
+                TrollBloodCape.CraftingStation,
+                TrollBloodCape.Requirements,
+                addEquipStatusEffect: HexArmoryAssetManager.TrollBloodStatusEffect,
+                addDamageModifiers: new List<HitData.DamageModPair>
+                {
+                    new HitData.DamageModPair
+                    {
+                        m_type = HitData.DamageType.Frost,
+                        m_modifier = DamageModifier.Resistant
+                    }
+                }),
+
+            ItemDefinitionFactory.ArmorCape(
                 TarredHideCape.PrefabName,
                 null,
                 TarredHideCape.DisplayNameToken,

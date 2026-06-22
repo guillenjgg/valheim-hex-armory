@@ -18,7 +18,8 @@ namespace HexArmory.Core
             HitData.DamageType[] damageTypesToRemove = null,
             string overrideEquipEffectFromPrefab = null,
             ItemStatsOverride statsOverride = null,
-            List<HitData.DamageModPair> addDamageModifiers = null)
+            List<HitData.DamageModPair> addDamageModifiers = null,
+            StatusEffect addEquipStatusEffect = null)
         {
             return Create(
                 ItemDefinitionKindEnum.ArmorCape,
@@ -33,7 +34,8 @@ namespace HexArmory.Core
                 damageTypesToRemove,
                 overrideEquipEffectFromPrefab,
                 statsOverride,
-                addDamageModifiers);
+                addDamageModifiers,
+                addEquipStatusEffect);
         }
 
         internal static ItemDefinitionEntry ArmorHelmet(
@@ -161,7 +163,8 @@ namespace HexArmory.Core
             HitData.DamageType[] damageTypesToRemove = null,
             string overrideEquipEffectFromPrefab = null,
             ItemStatsOverride statsOverride = null,
-            List<HitData.DamageModPair> addDamageModifiers = null)
+            List<HitData.DamageModPair> addDamageModifiers = null,
+            StatusEffect addEquipStatusEffect = null)
         {
             return new ItemDefinitionEntry(
                 kind,
@@ -177,7 +180,8 @@ namespace HexArmory.Core
                 DamageTypesToRemove = damageTypesToRemove,
                 OverrideEquipEffectFromPrefab = overrideEquipEffectFromPrefab,
                 StatsOverride = statsOverride,
-                AddDamageModifiers = addDamageModifiers
+                AddDamageModifiers = addDamageModifiers,
+                EquipStatusEffect = addEquipStatusEffect
             };
         }
     }

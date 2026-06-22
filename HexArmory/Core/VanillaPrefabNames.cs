@@ -37,12 +37,20 @@
             internal const string Chitin = "Chitin";
             internal const string DeerHide = "DeerHide";
             internal const string Coal = "Coal";
+            internal const string TrollHide = "TrollHide";
+            internal const string Bronze = "Bronze";
+            internal const string MushroomYellow = "MushroomYellow";
         }
 
         internal static class Knives
         {
             internal const string SkollAndHati = "KnifeSkollAndHati";
             internal const string FlintKnife = "KnifeFlint";
+        }
+
+        internal static class Trophies
+        {
+            internal const string TrophyFrostTroll = "TrophyFrostTroll";
         }
     }
 }

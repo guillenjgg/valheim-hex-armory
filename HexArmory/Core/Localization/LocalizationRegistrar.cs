@@ -36,6 +36,10 @@ namespace HexArmory.Core.Localization
                 { "item_hex_armory_dual_flame_metal_knives_desc", "Dual Flame Metal Knives" },
                 { "item_hex_armory_tarred_hide_cape", $"{DisplayNames.Capes.TarredHideCape}" },
                 { "item_hex_armory_tarred_hide_cape_desc", "A deer hide cloak treated with resin and smoke. Water beads upon its surface and rolls harmlessly away." },
+                { "item_hex_armory_troll_blood_cape", $"{DisplayNames.Capes.TrollBloodCape}" },
+                { "item_hex_armory_troll_blood_cape_desc", "Crafted from troll hide and steeped in troll blood, this cape carries the endurance of the forest's ancient giants." },
+                { "se_hex_armory_troll_blood_name", $"{DisplayNames.SEEffects.TrollBlood}" },
+                { "se_hex_armory_troll_blood_tooltip", "The blood of a troll courses through your veins." },
             });
         }
     }

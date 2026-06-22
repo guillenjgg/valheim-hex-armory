@@ -7,6 +7,7 @@
             internal const string TemperedFeatherCape = "Tempered Feather Cape";
             internal const string AshenWingmantleCape = "Ashen Wingmantle Cape";
             internal const string TarredHideCape = "Tarred Hide Cape";
+            internal const string TrollBloodCape = "Troll Blood Cape";
         }
 
         internal static class Materials
@@ -28,6 +29,11 @@
         internal static class Axes
         {
             internal const string FlintAxes = "Dual Flint Axes";
+        }
+
+        internal static class SEEffects
+        {
+            internal const string TrollBlood = "Troll Blood";
         }
     }
 }

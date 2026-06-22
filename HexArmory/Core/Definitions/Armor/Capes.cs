@@ -58,4 +58,23 @@ namespace HexArmory.Core
             new RequirementConfig(VanillaPrefabNames.Materials.Coal, 5)
         };
     }
+
+    internal static class TrollBloodCape
+    {
+        internal const string PrefabName = "hex_armory_troll_blood_cape";
+        internal const string DisplayNameToken = "$item_hex_armory_troll_blood_cape";
+        internal const string DescriptionToken = "$item_hex_armory_troll_blood_cape_desc";
+        internal const int Amount = 1;
+        internal const int MinStationLevel = 1;
+
+        internal static readonly string CraftingStation = CraftingStations.Workbench;
+
+        internal static readonly RequirementConfig[] Requirements =
+        {
+            new RequirementConfig(VanillaPrefabNames.Materials.TrollHide, 10),
+            new RequirementConfig(VanillaPrefabNames.Materials.Bronze, 10),
+            new RequirementConfig(VanillaPrefabNames.Materials.MushroomYellow, 5),
+            new RequirementConfig(VanillaPrefabNames.Trophies.TrophyFrostTroll, 1)
+        };
+    }
 }

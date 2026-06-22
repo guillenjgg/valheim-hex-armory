@@ -1,7 +1,9 @@
 ﻿using HexArmory.Core.Models;
 using Jotunn.Managers;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static ItemDrop.ItemData;
 
 namespace HexArmory.Core.Services
 {
@@ -32,6 +34,11 @@ namespace HexArmory.Core.Services
             if (itemDefinition.StatsOverride != null)
             {
                 ApplyWeaponStats(itemDrop, itemDefinition.StatsOverride);
+            }
+
+            if(itemDefinition.EquipStatusEffect != null)
+            {
+                ApplyEquippedStatusEffect(itemDrop, itemDefinition.EquipStatusEffect);
             }
         }
 
@@ -216,6 +223,36 @@ namespace HexArmory.Core.Services
                 Jotunn.Logger.LogDebug(
                     $"No {damageType} damage modifiers found on {itemDrop.name ?? "Unknown"}.");
             }
+        }
+
+        private static void ApplyEquippedStatusEffect(ItemDrop itemDrop, StatusEffect equipStatusEffect)
+        {
+            if (itemDrop == null ||
+                itemDrop.m_itemData == null ||
+                itemDrop.m_itemData.m_shared == null)
+            {
+                Jotunn.Logger.LogError("Invalid ItemDrop while applying equip status effect.");
+                return;
+            }
+
+            if (equipStatusEffect == null)
+            {
+                Jotunn.Logger.LogWarning($"No equip status effect provided for {itemDrop.name}.");
+                return;
+            }
+
+            var shared = itemDrop.m_itemData.m_shared;
+
+            if (shared.m_equipStatusEffect != null)
+            {
+                Jotunn.Logger.LogInfo(
+                    $"[HexArmory] Replacing equip status effect on {itemDrop.name}: {shared.m_equipStatusEffect.name}");
+            }
+
+            shared.m_equipStatusEffect = equipStatusEffect;
+
+            Jotunn.Logger.LogInfo(
+                $"[HexArmory] Applied equip status effect to {itemDrop.name}: {equipStatusEffect.name}");
         }
     }
 }

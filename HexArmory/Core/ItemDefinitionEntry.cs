@@ -20,12 +20,14 @@ namespace HexArmory.Core
         internal HitData.DamageType[] DamageTypesToRemove { get; set; }
         internal ItemStatsOverride StatsOverride { get; set; }
         internal List<HitData.DamageModPair> AddDamageModifiers { get; set; }
+        internal StatusEffect EquipStatusEffect { get; set; }
 
         internal bool HasPostRegistrationChanges
         {
             get
             {
                 return StatsOverride != null ||
+                    EquipStatusEffect != null ||
                     !string.IsNullOrEmpty(OverrideEquipEffectFromPrefab) ||
                     (AddDamageModifiers != null && AddDamageModifiers.Count > 0) ||
                     (DamageTypesToRemove != null && DamageTypesToRemove.Length > 0);
