@@ -221,6 +221,7 @@ namespace HexArmory.Core
             SlashDamage = 34f,
             PierceDamage = 34f,
             Frost = 12f,
+            Spirit = 20f,
             SlashDamagePerLevel = 1f,
             PierceDamagePerLevel = 1f,
             MaxQuality = 4,
@@ -269,9 +270,9 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_knives_desc";
         internal const int Amount = 1;
-        internal const int MinStationLevel = 4;
+        internal const int MinStationLevel = 2;
 
-        internal static readonly string CraftingStation = CraftingStations.Forge;
+        internal static readonly string CraftingStation = CraftingStations.BlackForge;
 
         internal static readonly RequirementConfig[] Requirements =
         {

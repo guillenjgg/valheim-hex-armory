@@ -1,9 +1,6 @@
 ﻿using HexArmory.Core.Models;
 using Jotunn.Managers;
-using System;
 using System.Collections.Generic;
-using UnityEngine;
-using static ItemDrop.ItemData;
 
 namespace HexArmory.Core.Services
 {
