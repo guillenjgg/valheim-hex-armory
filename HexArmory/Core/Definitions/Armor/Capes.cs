@@ -53,9 +53,9 @@ namespace HexArmory.Core
         internal static readonly RequirementConfig[] Requirements =
         {
             new RequirementConfig(VanillaPrefabNames.Materials.DeerHide, 4),
-            new RequirementConfig(VanillaPrefabNames.Materials.BoneFragments, 5),
-            new RequirementConfig(VanillaPrefabNames.Materials.Resin, 5),
-            new RequirementConfig(VanillaPrefabNames.Materials.Coal, 5)
+            new RequirementConfig(VanillaPrefabNames.Materials.Wood, 10),
+            new RequirementConfig(VanillaPrefabNames.Materials.Stone, 5),
+            new RequirementConfig(VanillaPrefabNames.Materials.Resin, 5)
         };
     }
 
