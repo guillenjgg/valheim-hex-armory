@@ -72,7 +72,7 @@
     <Compile Include="Core\DisplayNames.cs" />
     <Compile Include="Core\HexArmoryRegistrar.cs" />
     <Compile Include="Core\ItemDefinitionFactory.cs" />
-    <Compile Include="Core\ItemDefinitionKindEnum.cs" />
+    <Compile Include="Core\ItemTypeDefinitionEnum.cs" />
     <Compile Include="Core\ItemDefinitions.cs" />
     <Compile Include="Core\Localization\LocalizationTokens.cs" />
     <Compile Include="Core\Models\ItemDefinitionEntry.cs" />
@@ -85,9 +85,7 @@
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Assets\AssetBundles\hexarmory">
       <LogicalName>HexArmory.AssetsEmbedded.hexarmory</LogicalName>

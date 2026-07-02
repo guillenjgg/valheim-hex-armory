@@ -6,7 +6,7 @@ namespace HexArmory.Core
 {
     internal sealed class ItemDefinitionEntry
     {
-        internal ItemDefinitionKindEnum Kind { get; }
+        internal ItemTypeDefinitionEnum Kind { get; }
         internal string PrefabName { get; }
         internal string BasePrefabName { get; }
         internal string DisplayNameToken { get; }
@@ -35,7 +35,7 @@ namespace HexArmory.Core
         }
 
         internal ItemDefinitionEntry(
-            ItemDefinitionKindEnum kind,
+            ItemTypeDefinitionEnum kind,
             string prefabName,
             string basePrefabName,
             string displayNameToken,

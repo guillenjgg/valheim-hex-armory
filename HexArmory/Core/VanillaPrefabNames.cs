@@ -40,6 +40,7 @@
             internal const string TrollHide = "TrollHide";
             internal const string Bronze = "Bronze";
             internal const string MushroomYellow = "MushroomYellow";
+            internal const string Mandible = "Mandible";
         }
 
         internal static class Knives

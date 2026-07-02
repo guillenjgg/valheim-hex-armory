@@ -1,6 +1,6 @@
 namespace HexArmory.Core
 {
-    internal enum ItemDefinitionKindEnum
+    internal enum ItemTypeDefinitionEnum
     {
         ArmorCape,
         ArmorHelmet,

@@ -22,7 +22,7 @@ namespace HexArmory.Core
             StatusEffect addEquipStatusEffect = null)
         {
             return Create(
-                ItemDefinitionKindEnum.ArmorCape,
+                ItemTypeDefinitionEnum.ArmorCape,
                 prefabName,
                 basePrefabName,
                 displayNameToken,
@@ -53,7 +53,7 @@ namespace HexArmory.Core
             List<HitData.DamageModPair> addDamageModifiers = null)
         {
             return Create(
-                ItemDefinitionKindEnum.ArmorHelmet,
+                ItemTypeDefinitionEnum.ArmorHelmet,
                 prefabName,
                 basePrefabName,
                 displayNameToken,
@@ -83,7 +83,7 @@ namespace HexArmory.Core
             List<HitData.DamageModPair> addDamageModifiers = null)
         {
             return Create(
-                ItemDefinitionKindEnum.ArmorPants,
+                ItemTypeDefinitionEnum.ArmorPants,
                 prefabName,
                 basePrefabName,
                 displayNameToken,
@@ -111,7 +111,7 @@ namespace HexArmory.Core
             List<HitData.DamageModPair> addDamageModifiers = null)
         {
             return Create(
-                ItemDefinitionKindEnum.WeaponKnife,
+                ItemTypeDefinitionEnum.WeaponKnife,
                 prefabName,
                 basePrefabName,
                 displayNameToken,
@@ -137,7 +137,7 @@ namespace HexArmory.Core
             List<HitData.DamageModPair> addDamageModifiers = null)
         {
             return Create(
-                ItemDefinitionKindEnum.WeaponAxe,
+                ItemTypeDefinitionEnum.WeaponAxe,
                 prefabName,
                 basePrefabName,
                 displayNameToken,
@@ -151,7 +151,7 @@ namespace HexArmory.Core
         }
 
         private static ItemDefinitionEntry Create(
-            ItemDefinitionKindEnum kind,
+            ItemTypeDefinitionEnum kind,
             string prefabName,
             string basePrefabName,
             string displayNameToken,
