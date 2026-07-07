@@ -1,5 +1,4 @@
 ﻿using HexArmory.Core;
-using HexArmory.Core.Models;
 using HexArmory.Core.Services;
 using Jotunn.Configs;
 using Jotunn.Entities;
@@ -28,7 +27,7 @@ namespace HexArmory
             _registered = true;
             PrefabManager.OnVanillaPrefabsAvailable -= RegisterItems;
 
-            Jotunn.Logger.LogInfo($"[HexArmory] Items registered. Count: {registeredCount}");
+            Jotunn.Logger.LogInfo($"Items registered. Count: {registeredCount}");
         }
 
         private static int CreateCustomItems()
@@ -50,7 +49,7 @@ namespace HexArmory
         {
             if (itemDefinition == null)
             {
-                Jotunn.Logger.LogWarning("[HexArmory] Item definition is null.");
+                Jotunn.Logger.LogWarning("Item definition is null.");
                 return false;
             }
 
@@ -60,16 +59,16 @@ namespace HexArmory
 
             if (itemDefinition.BasePrefabName == null)
             {
-                if (!AssetNames.PrefabPathByItemPrefabName.TryGetValue(itemDefinition.PrefabName, out string assetName))
+                if (!HexArmoryAssetManager.PrefabPathByItemPrefabName.TryGetValue(itemDefinition.PrefabName, out string assetName))
                 {
                     Jotunn.Logger.LogError(
-                        $"[HexArmory] No asset bundle prefab path mapped for item: {itemDefinition.PrefabName}");
+                        $"No asset bundle prefab path mapped for item: {itemDefinition.PrefabName}");
 
                     return false;
                 }
 
                 customItem = new CustomItem(
-                    Plugin.Instance.AssetBundle,
+                    HexArmoryAssetManager.AssetBundle,
                     assetName,
                     true,
                     itemConfig);
@@ -77,7 +76,7 @@ namespace HexArmory
                 if (customItem == null || customItem.ItemPrefab == null || customItem.ItemDrop == null)
                 {
                     Jotunn.Logger.LogError(
-                        $"[HexArmory] Failed to load prefab from asset bundle. Item={itemDefinition.PrefabName}, Asset={assetName}");
+                        $"Failed to load prefab from asset bundle. Item={itemDefinition.PrefabName}, Asset={assetName}");
 
                     return false;
                 }
@@ -97,7 +96,7 @@ namespace HexArmory
 
             ItemManager.Instance.AddItem(customItem);
 
-            Jotunn.Logger.LogInfo($"[HexArmory] Registered item: {itemDefinition.PrefabName}");
+            Jotunn.Logger.LogInfo($"Registered item: {itemDefinition.PrefabName}");
 
             return true;
         }

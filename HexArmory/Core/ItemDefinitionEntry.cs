@@ -1,10 +1,12 @@
-﻿using HexArmory.Core.Models;
 using Jotunn.Configs;
+using System.Collections.Generic;
+using HexArmory.Core.Models;
 
 namespace HexArmory.Core
 {
     internal sealed class ItemDefinitionEntry
     {
+        internal ItemTypeDefinitionEnum Kind { get; }
         internal string PrefabName { get; }
         internal string BasePrefabName { get; }
         internal string DisplayNameToken { get; }
@@ -17,18 +19,23 @@ namespace HexArmory.Core
         internal string OverrideEquipEffectFromPrefab { get; set; }
         internal HitData.DamageType[] DamageTypesToRemove { get; set; }
         internal ItemStatsOverride StatsOverride { get; set; }
+        internal List<HitData.DamageModPair> AddDamageModifiers { get; set; }
+        internal StatusEffect EquipStatusEffect { get; set; }
 
         internal bool HasPostRegistrationChanges
         {
             get
             {
                 return StatsOverride != null ||
+                    EquipStatusEffect != null ||
                     !string.IsNullOrEmpty(OverrideEquipEffectFromPrefab) ||
+                    (AddDamageModifiers != null && AddDamageModifiers.Count > 0) ||
                     (DamageTypesToRemove != null && DamageTypesToRemove.Length > 0);
             }
         }
 
         internal ItemDefinitionEntry(
+            ItemTypeDefinitionEnum kind,
             string prefabName,
             string basePrefabName,
             string displayNameToken,
@@ -38,6 +45,7 @@ namespace HexArmory.Core
             string craftingStation,
             RequirementConfig[] requirements)
         {
+            Kind = kind;
             PrefabName = prefabName;
             BasePrefabName = basePrefabName;
             DisplayNameToken = displayNameToken;

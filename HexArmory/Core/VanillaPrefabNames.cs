@@ -6,6 +6,8 @@
         {
             internal const string FeatherCape = "CapeFeather";
             internal const string AshCape = "CapeAsh";
+            internal const string CapeDeerHide = "CapeDeerHide";
+            internal const string CapeLox = "CapeLox";
         }
 
         internal static class Materials
@@ -24,12 +26,33 @@
             internal const string Stone = "Stone";
             internal const string Copper = "Copper";
             internal const string GreydwarfEye = "GreydwarfEye";
+            internal const string Iron = "Iron";
+            internal const string Silver = "Silver";
+            internal const string Resin = "Resin";
+            internal const string FineWood = "FineWood";
+            internal const string BlackMetal = "BlackMetal";
+            internal const string LinenThread = "LinenThread";
+            internal const string FreezeGland = "FreezeGland";
+            internal const string TrophySkeleton = "TrophySkeleton";
+            internal const string Chitin = "Chitin";
+            internal const string DeerHide = "DeerHide";
+            internal const string Coal = "Coal";
+            internal const string TrollHide = "TrollHide";
+            internal const string Bronze = "Bronze";
+            internal const string MushroomYellow = "MushroomYellow";
+            internal const string Mandible = "Mandible";
+            internal const string CharredBone = "CharredBone";
         }
 
         internal static class Knives
         {
             internal const string SkollAndHati = "KnifeSkollAndHati";
             internal const string FlintKnife = "KnifeFlint";
+        }
+
+        internal static class Trophies
+        {
+            internal const string TrophyFrostTroll = "TrophyFrostTroll";
         }
     }
 }
