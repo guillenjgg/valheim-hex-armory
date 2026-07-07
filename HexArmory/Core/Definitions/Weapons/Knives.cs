@@ -251,15 +251,16 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.FineWood, 8, 0),
             new RequirementConfig(VanillaPrefabNames.Materials.Iron, 10, 4),
             new RequirementConfig(VanillaPrefabNames.Materials.BlackMetal, 20, 8),
+            new RequirementConfig(VanillaPrefabNames.Materials.FreezeGland, 8, 0),
             new RequirementConfig(VanillaPrefabNames.Materials.SurtlingCore, 5, 0),
         };
 
         internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
         {
             Fire = 20f,
+            Frost = 20f,
             TimedBlockBonus = 6f
         };
     }
@@ -270,13 +271,15 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_knives_desc";
         internal const int Amount = 1;
-        internal const int MinStationLevel = 2;
+        internal const int MinStationLevel = 3;
 
         internal static readonly string CraftingStation = CraftingStations.BlackForge;
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.Wood, 1, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.CharredBone, 15, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 24, 15),
+            new RequirementConfig(VanillaPrefabNames.Materials.AskHide, 3, 1),
         };
 
         internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
@@ -288,18 +291,18 @@ namespace HexArmory.Core
             SlashDamagePerLevel = 3f,
             PierceDamagePerLevel = 3f,
             MaxQuality = 4,
-            AttackForce = 15f,
+            AttackForce = 20f,
             BackstabBonus = 6f,
             BlockPower = 57f,
             BlockPowerPerLevel = 0f,
-            DeflectionForce = 25f,
+            DeflectionForce = 20f,
             DeflectionForcePerLevel = 5f,
-            MaxDurability = 250f,
+            MaxDurability = 175f,
             DurabilityPerLevel = 50f,
             UseDurabilityDrain = 1f,
             MovementModifier = 0f,
-            AttackStamina = 12f,
-            TimedBlockBonus = 6f,
+            AttackStamina = 16f,
+            TimedBlockBonus = 4f,
         };
     }
 }
