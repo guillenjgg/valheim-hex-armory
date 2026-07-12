@@ -29,6 +29,7 @@
         internal static class Axes
         {
             internal const string FlintAxes = "Dual Flint Axes";
+            internal const string BronzeAxes = "Dual Bronze Axes";
         }
 
         internal static class SEEffects

@@ -271,7 +271,7 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_knives_desc";
         internal const int Amount = 1;
-        internal const int MinStationLevel = 3;
+        internal const int MinStationLevel = 4;
 
         internal static readonly string CraftingStation = CraftingStations.BlackForge;
 
