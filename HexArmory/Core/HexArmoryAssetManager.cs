@@ -24,6 +24,10 @@ namespace HexArmory.Core
                     "assets/_customitems/hexarmory/axes/dualbronzeaxes/hex_armory_dual-bronze-axes.prefab"
                 },
                 {
+                    DualIronAxes.PrefabName,
+                    "assets/_customitems/hexarmory/axes/dualironaxes/hex_armory_dual-iron-axes.prefab"
+                },
+                {
                     DualCopperKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualcopperknives/hex_armory_dual_copper_knives.prefab"
                 },

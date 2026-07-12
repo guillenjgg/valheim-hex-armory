@@ -20,6 +20,8 @@ namespace HexArmory.Core.Localization
                 { "item_hex_armory_dual_flint_knives_desc", "Two is better than one?" },
                 { "item_hex_armory_dual_bronze_axes", $"{DisplayNames.Axes.BronzeAxes}" },
                 { "item_hex_armory_dual_bronze_axes_desc", "Sharper than stone, stronger than one." },
+                { "item_hex_armory_dual_iron_axes", $"{DisplayNames.Axes.IronAxes}" },
+                { "item_hex_armory_dual_iron_axes_desc", "Sharper than bronze, stronger than one." },
                 { "item_hex_armory_dual_chitin_knives", $"{DisplayNames.Knives.ChitinKnives}" },
                 { "item_hex_armory_dual_chitin_knives_desc", "Dual Chitin Knives" },
                 { "item_hex_armory_dual_copper_knives", $"{DisplayNames.Knives.CopperKnives}" },
