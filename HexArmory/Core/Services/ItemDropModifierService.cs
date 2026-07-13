@@ -188,6 +188,8 @@ namespace HexArmory.Core.Services
             shared.m_attack.m_attackStamina = stats.AttackStamina ?? shared.m_attack.m_attackStamina;
             shared.m_timedBlockBonus = stats.TimedBlockBonus ?? shared.m_timedBlockBonus;
 
+            shared.m_toolTier = stats.ToolTier ?? shared.m_toolTier;
+
             Jotunn.Logger.LogDebug(
                 $"Applied weapon stats to {itemDrop.name}. " +
                 $"Slash={shared.m_damages.m_slash}, Pierce={shared.m_damages.m_pierce}, " +

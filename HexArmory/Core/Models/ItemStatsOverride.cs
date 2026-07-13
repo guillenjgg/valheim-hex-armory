@@ -30,5 +30,6 @@
         internal float? MovementModifier { get; set; }
         internal float? AttackStamina { get; set; }
         internal float? TimedBlockBonus { get; set; }
+        internal int? ToolTier { get; set; }
     }
 }
