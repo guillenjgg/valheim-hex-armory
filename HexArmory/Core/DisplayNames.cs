@@ -10,6 +10,11 @@
             internal const string TrollBloodCape = "Troll Blood Cape";
         }
 
+        internal static class Chests
+        {
+            internal const string AshChestFenrig = "Ash Chest Fenrig";
+        }
+
         internal static class Materials
         {
         }

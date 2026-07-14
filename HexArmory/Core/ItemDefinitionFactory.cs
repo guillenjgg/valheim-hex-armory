@@ -98,6 +98,36 @@ namespace HexArmory.Core
                 addDamageModifiers);
         }
 
+        internal static ItemDefinitionEntry ArmorChests(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            HitData.DamageType[] damageTypesToRemove = null,
+            string overrideEquipEffectFromPrefab = null,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null)
+        {
+            return Create(
+                ItemTypeDefinitionEnum.ArmorChest,
+                prefabName,
+                basePrefabName,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements,
+                damageTypesToRemove,
+                overrideEquipEffectFromPrefab,
+                statsOverride,
+                addDamageModifiers);
+        }
+
         internal static ItemDefinitionEntry WeaponKnife(
             string prefabName,
             string basePrefabName,
