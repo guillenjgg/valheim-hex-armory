@@ -124,6 +124,17 @@ namespace HexArmory.Core
                 DualCrystalAxes.Requirements,
                 statsOverride: DualCrystalAxes.StatsOverride),
 
+            ItemDefinitionFactory.WeaponAxe(
+                DualBlackMetalAxes.PrefabName,
+                null,
+                DualBlackMetalAxes.DisplayNameToken,
+                DualBlackMetalAxes.DescriptionToken,
+                DualBlackMetalAxes.Amount,
+                DualBlackMetalAxes.MinStationLevel,
+                DualBlackMetalAxes.CraftingStation,
+                DualBlackMetalAxes.Requirements,
+                statsOverride: DualBlackMetalAxes.StatsOverride),
+
             ItemDefinitionFactory.WeaponKnife(
                 DualCopperKnives.PrefabName,
                 null,

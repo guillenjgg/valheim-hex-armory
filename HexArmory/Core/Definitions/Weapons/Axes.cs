@@ -159,4 +159,45 @@ namespace HexArmory.Core
             ToolTier = 3
         };
     }
+
+    internal static class DualBlackMetalAxes
+    {
+        internal const string PrefabName = "hex_armory_dual_black_metal_axes";
+        internal const string DisplayNameToken = "$item_hex_armory_dual_black_metal_axes";
+        internal const string DescriptionToken = "$item_hex_armory_dual_black_metal_axes_desc";
+        internal const int Amount = 1;
+        internal const int MinStationLevel = 4;
+
+        internal static readonly string CraftingStation = CraftingStations.Forge;
+
+        internal static readonly RequirementConfig[] Requirements =
+        {
+            new RequirementConfig(VanillaPrefabNames.Materials.FineWood, 12, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.BlackMetal, 40, 20),
+            new RequirementConfig(VanillaPrefabNames.Materials.LinenThread, 10, 5),
+            new RequirementConfig(VanillaPrefabNames.Materials.SurtlingCore, 5, 0),
+        };
+
+        internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+        {
+            SlashDamage = 100f,
+            ChopDamage = 60f,
+            Fire = 50f,
+            PierceDamage = 0f,
+            SlashDamagePerLevel = 5f,
+            ChopDamagePerLevel = 3f,
+            MaxQuality = 4,
+            AttackForce = 50f,
+            BackstabBonus = 3f,
+            BlockPower = 40f,
+            BlockPowerPerLevel = 0f,
+            DeflectionForce = 30f,
+            DeflectionForcePerLevel = 5f,
+            DurabilityPerLevel = 50f,
+            UseDurabilityDrain = 1f,
+            MovementModifier = 0f,
+            AttackStamina = 14f,
+            ToolTier = 4
+        };
+    }
 }
