@@ -82,7 +82,7 @@ namespace HexArmory.Core
 
     internal static class DualIronAxes
     {
-        internal const string PrefabName = "hex_armory_dual-iron-axes";
+        internal const string PrefabName = "hex_armory_dual_iron_axes";
         internal const string DisplayNameToken = "$item_hex_armory_dual_iron_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_iron_axes_desc";
         internal const int Amount = 1;
@@ -197,6 +197,46 @@ namespace HexArmory.Core
             UseDurabilityDrain = 1f,
             MovementModifier = 0f,
             AttackStamina = 14f,
+            ToolTier = 4
+        };
+    }
+
+    internal static class DualJotunBaneAxes
+    {
+        internal const string PrefabName = "hex_armory_dual_jotun_bane_axes";
+        internal const string DisplayNameToken = "$item_hex_armory_dual_jotun_bane_axes";
+        internal const string DescriptionToken = "$item_hex_armory_dual_jotun_bane_axes_desc";
+        internal const int Amount = 1;
+        internal const int MinStationLevel = 1;
+
+        internal static readonly string CraftingStation = CraftingStations.BlackForge;
+
+        internal static readonly RequirementConfig[] Requirements =
+        {
+            new RequirementConfig(VanillaPrefabNames.Materials.YggWood, 10, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.Iron, 30, 20),
+            new RequirementConfig(VanillaPrefabNames.Materials.Bilebag, 6, 2),
+        };
+
+        internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+        {
+            SlashDamage = 90f,
+            ChopDamage = 70f,
+            Poison = 100f,
+            PierceDamage = 0f,
+            SlashDamagePerLevel = 5f,
+            ChopDamagePerLevel = 3f,
+            MaxQuality = 4,
+            AttackForce = 60f,
+            BackstabBonus = 3f,
+            BlockPower = 48f,
+            BlockPowerPerLevel = 0f,
+            DeflectionForce = 30f,
+            DeflectionForcePerLevel = 5f,
+            DurabilityPerLevel = 75f,
+            UseDurabilityDrain = 1f,
+            MovementModifier = 0f,
+            AttackStamina = 16f,
             ToolTier = 4
         };
     }

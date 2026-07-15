@@ -33,6 +33,9 @@ namespace HexArmory.Core.Localization
                 { "item_hex_armory_dual_black_metal_axes", $"{DisplayNames.Axes.BlackMetalAxes}" },
                 { "item_hex_armory_dual_black_metal_axes_desc", "Sharper than bronze, stronger than one." },
 
+                { "item_hex_armory_dual_jotun_bane_axes", $"{DisplayNames.Axes.JotunBaneAxes}" },
+                { "item_hex_armory_dual_jotun_bane_axes_desc", "Sharper than bronze, stronger than one." },
+
                 { "item_hex_armory_dual_chitin_knives", $"{DisplayNames.Knives.ChitinKnives}" },
                 { "item_hex_armory_dual_chitin_knives_desc", "Dual Chitin Knives" },
                 

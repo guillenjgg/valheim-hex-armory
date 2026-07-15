@@ -8,6 +8,7 @@
         internal float? Spirit { get; set; }
         internal float? Fire { get; set; }
         internal float? Frost { get; set; }
+        internal float? Poison { get; set; }
 
         internal float? SlashDamagePerLevel { get; set; }
         internal float? PierceDamagePerLevel { get; set; }

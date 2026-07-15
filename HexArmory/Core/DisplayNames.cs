@@ -38,6 +38,7 @@
             internal const string IronAxes = "Dual Iron Axes";
             internal const string CrystalAxes = "Dual Crystal Axes";
             internal const string BlackMetalAxes = "Dual Black Metal Axes";
+            internal const string JotunBaneAxes = "Dual Jotun Bane Axes";
         }
 
         internal static class SEEffects

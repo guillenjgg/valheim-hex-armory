@@ -164,6 +164,7 @@ namespace HexArmory.Core.Services
             shared.m_damages.m_spirit = stats.Spirit ?? shared.m_damages.m_spirit;
             shared.m_damages.m_fire = stats.Fire ?? shared.m_damages.m_fire;
             shared.m_damages.m_frost = stats.Frost ?? shared.m_damages.m_frost;
+            shared.m_damages.m_poison = stats.Poison ?? shared.m_damages.m_poison;
 
             shared.m_damagesPerLevel.m_slash = stats.SlashDamagePerLevel ?? shared.m_damagesPerLevel.m_slash;
             shared.m_damagesPerLevel.m_pierce = stats.PierceDamagePerLevel ?? shared.m_damagesPerLevel.m_pierce;

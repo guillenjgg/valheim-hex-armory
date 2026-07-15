@@ -25,7 +25,7 @@ namespace HexArmory.Core
                 },
                 {
                     DualIronAxes.PrefabName,
-                    "assets/_customitems/hexarmory/axes/dualironaxes/hex_armory_dual-iron-axes.prefab"
+                    "assets/_customitems/hexarmory/axes/dualironaxes/hex_armory_dual_iron_axes.prefab"
                 },
                 {
                     DualCrystalAxes.PrefabName,
@@ -34,6 +34,10 @@ namespace HexArmory.Core
                 {
                     DualBlackMetalAxes.PrefabName,
                     "assets/_customitems/hexarmory/axes/dualblackmetalaxes/hex_armory_dual_black_metal_axes.prefab"
+                },
+                {
+                    DualJotunBaneAxes.PrefabName,
+                    "assets/_customitems/hexarmory/axes/dualjotunbaneaxes/hex_armory_dual_jotun_bane_axes.prefab"
                 },
                 {
                     DualCopperKnives.PrefabName,

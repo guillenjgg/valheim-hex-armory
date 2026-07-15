@@ -44,6 +44,8 @@
             internal const string CharredBone = "CharredBone";
             internal const string Crystal = "Crystal";
             internal const string AncientBark = "ElderBark";
+            internal const string YggWood = "YggdrasilWood";
+            internal const string Bilebag = "Bilebag";
         }
 
         internal static class Knives
