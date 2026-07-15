@@ -164,6 +164,7 @@ namespace HexArmory.Core.Services
             shared.m_damages.m_spirit = stats.Spirit ?? shared.m_damages.m_spirit;
             shared.m_damages.m_fire = stats.Fire ?? shared.m_damages.m_fire;
             shared.m_damages.m_frost = stats.Frost ?? shared.m_damages.m_frost;
+            shared.m_damages.m_poison = stats.Poison ?? shared.m_damages.m_poison;
 
             shared.m_damagesPerLevel.m_slash = stats.SlashDamagePerLevel ?? shared.m_damagesPerLevel.m_slash;
             shared.m_damagesPerLevel.m_pierce = stats.PierceDamagePerLevel ?? shared.m_damagesPerLevel.m_pierce;
@@ -187,6 +188,8 @@ namespace HexArmory.Core.Services
 
             shared.m_attack.m_attackStamina = stats.AttackStamina ?? shared.m_attack.m_attackStamina;
             shared.m_timedBlockBonus = stats.TimedBlockBonus ?? shared.m_timedBlockBonus;
+
+            shared.m_toolTier = stats.ToolTier ?? shared.m_toolTier;
 
             Jotunn.Logger.LogDebug(
                 $"Applied weapon stats to {itemDrop.name}. " +

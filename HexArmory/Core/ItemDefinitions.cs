@@ -91,6 +91,61 @@ namespace HexArmory.Core
                 DualFlintAxes.Requirements,
                 statsOverride: DualFlintAxes.StatsOverride),
 
+            ItemDefinitionFactory.WeaponAxe(
+                DualBronzeAxes.PrefabName,
+                null,
+                DualBronzeAxes.DisplayNameToken,
+                DualBronzeAxes.DescriptionToken,
+                DualBronzeAxes.Amount,
+                DualBronzeAxes.MinStationLevel,
+                DualBronzeAxes.CraftingStation,
+                DualBronzeAxes.Requirements,
+                statsOverride: DualBronzeAxes.StatsOverride),
+
+            ItemDefinitionFactory.WeaponAxe(
+                DualIronAxes.PrefabName,
+                null,
+                DualIronAxes.DisplayNameToken,
+                DualIronAxes.DescriptionToken,
+                DualIronAxes.Amount,
+                DualIronAxes.MinStationLevel,
+                DualIronAxes.CraftingStation,
+                DualIronAxes.Requirements,
+                statsOverride: DualIronAxes.StatsOverride),
+
+            ItemDefinitionFactory.WeaponAxe(
+                DualCrystalAxes.PrefabName,
+                null,
+                DualCrystalAxes.DisplayNameToken,
+                DualCrystalAxes.DescriptionToken,
+                DualCrystalAxes.Amount,
+                DualCrystalAxes.MinStationLevel,
+                DualCrystalAxes.CraftingStation,
+                DualCrystalAxes.Requirements,
+                statsOverride: DualCrystalAxes.StatsOverride),
+
+            ItemDefinitionFactory.WeaponAxe(
+                DualBlackMetalAxes.PrefabName,
+                null,
+                DualBlackMetalAxes.DisplayNameToken,
+                DualBlackMetalAxes.DescriptionToken,
+                DualBlackMetalAxes.Amount,
+                DualBlackMetalAxes.MinStationLevel,
+                DualBlackMetalAxes.CraftingStation,
+                DualBlackMetalAxes.Requirements,
+                statsOverride: DualBlackMetalAxes.StatsOverride),
+
+            ItemDefinitionFactory.WeaponAxe(
+                DualJotunBaneAxes.PrefabName,
+                null,
+                DualJotunBaneAxes.DisplayNameToken,
+                DualJotunBaneAxes.DescriptionToken,
+                DualJotunBaneAxes.Amount,
+                DualJotunBaneAxes.MinStationLevel,
+                DualJotunBaneAxes.CraftingStation,
+                DualJotunBaneAxes.Requirements,
+                statsOverride: DualJotunBaneAxes.StatsOverride),
+
             ItemDefinitionFactory.WeaponKnife(
                 DualCopperKnives.PrefabName,
                 null,

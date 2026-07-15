@@ -20,6 +20,26 @@ namespace HexArmory.Core
                     "assets/_customitems/hexarmory/axes/dualflintaxes/hex_armory_dual_flint_axes.prefab"
                 },
                 {
+                    DualBronzeAxes.PrefabName,
+                    "assets/_customitems/hexarmory/axes/dualbronzeaxes/hex_armory_dual-bronze-axes.prefab"
+                },
+                {
+                    DualIronAxes.PrefabName,
+                    "assets/_customitems/hexarmory/axes/dualironaxes/hex_armory_dual_iron_axes.prefab"
+                },
+                {
+                    DualCrystalAxes.PrefabName,
+                    "assets/_customitems/hexarmory/axes/dualcrystalaxes/hex_armory_dual_crystal_battle_axes.prefab"
+                },
+                {
+                    DualBlackMetalAxes.PrefabName,
+                    "assets/_customitems/hexarmory/axes/dualblackmetalaxes/hex_armory_dual_black_metal_axes.prefab"
+                },
+                {
+                    DualJotunBaneAxes.PrefabName,
+                    "assets/_customitems/hexarmory/axes/dualjotunbaneaxes/hex_armory_dual_jotun_bane_axes.prefab"
+                },
+                {
                     DualCopperKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualcopperknives/hex_armory_dual_copper_knives.prefab"
                 },

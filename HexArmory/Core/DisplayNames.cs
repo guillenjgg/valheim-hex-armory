@@ -10,6 +10,11 @@
             internal const string TrollBloodCape = "Troll Blood Cape";
         }
 
+        internal static class Chests
+        {
+            internal const string AshChestFenrig = "Ash Chest Fenrig";
+        }
+
         internal static class Materials
         {
         }
@@ -29,6 +34,11 @@
         internal static class Axes
         {
             internal const string FlintAxes = "Dual Flint Axes";
+            internal const string BronzeAxes = "Dual Bronze Axes";
+            internal const string IronAxes = "Dual Iron Axes";
+            internal const string CrystalAxes = "Dual Crystal Axes";
+            internal const string BlackMetalAxes = "Dual Black Metal Axes";
+            internal const string JotunBaneAxes = "Dual Jotun Bane Axes";
         }
 
         internal static class SEEffects

@@ -42,6 +42,10 @@
             internal const string MushroomYellow = "MushroomYellow";
             internal const string Mandible = "Mandible";
             internal const string CharredBone = "CharredBone";
+            internal const string Crystal = "Crystal";
+            internal const string AncientBark = "ElderBark";
+            internal const string YggWood = "YggdrasilWood";
+            internal const string Bilebag = "Bilebag";
         }
 
         internal static class Knives
