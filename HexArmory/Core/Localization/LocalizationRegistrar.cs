@@ -56,7 +56,10 @@ namespace HexArmory.Core.Localization
                 
                 { "item_hex_armory_dual_flame_metal_knives", $"{DisplayNames.Knives.FlameMetalKnives}" },
                 { "item_hex_armory_dual_flame_metal_knives_desc", "Dual Flame Metal Knives" },
-                
+
+                { "item_hex_armory_dual_flame_metal_lightning_knives", $"{DisplayNames.Knives.FlameMetalLightningKnives}" },
+                { "item_hex_armory_dual_flame_metal_lightning_knives_desc", "Dual Flame Metal Knives" },
+
                 { "item_hex_armory_tarred_hide_cape", $"{DisplayNames.Capes.TarredHideCape}" },
                 { "item_hex_armory_tarred_hide_cape_desc", "A deer hide cloak treated with resin and smoke. Water beads upon its surface and rolls harmlessly away." },
                

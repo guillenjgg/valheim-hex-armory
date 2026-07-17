@@ -46,6 +46,8 @@
             internal const string AncientBark = "ElderBark";
             internal const string YggWood = "YggdrasilWood";
             internal const string Bilebag = "Bilebag";
+            internal const string GemstoneBlue = "GemstoneBlue";
+            internal const string DualFlameMetalKnives = "hex_armory_dual_flame_metal_knives";
         }
 
         internal static class Knives

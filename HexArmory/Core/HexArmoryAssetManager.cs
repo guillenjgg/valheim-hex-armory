@@ -60,12 +60,16 @@ namespace HexArmory.Core
                     "assets/_customitems/hexarmory/knives/dualchitinknives/hex_armory_dual_chitin_knives.prefab"
                 },
                 {
+                    SkollAndHatiEmberForged.PrefabName,
+                    "assets/_customitems/hexarmory/knives/skollandhatiember/hex_armory_skoll_and_hati_emberforged.prefab"
+                },
+                {
                     DualFlameMetalKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualflamemetalknives/hex_armory_dual_flame_metal_knives.prefab"
                 },
                 {
-                    SkollAndHatiEmberForged.PrefabName,
-                    "assets/_customitems/hexarmory/knives/skollandhatiember/hex_armory_skoll_and_hati_emberforged.prefab"
+                    DualFlameMetalLightningKnives.PrefabName,
+                    "assets/_customitems/hexarmory/knives/dualflamemetallightning/hex_armory_dual_flame_metal_lightning_knives.prefab"
                 },
                 {
                     TarredHideCape.PrefabName,

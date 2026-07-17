@@ -29,6 +29,7 @@
             internal const string ChitinKnives = "Dual Abyssal Razors";
             internal const string SkollAndHatiEmberforged = "Emberforged Skoll and Hati";
             internal const string FlameMetalKnives = "Dual Flame Metal Knives";
+            internal const string FlameMetalLightningKnives = "Dual Flame Metal Lightning Knives";
         }
 
         internal static class Axes

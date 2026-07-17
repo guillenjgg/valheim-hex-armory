@@ -33,10 +33,10 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.AskHide, 6),
-            new RequirementConfig(VanillaPrefabNames.Materials.MorgenSinew, 2),
-            new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 5),
-            new RequirementConfig(VanillaPrefabNames.Materials.Feathers, 20)
+            new RequirementConfig(VanillaPrefabNames.Materials.AskHide, 6, 2),
+            new RequirementConfig(VanillaPrefabNames.Materials.MorgenSinew, 2, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 5, 1),
+            new RequirementConfig(VanillaPrefabNames.Materials.Feathers, 20, 0)
         };
     }
 

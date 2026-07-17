@@ -305,4 +305,46 @@ namespace HexArmory.Core
             TimedBlockBonus = 4f,
         };
     }
+
+    internal static class DualFlameMetalLightningKnives
+    {
+        internal const string PrefabName = "hex_armory_dual_flame_metal_lightning_knives";
+        internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_lightning_knives";
+        internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_lightning_knives_desc";
+        internal const int Amount = 1;
+        internal const int MinStationLevel = 4;
+
+        internal static readonly string CraftingStation = CraftingStations.BlackForge;
+
+        internal static readonly RequirementConfig[] Requirements =
+        {
+            new RequirementConfig(VanillaPrefabNames.Materials.DualFlameMetalKnives, 1, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 0, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.GemstoneBlue, 1, 0),
+        };
+
+        internal static readonly ItemStatsOverride StatsOverride = new ItemStatsOverride
+        {
+            SlashDamage = 120f,
+            PierceDamage = 120f,
+            Spirit = 12f,
+            Frost = 12f,
+            Lightning = 100f,
+            SlashDamagePerLevel = 3f,
+            PierceDamagePerLevel = 3f,
+            MaxQuality = 4,
+            AttackForce = 20f,
+            BackstabBonus = 6f,
+            BlockPower = 57f,
+            BlockPowerPerLevel = 0f,
+            DeflectionForce = 20f,
+            DeflectionForcePerLevel = 5f,
+            MaxDurability = 175f,
+            DurabilityPerLevel = 50f,
+            UseDurabilityDrain = 1f,
+            MovementModifier = 0f,
+            AttackStamina = 16f,
+            TimedBlockBonus = 4f,
+        };
+    }
 }
