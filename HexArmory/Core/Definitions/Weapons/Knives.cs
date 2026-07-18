@@ -286,8 +286,8 @@ namespace HexArmory.Core
         {
             SlashDamage = 120f,
             PierceDamage = 120f,
-            Spirit = 12f,
-            Frost = 12f,
+            Spirit = 20f,
+            Frost = 20f,
             SlashDamagePerLevel = 3f,
             PierceDamagePerLevel = 3f,
             MaxQuality = 4,
