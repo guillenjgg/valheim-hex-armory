@@ -319,7 +319,7 @@ namespace HexArmory.Core
         internal static readonly RequirementConfig[] Requirements =
         {
             new RequirementConfig(VanillaPrefabNames.Materials.DualFlameMetalKnives, 1, 0),
-            new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 0, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 0, 10),
             new RequirementConfig(VanillaPrefabNames.Materials.GemstoneBlue, 1, 0),
         };
 
@@ -327,8 +327,6 @@ namespace HexArmory.Core
         {
             SlashDamage = 120f,
             PierceDamage = 120f,
-            Spirit = 12f,
-            Frost = 12f,
             Lightning = 100f,
             SlashDamagePerLevel = 3f,
             PierceDamagePerLevel = 3f,
