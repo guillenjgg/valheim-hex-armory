@@ -78,8 +78,8 @@ namespace HexArmory.Core
                 {
                     TrollBloodCape.PrefabName,
                     "assets/_customitems/hexarmory/armor/capes/trollbloodcape/hex_armory_troll_blood_cape.prefab"
-},
-                };
+                },
+            };
 
         internal static StatusEffect TrollBloodStatusEffect { get; private set; }
 
