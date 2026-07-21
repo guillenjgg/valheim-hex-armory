@@ -221,7 +221,18 @@ namespace HexArmory.Core
                 DualFlameMetalKnives.MinStationLevel,
                 DualFlameMetalKnives.CraftingStation,
                 DualFlameMetalKnives.Requirements,
-                statsOverride: DualFlameMetalKnives.StatsOverride)
+                statsOverride: DualFlameMetalKnives.StatsOverride),
+
+            ItemDefinitionFactory.WeaponKnife(
+                DualFlameMetalLightningKnives.PrefabName,
+                null,
+                DualFlameMetalLightningKnives.DisplayNameToken,
+                DualFlameMetalLightningKnives.DescriptionToken,
+                DualFlameMetalLightningKnives.Amount,
+                DualFlameMetalLightningKnives.MinStationLevel,
+                DualFlameMetalLightningKnives.CraftingStation,
+                DualFlameMetalLightningKnives.Requirements,
+                statsOverride: DualFlameMetalLightningKnives.StatsOverride)
         };
     }
 }

@@ -14,10 +14,10 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.Feathers, 10),
-            new RequirementConfig(VanillaPrefabNames.Materials.ScaleHide, 5),
-            new RequirementConfig(VanillaPrefabNames.Materials.Eitr, 20),
-            new RequirementConfig(VanillaPrefabNames.Materials.SurtlingCore, 5)
+            new RequirementConfig(VanillaPrefabNames.Materials.Feathers, 10, 2),
+            new RequirementConfig(VanillaPrefabNames.Materials.ScaleHide, 5, 2),
+            new RequirementConfig(VanillaPrefabNames.Materials.Eitr, 20, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.SurtlingCore, 5, 0)
         };
     }
 
@@ -33,10 +33,10 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.AskHide, 6),
-            new RequirementConfig(VanillaPrefabNames.Materials.MorgenSinew, 2),
-            new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 5),
-            new RequirementConfig(VanillaPrefabNames.Materials.Feathers, 20)
+            new RequirementConfig(VanillaPrefabNames.Materials.AskHide, 6, 2),
+            new RequirementConfig(VanillaPrefabNames.Materials.MorgenSinew, 2, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 5, 1),
+            new RequirementConfig(VanillaPrefabNames.Materials.Feathers, 20, 0)
         };
     }
 
@@ -52,10 +52,10 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.DeerHide, 4),
-            new RequirementConfig(VanillaPrefabNames.Materials.Wood, 10),
-            new RequirementConfig(VanillaPrefabNames.Materials.Stone, 5),
-            new RequirementConfig(VanillaPrefabNames.Materials.Resin, 5)
+            new RequirementConfig(VanillaPrefabNames.Materials.DeerHide, 4, 2),
+            new RequirementConfig(VanillaPrefabNames.Materials.Wood, 10, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.Stone, 5, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.Resin, 5, 0)
         };
     }
 
@@ -71,10 +71,10 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.TrollHide, 10),
-            new RequirementConfig(VanillaPrefabNames.Materials.Bronze, 10),
-            new RequirementConfig(VanillaPrefabNames.Materials.MushroomYellow, 5),
-            new RequirementConfig(VanillaPrefabNames.Trophies.TrophyFrostTroll, 1)
+            new RequirementConfig(VanillaPrefabNames.Materials.TrollHide, 10, 0),
+            new RequirementConfig(VanillaPrefabNames.Materials.Bronze, 10, 2),
+            new RequirementConfig(VanillaPrefabNames.Materials.MushroomYellow, 0),
+            new RequirementConfig(VanillaPrefabNames.Trophies.TrophyFrostTroll, 0)
         };
     }
 }
