@@ -69,6 +69,7 @@
     <Compile Include="Core\Definitions\Armor\Chests.cs" />
     <Compile Include="Core\Definitions\Weapons\Axes.cs" />
     <Compile Include="Core\Definitions\Weapons\Knives.cs" />
+    <Compile Include="Core\Definitions\Weapons\Swords.cs" />
     <Compile Include="Core\HexArmoryAssetManager.cs" />
     <Compile Include="Core\DisplayNames.cs" />
     <Compile Include="Core\HexArmoryRegistrar.cs" />

@@ -21,6 +21,9 @@ namespace HexArmory.Core.Localization
                 { "item_hex_armory_dual_flint_axes", $"{DisplayNames.Axes.FlintAxes}" },
                 { "item_hex_armory_dual_flint_axes_desc", "Two is better than one?" },
 
+                { "item_hex_armory_flint_sword", $"{DisplayNames.Swords.FlintSword}" },
+                { "item_hex_armory_flint_sword_desc", "A sword forged from flint, sharp and durable...kinda" },
+
                 { "item_hex_armory_dual_flint_knives", $"{DisplayNames.Knives.FlintKnives}" },
                 { "item_hex_armory_dual_flint_knives_desc", "Two is better than one?" },
                 

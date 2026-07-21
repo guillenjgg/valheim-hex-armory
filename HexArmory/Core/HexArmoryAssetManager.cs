@@ -1,4 +1,5 @@
-﻿using Jotunn.Utils;
+﻿using HexArmory.Core.Definitions.Weapons;
+using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ namespace HexArmory.Core
                 {
                     DualFlintKnives.PrefabName,
                     "assets/_customitems/hexarmory/knives/dualflintknives/hex_armory_dual_flint_knives.prefab"
+                },
+                {
+                    FlintSword.PrefabName,
+                    "assets/_customitems/hexarmory/swords/flintsword/hex_armory_flint_sword.prefab"
                 },
                 {
                     DualFlintAxes.PrefabName,

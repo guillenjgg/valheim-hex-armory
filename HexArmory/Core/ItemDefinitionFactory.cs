@@ -180,6 +180,32 @@ namespace HexArmory.Core
                 addDamageModifiers: addDamageModifiers);
         }
 
+        internal static ItemDefinitionEntry WeaponSword(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null)
+        {
+            return Create(
+                ItemTypeDefinitionEnum.Sword,
+                prefabName,
+                basePrefabName,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements,
+                statsOverride: statsOverride,
+                addDamageModifiers: addDamageModifiers);
+        }
+
         private static ItemDefinitionEntry Create(
             ItemTypeDefinitionEnum kind,
             string prefabName,
