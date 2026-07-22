@@ -1,5 +1,5 @@
+﻿using System.Collections.Generic;
 using HexArmory.Core.Definitions.Weapons;
-using System.Collections.Generic;
 using static HitData;
 
 namespace HexArmory.Core

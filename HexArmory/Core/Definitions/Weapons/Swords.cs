@@ -1,5 +1,5 @@
-﻿using HexArmory.Core.Models;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
+using HexArmory.Core.Models;
 
 namespace HexArmory.Core.Definitions.Weapons
 {

@@ -1,4 +1,4 @@
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using HexArmory.Core.Models;
 
 namespace HexArmory.Core
@@ -241,9 +241,9 @@ namespace HexArmory.Core
 
     internal static class SkollAndHatiEmberForged
     {
-        internal const string PrefabName = "hex_armory_skoll_hati_emberforged_knives";
-        internal const string DisplayNameToken = "$item_hex_armory_skoll_hati_emberforged_knives";
-        internal const string DescriptionToken = "$item_hex_armory_skoll_hati_emberforged_knives_desc";
+        internal const string PrefabName = "hex_armory_skoll_hati_emberforged";
+        internal const string DisplayNameToken = "$item_hex_armory_skoll_hati_emberforged";
+        internal const string DescriptionToken = "$item_hex_armory_skoll_hati_emberforged_desc";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 

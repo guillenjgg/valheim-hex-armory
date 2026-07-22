@@ -1,4 +1,4 @@
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using System.Collections.Generic;
 using HexArmory.Core.Models;
 
@@ -9,6 +9,7 @@ namespace HexArmory.Core
         internal ItemTypeDefinitionEnum Kind { get; }
         internal string PrefabName { get; }
         internal string BasePrefabName { get; }
+        internal string AssetBundlePath { get; }
         internal string DisplayNameToken { get; }
         internal string DescriptionToken { get; }
         internal int Amount { get; }
@@ -38,6 +39,7 @@ namespace HexArmory.Core
             ItemTypeDefinitionEnum kind,
             string prefabName,
             string basePrefabName,
+            string assetBundlePath,
             string displayNameToken,
             string descriptionToken,
             int amount,
@@ -48,6 +50,7 @@ namespace HexArmory.Core
             Kind = kind;
             PrefabName = prefabName;
             BasePrefabName = basePrefabName;
+            AssetBundlePath = assetBundlePath;
             DisplayNameToken = displayNameToken;
             DescriptionToken = descriptionToken;
             Amount = amount;

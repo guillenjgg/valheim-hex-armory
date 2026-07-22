@@ -59,7 +59,9 @@ namespace HexArmory
 
             if (itemDefinition.BasePrefabName == null)
             {
-                if (!HexArmoryAssetManager.PrefabPathByItemPrefabName.TryGetValue(itemDefinition.PrefabName, out string assetName))
+                string assetName = itemDefinition.AssetBundlePath;
+
+                if (string.IsNullOrEmpty(assetName) && !HexArmoryAssetManager.TryGetAssetPathForPrefab(itemDefinition.PrefabName, out assetName))
                 {
                     Jotunn.Logger.LogError(
                         $"No asset bundle prefab path mapped for item: {itemDefinition.PrefabName}");
