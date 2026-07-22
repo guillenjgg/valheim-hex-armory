@@ -2,7 +2,7 @@ using BepInEx;
 using BepInEx.Configuration;
 using System.IO;
 
-namespace HexArmory.Core
+namespace HexArmory.Core.Services
 {
     /// <summary>
     /// Handles BepInEx configuration with live-reload support via FileSystemWatcher.

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using HexArmory.Core.Definitions.Weapons;
+using HexArmory.Core.Models;
 using static HitData;
 
-namespace HexArmory.Core
+namespace HexArmory.Core.Services
 {
     internal static class ItemDefinitions
     {
@@ -42,7 +43,7 @@ namespace HexArmory.Core
                 TrollBloodCape.MinStationLevel,
                 TrollBloodCape.CraftingStation,
                 TrollBloodCape.Requirements,
-                addEquipStatusEffect: HexArmoryAssetManager.TrollBloodStatusEffect,
+                addEquipStatusEffect: HexArmoryAssetManagerService.TrollBloodStatusEffect,
                 addDamageModifiers: new List<HitData.DamageModPair>
                 {
                     new HitData.DamageModPair

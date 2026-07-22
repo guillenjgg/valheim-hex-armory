@@ -1,4 +1,4 @@
-﻿namespace HexArmory.Core
+﻿namespace HexArmory.Core.Localization
 {
     internal static class DisplayNames
     {

@@ -1,12 +1,11 @@
-﻿using HexArmory.Core;
-using HexArmory.Core.Services;
+﻿using HexArmory.Core.Models;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 
-namespace HexArmory
+namespace HexArmory.Core.Services
 {
-    internal static class HexArmoryRegistrar
+    internal static class HexArmoryRegistrarService
     {
         private static bool _registered;
 
@@ -61,7 +60,7 @@ namespace HexArmory
             {
                 string assetName = itemDefinition.AssetBundlePath;
 
-                if (string.IsNullOrEmpty(assetName) && !HexArmoryAssetManager.TryGetAssetPathForPrefab(itemDefinition.PrefabName, out assetName))
+                if (string.IsNullOrEmpty(assetName) && !HexArmoryAssetManagerService.TryGetAssetPathForPrefab(itemDefinition.PrefabName, out assetName))
                 {
                     Jotunn.Logger.LogError(
                         $"No asset bundle prefab path mapped for item: {itemDefinition.PrefabName}");
@@ -70,7 +69,7 @@ namespace HexArmory
                 }
 
                 customItem = new CustomItem(
-                    HexArmoryAssetManager.AssetBundle,
+                    HexArmoryAssetManagerService.AssetBundle,
                     assetName,
                     true,
                     itemConfig);
