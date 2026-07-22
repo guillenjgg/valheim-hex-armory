@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace HexArmory.Core
+namespace HexArmory.Core.Services
 {
-    internal static class HexArmoryAssetManager
+    internal static class HexArmoryAssetManagerService
     {
         internal static AssetBundle AssetBundle { get; private set; }
         private static Dictionary<string, string> _assetPathByPrefabName;

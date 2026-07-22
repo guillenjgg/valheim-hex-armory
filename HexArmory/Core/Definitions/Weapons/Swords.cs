@@ -8,6 +8,8 @@ namespace HexArmory.Core.Definitions.Weapons
         internal const string PrefabName = "hex_armory_flint_sword";
         internal const string DisplayNameToken = "$item_hex_armory_flint_sword";
         internal const string DescriptionToken = "$item_hex_armory_flint_sword_desc";
+        internal const string DisplayName = "Flint Sword";
+        internal const string Description = "A sword forged from flint, sharp and durable...kinda";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 

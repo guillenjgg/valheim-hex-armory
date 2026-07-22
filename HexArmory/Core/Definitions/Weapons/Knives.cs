@@ -8,6 +8,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_flint_knives";
         internal const string DisplayNameToken = "$item_hex_armory_dual_flint_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_flint_knives_desc";
+        internal const string DisplayName = "Dual Flint Knives";
+        internal const string Description = "Two is better than one?";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -46,6 +48,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_copper_knives";
         internal const string DisplayNameToken = "$item_hex_armory_dual_copper_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_copper_knives_desc";
+        internal const string DisplayName = "Dual Copper Knives";
+        internal const string Description = "Forged from refined copper and sharpened to a keen edge, these twin knives excel at finding gaps in an enemy's defense.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -84,6 +88,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_chitin_knives";
         internal const string DisplayNameToken = "$item_hex_armory_dual_chitin_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_chitin_knives_desc";
+        internal const string DisplayName = "Dual Abyssal Razors";
+        internal const string Description = "Dual Chitin Knives";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -122,6 +128,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_iron_knives";
         internal const string DisplayNameToken = "$item_hex_armory_dual_iron_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_iron_knives_desc";
+        internal const string DisplayName = "Dual Iron Knives";
+        internal const string Description = "Dual Iron Knives";
         internal const int Amount = 1;
         internal const int MinStationLevel = 3;
 
@@ -162,6 +170,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_silver_knives";
         internal const string DisplayNameToken = "$item_hex_armory_dual_silver_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_silver_knives_desc";
+        internal const string DisplayName = "Dual Emberforged Silver Knives";
+        internal const string Description = "Forged from silver and tempered in fire, these paired knives leave smoldering wounds that linger long after the strike.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 3;
 
@@ -203,6 +213,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_black_metal_knives";
         internal const string DisplayNameToken = "$item_hex_armory_dual_black_metal_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_black_metal_knives_desc";
+        internal const string DisplayName = "Dual Frostforged Black Metal Knives";
+        internal const string Description = "Forged from black metal and infused with biting frost, these paired knives tear flesh and freeze bone alike.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 4;
 
@@ -244,6 +256,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_skoll_hati_emberforged";
         internal const string DisplayNameToken = "$item_hex_armory_skoll_hati_emberforged";
         internal const string DescriptionToken = "$item_hex_armory_skoll_hati_emberforged_desc";
+        internal const string DisplayName = "Emberforged Skoll and Hati";
+        internal const string Description = "The flames within these blades burn as fiercely as the hatred that gave them form.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -270,6 +284,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_flame_metal_knives";
         internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_knives_desc";
+        internal const string DisplayName = "Dual Flame Metal Knives";
+        internal const string Description = "Dual Flame Metal Knives";
         internal const int Amount = 1;
         internal const int MinStationLevel = 4;
 
@@ -311,6 +327,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_flame_metal_lightning_knives";
         internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_lightning_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_lightning_knives_desc";
+        internal const string DisplayName = "Dual Flame Metal Lightning Knives";
+        internal const string Description = "Dual Flame Metal Knives";
         internal const int Amount = 1;
         internal const int MinStationLevel = 4;
 

@@ -2,7 +2,7 @@ using BepInEx;
 using BepInEx.Configuration;
 using System.IO;
 
-namespace HexArmory.Core
+namespace HexArmory.Core.Services
 {
     /// <summary>
     /// Handles BepInEx configuration with live-reload support via FileSystemWatcher.
@@ -44,7 +44,6 @@ namespace HexArmory.Core
             watcher.Created += (sender, e) => ReloadConfig(config, configFileName);
             watcher.Renamed += (sender, e) => ReloadConfig(config, configFileName);
 
-            // Ensure thread-safe UI updates if running on main thread
             if (ThreadingHelper.SynchronizingObject != null)
             {
                 watcher.SynchronizingObject = ThreadingHelper.SynchronizingObject;

@@ -4,7 +4,7 @@ using HexArmory.Core;
 using HexArmory.Core.Localization;
 using Jotunn.Managers;
 
-namespace HexArmory
+namespace HexArmory.Core.Services
 {
     [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
@@ -26,9 +26,9 @@ namespace HexArmory
             PluginConfig.Initialize(Config);
 
             LocalizationRegistrar.Register();
-            HexArmoryAssetManager.LoadAssets();
+            HexArmoryAssetManagerService.LoadAssets();
 
-            PrefabManager.OnVanillaPrefabsAvailable += HexArmoryRegistrar.RegisterItems;
+            PrefabManager.OnVanillaPrefabsAvailable += HexArmoryRegistrarService.RegisterItems;
 
             Log.LogInfo($"{PluginName} v{PluginVersion} loaded.");
         }
@@ -37,9 +37,9 @@ namespace HexArmory
         {
             Log.LogInfo($"{PluginName} v{PluginVersion} unloaded.");
 
-            PrefabManager.OnVanillaPrefabsAvailable -= HexArmoryRegistrar.RegisterItems;
+            PrefabManager.OnVanillaPrefabsAvailable -= HexArmoryRegistrarService.RegisterItems;
 
-            HexArmoryAssetManager.UnloadAssets();
+            HexArmoryAssetManagerService.UnloadAssets();
             Instance = null;
             Log = null;
         }

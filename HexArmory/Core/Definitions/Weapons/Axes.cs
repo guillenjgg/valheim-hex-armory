@@ -8,6 +8,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_flint_axes";
         internal const string DisplayNameToken = "$item_hex_armory_dual_flint_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_flint_axes_desc";
+        internal const string DisplayName = "Dual Flint Axes";
+        internal const string Description = "Two is better than one?";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -46,6 +48,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_bronze_axes";
         internal const string DisplayNameToken = "$item_hex_armory_dual_bronze_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_bronze_axes_desc";
+        internal const string DisplayName = "Dual Bronze Axes";
+        internal const string Description = "Sharper than stone, stronger than one.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 2;
 
@@ -85,6 +89,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_iron_axes";
         internal const string DisplayNameToken = "$item_hex_armory_dual_iron_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_iron_axes_desc";
+        internal const string DisplayName = "Dual Iron Axes";
+        internal const string Description = "Sharper than bronze, stronger than one.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 3;
 
@@ -125,6 +131,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_crystal_battle_axes";
         internal const string DisplayNameToken = "$item_hex_armory_dual_crystal_battle_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_crystal_battle_axes_desc";
+        internal const string DisplayName = "Dual Crystal Axes";
+        internal const string Description = "Sharper than bronze, stronger than one.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 3;
 
@@ -165,6 +173,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_black_metal_axes";
         internal const string DisplayNameToken = "$item_hex_armory_dual_black_metal_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_black_metal_axes_desc";
+        internal const string DisplayName = "Dual Black Metal Axes";
+        internal const string Description = "Sharper than bronze, stronger than one.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 4;
 
@@ -206,6 +216,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_dual_jotun_bane_axes";
         internal const string DisplayNameToken = "$item_hex_armory_dual_jotun_bane_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_jotun_bane_axes_desc";
+        internal const string DisplayName = "Dual Jotun Bane Axes";
+        internal const string Description = "Sharper than bronze, stronger than one.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 

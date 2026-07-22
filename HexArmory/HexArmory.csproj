@@ -70,20 +70,19 @@
     <Compile Include="Core\Definitions\Weapons\Axes.cs" />
     <Compile Include="Core\Definitions\Weapons\Knives.cs" />
     <Compile Include="Core\Definitions\Weapons\Swords.cs" />
-    <Compile Include="Core\HexArmoryAssetManager.cs" />
-    <Compile Include="Core\DisplayNames.cs" />
-    <Compile Include="Core\HexArmoryRegistrar.cs" />
+    <Compile Include="Core\ItemDefinitions.cs" />
+    <Compile Include="Core\Services\HexArmoryAssetManagerService.cs" />
+    <Compile Include="Core\Localization\DisplayNames.cs" />
+    <Compile Include="Core\Services\HexArmoryRegistrarService.cs" />
     <Compile Include="Core\ItemDefinitionFactory.cs" />
     <Compile Include="Core\ItemTypeDefinitionEnum.cs" />
-    <Compile Include="Core\ItemDefinitions.cs" />
-    <Compile Include="Core\Localization\LocalizationTokens.cs" />
+    <Compile Include="Core\Definitions\ItemDefinitions.cs" />
     <Compile Include="Core\Models\ItemDefinitionEntry.cs" />
     <Compile Include="Core\Models\ItemStatsOverride.cs" />
     <Compile Include="Core\Services\ItemDropModifierService.cs" />
     <Compile Include="Core\VanillaPrefabNames.cs" />
     <Compile Include="Core\Localization\LocalizationRegistrar.cs" />
     <Compile Include="Core\PluginConfig.cs" />
-    <Compile Include="Core\ItemDefinitionEntry.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
