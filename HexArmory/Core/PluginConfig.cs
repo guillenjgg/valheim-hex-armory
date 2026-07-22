@@ -44,7 +44,6 @@ namespace HexArmory.Core.Services
             watcher.Created += (sender, e) => ReloadConfig(config, configFileName);
             watcher.Renamed += (sender, e) => ReloadConfig(config, configFileName);
 
-            // Ensure thread-safe UI updates if running on main thread
             if (ThreadingHelper.SynchronizingObject != null)
             {
                 watcher.SynchronizingObject = ThreadingHelper.SynchronizingObject;

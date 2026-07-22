@@ -75,7 +75,7 @@
     <Compile Include="Core\Services\HexArmoryRegistrarService.cs" />
     <Compile Include="Core\ItemDefinitionFactory.cs" />
     <Compile Include="Core\ItemTypeDefinitionEnum.cs" />
-    <Compile Include="Core\ItemDefinitions.cs" />
+    <Compile Include="Core\Definitions\ItemDefinitions.cs" />
     <Compile Include="Core\Models\ItemDefinitionEntry.cs" />
     <Compile Include="Core\Models\ItemStatsOverride.cs" />
     <Compile Include="Core\Services\ItemDropModifierService.cs" />

@@ -1,4 +1,5 @@
-﻿using HexArmory.Core.Models;
+﻿using HexArmory.Core.Definitions;
+using HexArmory.Core.Models;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
