@@ -1,4 +1,4 @@
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using System.Collections.Generic;
 using HexArmory.Core.Models;
 
@@ -19,12 +19,14 @@ namespace HexArmory.Core
             string overrideEquipEffectFromPrefab = null,
             ItemStatsOverride statsOverride = null,
             List<HitData.DamageModPair> addDamageModifiers = null,
-            StatusEffect addEquipStatusEffect = null)
+            StatusEffect addEquipStatusEffect = null,
+            string assetBundlePath = null)
         {
             return Create(
                 ItemTypeDefinitionEnum.ArmorCape,
                 prefabName,
                 basePrefabName,
+                assetBundlePath,
                 displayNameToken,
                 descriptionToken,
                 amount,
@@ -50,12 +52,14 @@ namespace HexArmory.Core
             HitData.DamageType[] damageTypesToRemove = null,
             string overrideEquipEffectFromPrefab = null,
             ItemStatsOverride statsOverride = null,
-            List<HitData.DamageModPair> addDamageModifiers = null)
+            List<HitData.DamageModPair> addDamageModifiers = null,
+            string assetBundlePath = null)
         {
             return Create(
                 ItemTypeDefinitionEnum.ArmorHelmet,
                 prefabName,
                 basePrefabName,
+                assetBundlePath,
                 displayNameToken,
                 descriptionToken,
                 amount,
@@ -80,12 +84,14 @@ namespace HexArmory.Core
             HitData.DamageType[] damageTypesToRemove = null,
             string overrideEquipEffectFromPrefab = null,
             ItemStatsOverride statsOverride = null,
-            List<HitData.DamageModPair> addDamageModifiers = null)
+            List<HitData.DamageModPair> addDamageModifiers = null,
+            string assetBundlePath = null)
         {
             return Create(
                 ItemTypeDefinitionEnum.ArmorPants,
                 prefabName,
                 basePrefabName,
+                assetBundlePath,
                 displayNameToken,
                 descriptionToken,
                 amount,
@@ -98,7 +104,7 @@ namespace HexArmory.Core
                 addDamageModifiers);
         }
 
-        internal static ItemDefinitionEntry ArmorChests(
+        internal static ItemDefinitionEntry ArmorChest(
             string prefabName,
             string basePrefabName,
             string displayNameToken,
@@ -110,12 +116,14 @@ namespace HexArmory.Core
             HitData.DamageType[] damageTypesToRemove = null,
             string overrideEquipEffectFromPrefab = null,
             ItemStatsOverride statsOverride = null,
-            List<HitData.DamageModPair> addDamageModifiers = null)
+            List<HitData.DamageModPair> addDamageModifiers = null,
+            string assetBundlePath = null)
         {
             return Create(
                 ItemTypeDefinitionEnum.ArmorChest,
                 prefabName,
                 basePrefabName,
+                assetBundlePath,
                 displayNameToken,
                 descriptionToken,
                 amount,
@@ -138,12 +146,14 @@ namespace HexArmory.Core
             string craftingStation,
             RequirementConfig[] requirements,
             ItemStatsOverride statsOverride = null,
-            List<HitData.DamageModPair> addDamageModifiers = null)
+            List<HitData.DamageModPair> addDamageModifiers = null,
+            string assetBundlePath = null)
         {
             return Create(
                 ItemTypeDefinitionEnum.WeaponKnife,
                 prefabName,
                 basePrefabName,
+                assetBundlePath,
                 displayNameToken,
                 descriptionToken,
                 amount,
@@ -164,12 +174,42 @@ namespace HexArmory.Core
             string craftingStation,
             RequirementConfig[] requirements,
             ItemStatsOverride statsOverride = null,
-            List<HitData.DamageModPair> addDamageModifiers = null)
+            List<HitData.DamageModPair> addDamageModifiers = null,
+            string assetBundlePath = null)
         {
             return Create(
                 ItemTypeDefinitionEnum.WeaponAxe,
                 prefabName,
                 basePrefabName,
+                assetBundlePath,
+                displayNameToken,
+                descriptionToken,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements,
+                statsOverride: statsOverride,
+                addDamageModifiers: addDamageModifiers);
+        }
+
+        internal static ItemDefinitionEntry WeaponSword(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements,
+            ItemStatsOverride statsOverride = null,
+            List<HitData.DamageModPair> addDamageModifiers = null,
+            string assetBundlePath = null)
+        {
+            return Create(
+                ItemTypeDefinitionEnum.Sword,
+                prefabName,
+                basePrefabName,
+                assetBundlePath,
                 displayNameToken,
                 descriptionToken,
                 amount,
@@ -184,6 +224,7 @@ namespace HexArmory.Core
             ItemTypeDefinitionEnum kind,
             string prefabName,
             string basePrefabName,
+            string assetBundlePath,
             string displayNameToken,
             string descriptionToken,
             int amount,
@@ -200,6 +241,7 @@ namespace HexArmory.Core
                 kind,
                 prefabName,
                 basePrefabName,
+                assetBundlePath,
                 displayNameToken,
                 descriptionToken,
                 amount,

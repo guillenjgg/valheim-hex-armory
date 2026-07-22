@@ -42,6 +42,11 @@
             internal const string JotunBaneAxes = "Dual Jotun Bane Axes";
         }
 
+        internal static class Swords
+        {
+            internal const string FlintSword = "Flint Sword";
+        }
+
         internal static class SEEffects
         {
             internal const string TrollBlood = "Troll Blood";

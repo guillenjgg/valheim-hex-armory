@@ -1,5 +1,7 @@
 ﻿using Jotunn.Utils;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace HexArmory.Core
@@ -7,85 +9,9 @@ namespace HexArmory.Core
     internal static class HexArmoryAssetManager
     {
         internal static AssetBundle AssetBundle { get; private set; }
-
-        internal static readonly Dictionary<string, string> PrefabPathByItemPrefabName =
-            new Dictionary<string, string>
-            {
-                {
-                    DualFlintKnives.PrefabName,
-                    "assets/_customitems/hexarmory/knives/dualflintknives/hex_armory_dual_flint_knives.prefab"
-                },
-                {
-                    DualFlintAxes.PrefabName,
-                    "assets/_customitems/hexarmory/axes/dualflintaxes/hex_armory_dual_flint_axes.prefab"
-                },
-                {
-                    DualBronzeAxes.PrefabName,
-                    "assets/_customitems/hexarmory/axes/dualbronzeaxes/hex_armory_dual-bronze-axes.prefab"
-                },
-                {
-                    DualIronAxes.PrefabName,
-                    "assets/_customitems/hexarmory/axes/dualironaxes/hex_armory_dual_iron_axes.prefab"
-                },
-                {
-                    DualCrystalAxes.PrefabName,
-                    "assets/_customitems/hexarmory/axes/dualcrystalaxes/hex_armory_dual_crystal_battle_axes.prefab"
-                },
-                {
-                    DualBlackMetalAxes.PrefabName,
-                    "assets/_customitems/hexarmory/axes/dualblackmetalaxes/hex_armory_dual_black_metal_axes.prefab"
-                },
-                {
-                    DualJotunBaneAxes.PrefabName,
-                    "assets/_customitems/hexarmory/axes/dualjotunbaneaxes/hex_armory_dual_jotun_bane_axes.prefab"
-                },
-                {
-                    DualCopperKnives.PrefabName,
-                    "assets/_customitems/hexarmory/knives/dualcopperknives/hex_armory_dual_copper_knives.prefab"
-                },
-                {
-                    DualSilverKnives.PrefabName,
-                    "assets/_customitems/hexarmory/knives/dualsilverknives/hex_armory_dual_silver_knives.prefab"
-                },
-                {
-                    DualBlackMetalKnives.PrefabName,
-                    "assets/_customitems/hexarmory/knives/dualblackmetalknives/hex_armory_dual_black_metal_knives.prefab"
-                },
-                {
-                    DualIronKnives.PrefabName,
-                    "assets/_customitems/hexarmory/knives/dualironknives/hex_armory_dual_iron_knives.prefab"
-                },
-                {
-                    DualChitinKnives.PrefabName,
-                    "assets/_customitems/hexarmory/knives/dualchitinknives/hex_armory_dual_chitin_knives.prefab"
-                },
-                {
-                    SkollAndHatiEmberForged.PrefabName,
-                    "assets/_customitems/hexarmory/knives/skollandhatiember/hex_armory_skoll_and_hati_emberforged.prefab"
-                },
-                {
-                    DualFlameMetalKnives.PrefabName,
-                    "assets/_customitems/hexarmory/knives/dualflamemetalknives/hex_armory_dual_flame_metal_knives.prefab"
-                },
-                {
-                    DualFlameMetalLightningKnives.PrefabName,
-                    "assets/_customitems/hexarmory/knives/dualflamemetallightning/hex_armory_dual_flame_metal_lightning_knives.prefab"
-                },
-                {
-                    TarredHideCape.PrefabName,
-                    "assets/_customitems/hexarmory/armor/capes/tarredhidecape/hex_armory_tarred_hide_cape.prefab"
-                },
-                {
-                    TrollBloodCape.PrefabName,
-                    "assets/_customitems/hexarmory/armor/capes/trollbloodcape/hex_armory_troll_blood_cape.prefab"
-                },
-            };
+        private static Dictionary<string, string> _assetPathByPrefabName;
 
         internal static StatusEffect TrollBloodStatusEffect { get; private set; }
-
-        private const string TrollBloodStatusEffectPath =
-            "assets/_customitems/hexarmory/statuseffects/se_hexarmory_troll_blood.asset";
-
 
         internal static void LoadAssets()
         {
@@ -99,6 +25,8 @@ namespace HexArmory.Core
             }
             else
             {
+                BuildAssetLookup();
+
                 #if DEBUG
                 Jotunn.Logger.LogInfo("[HexArmory] Embedded asset bundle loaded successfully.");
                 var assets = AssetBundle.GetAllAssetNames();
@@ -109,20 +37,41 @@ namespace HexArmory.Core
             LoadStatusEffects();
         }
 
+        internal static bool TryGetAssetPathForPrefab(string prefabName, out string assetPath)
+        {
+            assetPath = null;
+
+            if (string.IsNullOrEmpty(prefabName) || _assetPathByPrefabName == null)
+            {
+                return false;
+            }
+
+            return _assetPathByPrefabName.TryGetValue(prefabName, out assetPath);
+        }
+
         internal static void LoadStatusEffects()
         {
-            TrollBloodStatusEffect = AssetBundle.LoadAsset<StatusEffect>(TrollBloodStatusEffectPath);
-
-            #if DEBUG
-            if (TrollBloodStatusEffect == null)
+            if (TryGetAssetPathForPrefab("se_hexarmory_troll_blood", out string assetPath))
             {
-                Jotunn.Logger.LogError($"[HexArmory] Failed to load status effect: {TrollBloodStatusEffectPath}");
+                TrollBloodStatusEffect = AssetBundle.LoadAsset<StatusEffect>(assetPath);
+
+                #if DEBUG
+                if (TrollBloodStatusEffect == null)
+                {
+                    Jotunn.Logger.LogError($"[HexArmory] Failed to load status effect from path: {assetPath}");
+                }
+                else
+                {
+                    Jotunn.Logger.LogInfo($"[HexArmory] Loaded status effect: {TrollBloodStatusEffect.name}");
+                }
+                #endif
             }
             else
             {
-                Jotunn.Logger.LogInfo($"[HexArmory] Loaded status effect: {TrollBloodStatusEffect.name}");
+                #if DEBUG
+                Jotunn.Logger.LogError("[HexArmory] Failed to find asset path for status effect: se_hexarmory_troll_blood");
+                #endif
             }
-            #endif
         }
 
         internal static void UnloadAssets()
@@ -131,6 +80,24 @@ namespace HexArmory.Core
             {
                 AssetBundle.Unload(false);
                 AssetBundle = null;
+                _assetPathByPrefabName = null;
+            }
+        }
+
+        private static void BuildAssetLookup()
+        {
+            _assetPathByPrefabName = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var assetName in AssetBundle.GetAllAssetNames())
+            {
+                var prefabName = Path.GetFileNameWithoutExtension(assetName);
+
+                if (string.IsNullOrEmpty(prefabName) || _assetPathByPrefabName.ContainsKey(prefabName))
+                {
+                    continue;
+                }
+
+                _assetPathByPrefabName.Add(prefabName, assetName);
             }
         }
     }

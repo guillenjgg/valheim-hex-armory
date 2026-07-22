@@ -21,6 +21,9 @@ namespace HexArmory.Core.Localization
                 { "item_hex_armory_dual_flint_axes", $"{DisplayNames.Axes.FlintAxes}" },
                 { "item_hex_armory_dual_flint_axes_desc", "Two is better than one?" },
 
+                { "item_hex_armory_flint_sword", $"{DisplayNames.Swords.FlintSword}" },
+                { "item_hex_armory_flint_sword_desc", "A sword forged from flint, sharp and durable...kinda" },
+
                 { "item_hex_armory_dual_flint_knives", $"{DisplayNames.Knives.FlintKnives}" },
                 { "item_hex_armory_dual_flint_knives_desc", "Two is better than one?" },
                 
@@ -54,8 +57,8 @@ namespace HexArmory.Core.Localization
                 { "item_hex_armory_dual_iron_knives", $"{DisplayNames.Knives.IronKnives}" },
                 { "item_hex_armory_dual_iron_knives_desc", "Dual Iron Knives" },
                 
-                { "item_hex_armory_skoll_hati_emberforged_knives", $"{DisplayNames.Knives.SkollAndHatiEmberforged}" },
-                { "item_hex_armory_skoll_hati_emberforged_knives_desc", "The flames within these blades burn as fiercely as the hatred that gave them form." },
+                { "item_hex_armory_skoll_hati_emberforged", $"{DisplayNames.Knives.SkollAndHatiEmberforged}" },
+                { "item_hex_armory_skoll_hati_emberforged_desc", "The flames within these blades burn as fiercely as the hatred that gave them form." },
                 
                 { "item_hex_armory_dual_flame_metal_knives", $"{DisplayNames.Knives.FlameMetalKnives}" },
                 { "item_hex_armory_dual_flame_metal_knives_desc", "Dual Flame Metal Knives" },

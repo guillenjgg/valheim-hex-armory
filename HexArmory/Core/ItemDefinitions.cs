@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using HexArmory.Core.Definitions.Weapons;
 using static HitData;
 
 namespace HexArmory.Core
@@ -232,7 +233,18 @@ namespace HexArmory.Core
                 DualFlameMetalLightningKnives.MinStationLevel,
                 DualFlameMetalLightningKnives.CraftingStation,
                 DualFlameMetalLightningKnives.Requirements,
-                statsOverride: DualFlameMetalLightningKnives.StatsOverride)
+                statsOverride: DualFlameMetalLightningKnives.StatsOverride),
+
+            ItemDefinitionFactory.WeaponSword(
+                FlintSword.PrefabName,
+                null,
+                FlintSword.DisplayNameToken,
+                FlintSword.DescriptionToken,
+                FlintSword.Amount,
+                FlintSword.MinStationLevel,
+                FlintSword.CraftingStation,
+                FlintSword.Requirements,
+                statsOverride: FlintSword.StatsOverride)
         };
     }
 }
