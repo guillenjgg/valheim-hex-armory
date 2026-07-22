@@ -7,6 +7,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "CapeFeather_HexArmory_Tempered";
         internal const string DisplayNameToken = "$item_hexarmory_tempered_feather_cape";
         internal const string DescriptionToken = "$item_hexarmory_tempered_feather_cape_desc";
+        internal const string DisplayName = "Tempered Feather Cape";
+        internal const string Description = "A refined feather cape without the fire weakness.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -26,6 +28,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "AshCape_HexArmory_Wingmantle_Cape";
         internal const string DisplayNameToken = "$item_hexarmory_ashen_wingmantle_cape";
         internal const string DescriptionToken = "$item_hexarmory_ashen_wingmantle_cape_desc";
+        internal const string DisplayName = "Ashen Wingmantle Cape";
+        internal const string Description = "A feather cape imbued with the power of the Ashen Wing.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -45,6 +49,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_tarred_hide_cape";
         internal const string DisplayNameToken = "$item_hex_armory_tarred_hide_cape";
         internal const string DescriptionToken = "$item_hex_armory_tarred_hide_cape_desc";
+        internal const string DisplayName = "Tarred Hide Cape";
+        internal const string Description = "A deer hide cloak treated with resin and smoke. Its rugged craftsmanship keeps the bitter cold at bay.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -64,6 +70,8 @@ namespace HexArmory.Core
         internal const string PrefabName = "hex_armory_troll_blood_cape";
         internal const string DisplayNameToken = "$item_hex_armory_troll_blood_cape";
         internal const string DescriptionToken = "$item_hex_armory_troll_blood_cape_desc";
+        internal const string DisplayName = "Troll Blood Cape";
+        internal const string Description = "Crafted from troll hide and steeped in troll blood, this cape carries the endurance of the forest's ancient giants.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 

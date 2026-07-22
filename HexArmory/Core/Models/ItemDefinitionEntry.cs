@@ -12,6 +12,8 @@ namespace HexArmory.Core.Models
         internal string AssetBundlePath { get; }
         internal string DisplayNameToken { get; }
         internal string DescriptionToken { get; }
+        internal string DisplayName { get; }
+        internal string Description { get; }
         internal int Amount { get; }
         internal int MinStationLevel { get; }
         internal string CraftingStation { get; }
@@ -42,6 +44,8 @@ namespace HexArmory.Core.Models
             string assetBundlePath,
             string displayNameToken,
             string descriptionToken,
+            string displayName,
+            string description,
             int amount,
             int minStationLevel,
             string craftingStation,
@@ -53,6 +57,8 @@ namespace HexArmory.Core.Models
             AssetBundlePath = assetBundlePath;
             DisplayNameToken = displayNameToken;
             DescriptionToken = descriptionToken;
+            DisplayName = displayName;
+            Description = description;
             Amount = amount;
             MinStationLevel = minStationLevel;
             CraftingStation = craftingStation;
