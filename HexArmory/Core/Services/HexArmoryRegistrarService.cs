@@ -34,7 +34,7 @@ namespace HexArmory.Core.Services
         {
             int registeredCount = 0;
 
-            foreach (var itemDefinition in ItemDefinitions.All)
+            foreach (var itemDefinition in ItemDefinitions.AllCustomItems)
             {
                 if (CreateCustomItem(itemDefinition))
                 {

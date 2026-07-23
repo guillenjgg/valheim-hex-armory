@@ -1,6 +1,5 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
-using HexArmory.Core;
 using HexArmory.Core.Localization;
 using Jotunn.Managers;
 

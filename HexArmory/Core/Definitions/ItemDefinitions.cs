@@ -8,7 +8,7 @@ namespace HexArmory.Core.Definitions
 {
     internal static class ItemDefinitions
     {
-        internal static readonly ItemDefinitionEntry[] All =
+        internal static readonly ItemDefinitionEntry[] AllCustomItems =
         {
             ItemDefinitionFactory.ArmorCape(
                 TemperedFeatherCape.PrefabName,
