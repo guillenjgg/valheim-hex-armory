@@ -336,7 +336,7 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.DualFlameMetalKnives, 1, 0),
+            new RequirementConfig(VanillaPrefabNames.Knives.DualFlameMetalKnives, 1, 0),
             new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 0, 10),
             new RequirementConfig(VanillaPrefabNames.Materials.GemstoneBlue, 1, 0),
         };
