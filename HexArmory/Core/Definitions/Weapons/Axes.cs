@@ -132,7 +132,7 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_crystal_battle_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_crystal_battle_axes_desc";
         internal const string DisplayName = "Dual Crystal Axes";
-        internal const string Description = "Sharper than bronze, stronger than one.";
+        internal const string Description = "Ancient bark hafts and silver heads cradle razor-sharp crystals, striking with the chill of the mountains.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 3;
 
@@ -174,7 +174,7 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_black_metal_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_black_metal_axes_desc";
         internal const string DisplayName = "Dual Black Metal Axes";
-        internal const string Description = "Sharper than bronze, stronger than one.";
+        internal const string Description = "Twin axes infused with the fire of a surtling core. Their black metal blades burn as fiercely as they bite.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 4;
 
@@ -217,7 +217,7 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_jotun_bane_axes";
         internal const string DescriptionToken = "$item_hex_armory_dual_jotun_bane_axes_desc";
         internal const string DisplayName = "Dual Jotun Bane Axes";
-        internal const string Description = "Sharper than bronze, stronger than one.";
+        internal const string Description = "Yggdrasil wood and iron forged into a deadly pair, their edges coated with the venom of the Mistlands.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
