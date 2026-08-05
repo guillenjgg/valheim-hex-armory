@@ -89,7 +89,7 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_chitin_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_chitin_knives_desc";
         internal const string DisplayName = "Dual Abyssal Razors";
-        internal const string Description = "Dual Chitin Knives";
+        internal const string Description = "The sea yields more than serpents. These twin chitin blades prove that shell can rival steel.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 1;
 
@@ -129,7 +129,7 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_iron_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_iron_knives_desc";
         internal const string DisplayName = "Dual Iron Knives";
-        internal const string Description = "Dual Iron Knives";
+        internal const string Description = "Forged from iron and fitted with finewood grips wrapped in leather. A skeleton trophy serves as a grim reminder of their purpose.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 3;
 
@@ -285,7 +285,7 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_knives_desc";
         internal const string DisplayName = "Dual Flame Metal Knives";
-        internal const string Description = "Dual Flame Metal Knives";
+        internal const string Description = "Twin knives forged from flametal and bound with charred bone, their grips wrapped in askhide. They thirst for swift strikes in the fires of the Ashlands.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 4;
 
@@ -328,7 +328,7 @@ namespace HexArmory.Core
         internal const string DisplayNameToken = "$item_hex_armory_dual_flame_metal_lightning_knives";
         internal const string DescriptionToken = "$item_hex_armory_dual_flame_metal_lightning_knives_desc";
         internal const string DisplayName = "Dual Flame Metal Lightning Knives";
-        internal const string Description = "Dual Flame Metal Knives";
+        internal const string Description = "Forged from flametal and empowered by a blue gemstone, these twin blades crackle with contained storms.";
         internal const int Amount = 1;
         internal const int MinStationLevel = 4;
 
@@ -336,7 +336,7 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Materials.DualFlameMetalKnives, 1, 0),
+            new RequirementConfig(VanillaPrefabNames.Knives.DualFlameMetalKnives, 1, 0),
             new RequirementConfig(VanillaPrefabNames.Materials.FlametalNew, 0, 10),
             new RequirementConfig(VanillaPrefabNames.Materials.GemstoneBlue, 1, 0),
         };

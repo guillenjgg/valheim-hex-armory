@@ -8,7 +8,7 @@ namespace HexArmory.Core.Definitions
 {
     internal static class ItemDefinitions
     {
-        internal static readonly ItemDefinitionEntry[] All =
+        internal static readonly ItemDefinitionEntry[] AllCustomItems =
         {
             ItemDefinitionFactory.ArmorCape(
                 TemperedFeatherCape.PrefabName,
@@ -40,6 +40,26 @@ namespace HexArmory.Core.Definitions
                 overrideEquipEffectFromPrefab: VanillaPrefabNames.Capes.FeatherCape),
 
             ItemDefinitionFactory.ArmorCape(
+                TarredHideCape.PrefabName,
+                null,
+                TarredHideCape.DisplayNameToken,
+                TarredHideCape.DescriptionToken,
+                TarredHideCape.DisplayName,
+                TarredHideCape.Description,
+                TarredHideCape.Amount,
+                TarredHideCape.MinStationLevel,
+                TarredHideCape.CraftingStation,
+                TarredHideCape.Requirements,
+                addDamageModifiers: new List<HitData.DamageModPair>
+                {
+                    new HitData.DamageModPair
+                    {
+                        m_type = HitData.DamageType.Frost,
+                        m_modifier = DamageModifier.Resistant
+                    }
+                }),
+
+            ItemDefinitionFactory.ArmorCape(
                 TrollBloodCape.PrefabName,
                 null,
                 TrollBloodCape.DisplayNameToken,
@@ -51,26 +71,6 @@ namespace HexArmory.Core.Definitions
                 TrollBloodCape.CraftingStation,
                 TrollBloodCape.Requirements,
                 addEquipStatusEffect: HexArmoryAssetManagerService.TrollBloodStatusEffect,
-                addDamageModifiers: new List<HitData.DamageModPair>
-                {
-                    new HitData.DamageModPair
-                    {
-                        m_type = HitData.DamageType.Frost,
-                        m_modifier = DamageModifier.Resistant
-                    }
-                }),
-
-            ItemDefinitionFactory.ArmorCape(
-                TarredHideCape.PrefabName,
-                null,
-                TarredHideCape.DisplayNameToken,
-                TarredHideCape.DescriptionToken,
-                TarredHideCape.DisplayName,
-                TarredHideCape.Description,
-                TarredHideCape.Amount,
-                TarredHideCape.MinStationLevel,
-                TarredHideCape.CraftingStation,
-                TarredHideCape.Requirements,
                 addDamageModifiers: new List<HitData.DamageModPair>
                 {
                     new HitData.DamageModPair

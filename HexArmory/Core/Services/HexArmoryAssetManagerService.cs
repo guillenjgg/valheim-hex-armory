@@ -15,7 +15,7 @@ namespace HexArmory.Core.Services
 
         internal static void LoadAssets()
         {
-            AssetBundle = AssetUtils.LoadAssetBundleFromResources("HexArmory.AssetsEmbedded.hexarmory");
+            AssetBundle = AssetUtils.LoadAssetBundleFromResources("HexArmory.Assets.AssetBundles.hexarmory");
 
             if (AssetBundle == null)
             {

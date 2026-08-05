@@ -47,13 +47,13 @@
             internal const string YggWood = "YggdrasilWood";
             internal const string Bilebag = "Bilebag";
             internal const string GemstoneBlue = "GemstoneBlue";
-            internal const string DualFlameMetalKnives = "hex_armory_dual_flame_metal_knives";
         }
 
         internal static class Knives
         {
             internal const string SkollAndHati = "KnifeSkollAndHati";
             internal const string FlintKnife = "KnifeFlint";
+            internal const string DualFlameMetalKnives = "hex_armory_dual_flame_metal_knives";
         }
 
         internal static class Trophies

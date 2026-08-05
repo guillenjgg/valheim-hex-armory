@@ -70,7 +70,6 @@
     <Compile Include="Core\Definitions\Weapons\Axes.cs" />
     <Compile Include="Core\Definitions\Weapons\Knives.cs" />
     <Compile Include="Core\Definitions\Weapons\Swords.cs" />
-    <Compile Include="Core\ItemDefinitions.cs" />
     <Compile Include="Core\Services\HexArmoryAssetManagerService.cs" />
     <Compile Include="Core\Localization\DisplayNames.cs" />
     <Compile Include="Core\Services\HexArmoryRegistrarService.cs" />
@@ -86,11 +85,8 @@
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Assets\AssetBundles\hexarmory">
-      <LogicalName>HexArmory.AssetsEmbedded.hexarmory</LogicalName>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\AssetBundles\hexarmory" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

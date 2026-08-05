@@ -12,20 +12,19 @@ namespace HexArmory.Core.Localization
             var translations = new Dictionary<string, string>();
 
             // Auto-generate localization from item definitions
-            foreach (var itemDef in ItemDefinitions.All)
+            foreach (var itemDef in ItemDefinitions.AllCustomItems)
             {
                 translations[itemDef.DisplayNameToken] = itemDef.DisplayName;
                 translations[itemDef.DescriptionToken] = itemDef.Description;
             }
 
-            // Register status effects
             AddStatusEffectLocalizations(translations);
 
             CustomLocalization localization = LocalizationManager.Instance.GetLocalization();
             localization.AddTranslation("English", translations);
 
             #if DEBUG
-            Jotunn.Logger.LogInfo($"[HexArmory] Auto-registered localization for {ItemDefinitions.All.Length} items ({translations.Count} total entries).");
+            Jotunn.Logger.LogInfo($"[HexArmory] Auto-registered localization for {ItemDefinitions.AllCustomItems.Length} items ({translations.Count} total entries).");
             #endif
         }
 

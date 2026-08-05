@@ -5,6 +5,7 @@
         internal float? SlashDamage { get; set; }
         internal float? PierceDamage { get; set; }
         internal float? ChopDamage { get; set; }
+        internal float? BluntDamage { get; set; }
         internal float? Spirit { get; set; }
         internal float? Fire { get; set; }
         internal float? Frost { get; set; }
