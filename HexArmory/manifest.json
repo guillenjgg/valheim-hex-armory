@@ -1,0 +1,10 @@
+{
+  "name": "HexArmory",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/guillenjgg/valheim-hex-armory",
+  "description": "Adds custom armor and items to Valheim.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2333",
+    "ValheimModding-Jotunn-2.14.0"
+  ]
+}
