@@ -24,8 +24,8 @@ namespace HexArmory.Core.Services
 
             PluginConfig.Initialize(Config);
 
-            LocalizationRegistrar.Register();
             HexArmoryAssetManagerService.LoadAssets();
+            LocalizationRegistrar.Register();
 
             PrefabManager.OnVanillaPrefabsAvailable += HexArmoryRegistrarService.RegisterItems;
 
