@@ -8,6 +8,7 @@
             internal const string AshCape = "CapeAsh";
             internal const string CapeDeerHide = "CapeDeerHide";
             internal const string CapeLox = "CapeLox";
+            internal const string TrollCape = "CapeTrollHide";
         }
 
         internal static class Materials
