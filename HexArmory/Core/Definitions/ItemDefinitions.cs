@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using HexArmory.Core.Definitions.Weapons;
 using HexArmory.Core.Models;
 using HexArmory.Core.Services;
+using static HitData;
 
 namespace HexArmory.Core.Definitions
 {
