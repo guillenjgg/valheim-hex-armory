@@ -48,6 +48,7 @@
             internal const string YggWood = "YggdrasilWood";
             internal const string Bilebag = "Bilebag";
             internal const string GemstoneBlue = "GemstoneBlue";
+            internal const string Carapace = "Carapace";
         }
 
         internal static class Knives
@@ -60,6 +61,7 @@
         internal static class Trophies
         {
             internal const string TrophyFrostTroll = "TrophyFrostTroll";
+            internal const string TrophyGjall = "TrophyGjall";
         }
     }
 }

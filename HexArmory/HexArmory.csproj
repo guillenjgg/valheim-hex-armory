@@ -17,7 +17,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\AppData\Roaming\r2modmanPlus-local\Valheim\profiles\Dev\BepInEx\plugins\HexArmory\</OutputPath>
+    <OutputPath>..\..\..\debug_builds\HexArmory\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\bepinex_mod_libs\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="assembly_valheim_publicized">
-      <HintPath>..\..\..\publicized_assemblies\1.0-release\assembly_valheim_publicized.dll</HintPath>
+      <HintPath>..\..\..\publicized_assemblies\v1.0.20\assembly_valheim_publicized.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx">
@@ -40,7 +44,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Jotunn">
-      <HintPath>..\..\..\Jotunn-2.30.0\plugins\Jotunn.dll</HintPath>
+      <HintPath>..\..\..\bepinex_mod_libs\Jotunn.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -67,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Core\Definitions\Armor\Capes.cs" />
     <Compile Include="Core\Definitions\Armor\Chests.cs" />
+    <Compile Include="Core\Definitions\Armor\Trinkets.cs" />
     <Compile Include="Core\Definitions\Weapons\Axes.cs" />
     <Compile Include="Core\Definitions\Weapons\Knives.cs" />
     <Compile Include="Core\Definitions\Weapons\Swords.cs" />

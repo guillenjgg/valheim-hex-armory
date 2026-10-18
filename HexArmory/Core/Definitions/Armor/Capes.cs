@@ -79,7 +79,7 @@ namespace HexArmory.Core
 
         internal static readonly RequirementConfig[] Requirements =
         {
-            new RequirementConfig(VanillaPrefabNames.Capes.TrollCape, 10, 0),
+            new RequirementConfig(VanillaPrefabNames.Capes.TrollCape, 1, 0),
             new RequirementConfig(VanillaPrefabNames.Materials.Bronze, 10, 2),
             new RequirementConfig(VanillaPrefabNames.Materials.MushroomYellow, 10, 0),
             new RequirementConfig(VanillaPrefabNames.Trophies.TrophyFrostTroll, 1, 0)
