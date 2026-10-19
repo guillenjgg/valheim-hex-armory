@@ -4,13 +4,10 @@ using System.IO;
 
 namespace HexArmory.Core.Services
 {
-    /// <summary>
-    /// Handles BepInEx configuration with live-reload support via FileSystemWatcher.
-    /// Follows wiki best practices: https://github.com/Valheim-Modding/Wiki/wiki/Best-Practices
-    /// </summary>
     public static class PluginConfig
     {
         public static ConfigEntry<bool> EnableAdvancedDebugLogging { get; private set; }
+        internal static ConfigEntry<float> EitrRegenMultiplier { get; private set; }
 
         public static void Initialize(ConfigFile config)
         {
@@ -21,6 +18,18 @@ namespace HexArmory.Core.Services
                 nameof(EnableAdvancedDebugLogging),
                 false,
                 "Enable advanced debug logging for detailed troubleshooting and development. WARNING: very verbose.");
+
+
+            EitrRegenMultiplier = config.Bind(
+                "Gameplay",
+                nameof(EitrRegenMultiplier),
+                19f,
+                new ConfigDescription(
+                    "Eitr regeneration bonus. 1 = +100%, 19 = +1900%.",
+                    new AcceptableValueRange<float>(0f, 30f)));
+
+
+            EitrRegenMultiplier.SettingChanged += (sender, args) => ItemDropModifierService.UpdateEitrRegenMultiplier();
 
             config.Save();
 

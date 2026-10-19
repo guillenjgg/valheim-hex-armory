@@ -63,5 +63,10 @@
             internal const string TrophyFrostTroll = "TrophyFrostTroll";
             internal const string TrophyGjall = "TrophyGjall";
         }
+
+        internal static class Trinkets
+        {
+            internal const string CarapaceEitr = "TrinketCarapaceEitr";
+        }
     }
 }

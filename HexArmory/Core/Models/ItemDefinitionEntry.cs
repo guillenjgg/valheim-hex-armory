@@ -29,11 +29,19 @@ namespace HexArmory.Core.Models
         {
             get
             {
-                return StatsOverride != null ||
-                    EquipStatusEffect != null ||
-                    !string.IsNullOrEmpty(OverrideEquipEffectFromPrefab) ||
-                    (AddDamageModifiers != null && AddDamageModifiers.Count > 0) ||
-                    (DamageTypesToRemove != null && DamageTypesToRemove.Length > 0);
+                var hasStatsOverride = StatsOverride != null;
+                var hasEquipStatusEffect = EquipStatusEffect != null;
+                var hasEquipEffectOverride = !string.IsNullOrEmpty(OverrideEquipEffectFromPrefab);
+                var hasDamageModifiers = AddDamageModifiers != null && AddDamageModifiers.Count > 0;
+                var hasDamageTypesToRemove = DamageTypesToRemove != null && DamageTypesToRemove.Length > 0;
+                var isTrinket = Kind == ItemTypeDefinitionEnum.Trinket;
+
+                return hasStatsOverride ||
+                       hasEquipStatusEffect ||
+                       hasEquipEffectOverride ||
+                       hasDamageModifiers ||
+                       hasDamageTypesToRemove ||
+                       isTrinket;
             }
         }
 

@@ -288,6 +288,34 @@ namespace HexArmory.Core
                 EquipStatusEffect = addEquipStatusEffect
             };
         }
+
+        internal static ItemDefinitionEntry Trinket(
+            string prefabName,
+            string basePrefabName,
+            string displayNameToken,
+            string descriptionToken,
+            string displayName,
+            string description,
+            int amount,
+            int minStationLevel,
+            string craftingStation,
+            RequirementConfig[] requirements)
+        {
+            return Create(
+                ItemTypeDefinitionEnum.Trinket,
+                prefabName,
+                basePrefabName,
+                null,
+                displayNameToken,
+                descriptionToken,
+                displayName,
+                description,
+                amount,
+                minStationLevel,
+                craftingStation,
+                requirements);
+        }
+
     }
 }
 

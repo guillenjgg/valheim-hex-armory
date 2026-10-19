@@ -9,7 +9,7 @@ namespace HexArmory.Core.Definitions.Armor
             internal const string PrefabName = "hex_armory_pulsating_earrings";
             internal const string DisplayNameToken = "$item_hex_armory_pulsating_earrings";
             internal const string DescriptionToken = "$item_hex_armory_pulsating_earrings_desc";
-            internal const string DisplayName = "Pulsating Earrings";
+            internal const string DisplayName = "HexArmory Pulsating Earrings";
             internal const string Description = "Earrings that pulse with a strange energy. Permanently increase Eitr regeneration.";
             internal const int Amount = 1;
             internal const int MinStationLevel = 1;

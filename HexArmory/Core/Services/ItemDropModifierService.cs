@@ -6,6 +6,8 @@ namespace HexArmory.Core.Services
 {
     internal static class ItemDropModifierService
     {
+        private static SE_Stats _pulsatingEarringsEffect;
+
         internal static void ApplyModifications(ItemDrop itemDrop, ItemDefinitionEntry itemDefinition)
         {
             if (itemDrop == null || itemDefinition == null)
@@ -37,6 +39,25 @@ namespace HexArmory.Core.Services
             {
                 ApplyEquippedStatusEffect(itemDrop, itemDefinition.EquipStatusEffect);
             }
+
+            if (itemDefinition.Kind == ItemTypeDefinitionEnum.Trinket)
+            {
+                ApplyEitrRegenEffect(itemDrop);
+            }
+        }
+
+        internal static void UpdateEitrRegenMultiplier()
+        {
+            if (_pulsatingEarringsEffect == null)
+            {
+                return;
+            }
+
+            var regenMultiplier = PluginConfig.EitrRegenMultiplier.Value;
+            var regenBonus = regenMultiplier * 100f;
+
+            _pulsatingEarringsEffect.m_eitrRegenMultiplier = 1f + regenMultiplier;
+            _pulsatingEarringsEffect.m_tooltip = $"Eitr regeneration +{regenBonus:0}%";
         }
 
         private static void RemoveDamageModifiers(ItemDrop itemDrop, HitData.DamageType[] damageTypes)
@@ -256,5 +277,21 @@ namespace HexArmory.Core.Services
             Jotunn.Logger.LogInfo(
                 $"[HexArmory] Applied equip status effect to {itemDrop.name}: {equipStatusEffect.name}");
         }
+
+        private static void ApplyEitrRegenEffect(ItemDrop itemDrop)
+        {
+            var effect = UnityEngine.ScriptableObject.CreateInstance<SE_Stats>();
+            var regenBonus = PluginConfig.EitrRegenMultiplier.Value * 100f;
+
+            effect.name = "SE_HexArmory_PulsatingEarrings";
+            effect.m_name = "Eitr Surge";
+            effect.m_tooltip = $"Eitr regeneration +{regenBonus:0}%";
+            effect.m_eitrRegenMultiplier = 1f + PluginConfig.EitrRegenMultiplier.Value;
+
+            itemDrop.m_itemData.m_shared.m_equipStatusEffect = effect;
+
+            _pulsatingEarringsEffect = effect;
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using HexArmory.Core.Definitions.Armor;
 using HexArmory.Core.Definitions.Weapons;
 using HexArmory.Core.Models;
 using HexArmory.Core.Services;
@@ -286,7 +287,19 @@ namespace HexArmory.Core.Definitions
                 FlintSword.MinStationLevel,
                 FlintSword.CraftingStation,
                 FlintSword.Requirements,
-                statsOverride: FlintSword.StatsOverride)
+                statsOverride: FlintSword.StatsOverride),
+
+            ItemDefinitionFactory.Trinket(
+                Trinkets.PulsatingEarrings.PrefabName,
+                VanillaPrefabNames.Trinkets.CarapaceEitr,
+                Trinkets.PulsatingEarrings.DisplayNameToken,
+                Trinkets.PulsatingEarrings.DescriptionToken,
+                Trinkets.PulsatingEarrings.DisplayName,
+                Trinkets.PulsatingEarrings.Description,
+                Trinkets.PulsatingEarrings.Amount,
+                Trinkets.PulsatingEarrings.MinStationLevel,
+                Trinkets.PulsatingEarrings.CraftingStation,
+                Trinkets.PulsatingEarrings.Requirements),
         };
     }
 }

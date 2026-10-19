@@ -8,6 +8,7 @@ namespace HexArmory.Core
         WeaponKnife,
         WeaponAxe,
         ArmorChest,
-        Sword
+        Sword,
+        Trinket
     }
 }
